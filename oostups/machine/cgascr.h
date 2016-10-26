@@ -18,18 +18,21 @@
 class CGA_Screen
  {
 private:
-/* Hier muesst ihr selbst Code vervollstaendigen */ 
+	
+	char[] scr_buffer;
 
-   CGA_Screen(const CGA_Screen &copy); // Verhindere Kopieren
+	CGA_Screen(const CGA_Screen &copy); // Verhindere Kopieren
 public:
-   CGA_Screen()
-/* Hier muesst ihr selbst Code vervollstaendigen */ 
- {}
+	CGA_Screen();
+	void show(int x, int y, char c, unsigned char attrib);
 
-/* Hier muesst ihr selbst Code vervollstaendigen */ 
+	void setpos(int x, int y);
+
+	void getpos(int &x, int &y);
+
+	void print(char* text, int length, unsigned char attrib);
+
  };
-
-/* Hier muesst ihr selbst Code vervollstaendigen */ 
 
 #endif
 

@@ -21,7 +21,14 @@ class Stringbuffer
 private:
       Stringbuffer(const Stringbuffer &copy); // Verhindere Kopieren
 
-/* Hier muesst ihr selbst Code vervollstaendigen */     
+	char[] str_buffer;
+
+public:
+
+	void put(char c);
+
+	virtual void flush()=0;
+
  };
 
 #endif
