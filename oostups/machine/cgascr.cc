@@ -15,7 +15,9 @@
 #include "machine/cgascr.h"
 
 	char* CGA_START = (char*)0xb8000;
+	CGA_Screen::CGA_Screen(){
 
+	}
 	void CGA_Screen::show(int x, int y, char c, unsigned char attrib) {
 		int offset = (x + y * 80) * 2;
 		char* posChar = CGA_START + offset;

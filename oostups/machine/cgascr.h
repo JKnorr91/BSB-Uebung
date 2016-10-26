@@ -19,7 +19,7 @@ class CGA_Screen
  {
 private:
 	
-	char[] scr_buffer;
+	char scr_buffer[25*80];
 
 	CGA_Screen(const CGA_Screen &copy); // Verhindere Kopieren
 public:

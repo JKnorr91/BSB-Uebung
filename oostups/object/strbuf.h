@@ -21,13 +21,13 @@ class Stringbuffer
 private:
       Stringbuffer(const Stringbuffer &copy); // Verhindere Kopieren
 
-	char[] str_buffer;
+	char str_buffer[80];
 
 public:
 
 	void put(char c);
 
-	virtual void flush()=0;
+	virtual void flush();
 
  };
 
