@@ -14,8 +14,14 @@
 
 #include "machine/cgascr.h"
 
+	char* CGA_START = (char*)0xb8000;
+
 	void CGA_Screen::show(int x, int y, char c, unsigned char attrib) {
-		
+		int offset = (x + y * 80) * 2;
+		char* posChar = CGA_START + offset;
+		char* posAttr = CGA_START + offset + 1;
+		*posChar = c;
+		*posAttr = attrib;
 	}
 
 	void CGA_Screen::setpos(int x, int y) {
