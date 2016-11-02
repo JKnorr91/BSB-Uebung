@@ -62,9 +62,11 @@
 		int x,y;
 		getpos(x,y);
 		for (i = 0;i < length; i++){
+				//Platz in der Zeile verfügbar
 				if(x<80){
 					if (text[i]!='\n'){
 						show(x++,y,text[i],attrib);
+					//Sonderbehandlung \n
 					}else{
 						show(x++,y,' ',attrib);
 						x=0;
@@ -80,11 +82,13 @@
 							y=24;
 						}
 					}
+				//neue Zeile
 				}else{
 					if(y<24){
 						x=0;
 						y++;
 						show(x++,y,text[i],attrib);
+					//neue Seite
 					}else{
 						setpos(0,0);
 						x=0;
@@ -92,6 +96,9 @@
 						char *p = scr_buffer;
 						p = p + 80;
 						print(p,25*80,attrib);
+						if(text[i]!='\n'){
+							show(x++,y,text[i],attrib);
+						}
 					}
 				}
 		}

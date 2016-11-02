@@ -6,20 +6,21 @@
 int main()
 {
 	CGA_Stream kout; // = new CGA_Screen();
+	kout.setpos(0,24);
 /* Hier muesst ihr selbst Code vervollstaendigen */         
          
 /* Hier muesst ihr selbst Code vervollstaendigen */ 
                          
 /* Hier muesst ihr selbst Code vervollstaendigen */
-	kout.setpos(0,24);
+
 	int x = 1;
 	char text[9] = {'A','B','C','D','E','F','g','h','\n'};
 	while (x<10) {
-		kout.print(text,9,0xf);
+		kout.print(text,8,0xf);
 		x++;
 	}
 	kout << 10;
-	kout << "abcd\n";
+	kout << "abcdefg";
 	kout.flush();
    return 0;
  }
