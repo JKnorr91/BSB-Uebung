@@ -65,6 +65,7 @@
 		int x,y;
 		getpos(x,y);
 		for (i = 0;i < length; i++){
+			// TODO check for linefeed
 			if(x<80){
 				show(x++,y,text[i],attrib);
 			}else{
