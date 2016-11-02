@@ -1,0 +1,3 @@
+#!/bin/sh
+make
+/home/bsb/bochs/bochs build/bootdisk.img
