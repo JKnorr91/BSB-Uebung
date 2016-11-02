@@ -4,13 +4,15 @@
         
 int main()
 {
-	CGA_Screen kout; // = new CGA_Screen();
-/* Hier muesst ihr selbst Code vervollstaendigen */         
-         
-/* Hier muesst ihr selbst Code vervollstaendigen */ 
-                         
-/* Hier muesst ihr selbst Code vervollstaendigen */                         
+	CGA_Screen kout;
 
-	kout.show(70, 20, 'A', 0x0f);
-   return 0;
+	char test[3];
+	test[0] = 'A';
+	test[1] = 'B';
+	test[2] = 'C';
+
+	kout.print(test,3,0x0f);
+
+	kout.shiftline();
+  	return 0;
  }

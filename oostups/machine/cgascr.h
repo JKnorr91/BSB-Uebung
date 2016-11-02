@@ -20,10 +20,13 @@ class CGA_Screen
 private:
 	
 	char scr_buffer[25*80];
+	void getline(char* arr, int linenumber);
+	void printline(int linenumber, char* line);
 
 	CGA_Screen(const CGA_Screen &copy); // Verhindere Kopieren
 public:
 	CGA_Screen();
+	void shiftline();
 	void show(int x, int y, char c, unsigned char attrib);
 
 	void setpos(int x, int y);
