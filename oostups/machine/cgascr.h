@@ -20,6 +20,10 @@ class CGA_Screen
 private:
 	
 	char scr_buffer[25*80];
+	const IO_Port ctrl_port; // Status- (R) u. Steuerregister (W)
+	const IO_Port data_port; // Ausgabe- (R) u. Eingabepuffer (W)
+	// Bits im Statusregister
+	enum { lowb = 0x14, high = 0x15};
 
 	CGA_Screen(const CGA_Screen &copy); // Verhindere Kopieren
 public:
