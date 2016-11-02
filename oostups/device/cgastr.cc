@@ -15,8 +15,7 @@
 
 	//CGA_Stream::CGA_Stream(CGA_Stream &copy) {}
 
-	CGA_Stream::CGA_Stream() {
-		O_Stream;
+	CGA_Stream::CGA_Stream() : O_Stream() {
 		//clear();
 	}
 

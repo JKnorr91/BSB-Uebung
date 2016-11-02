@@ -18,6 +18,5 @@
 
 #include "object/o_stream.h"
 
-	O_Stream::O_Stream() {
-		Stringbuffer();
+	O_Stream::O_Stream() : Stringbuffer() {
 	}
