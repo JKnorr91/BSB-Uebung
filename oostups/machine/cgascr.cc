@@ -33,29 +33,26 @@
 	void CGA_Screen::setpos(int x, int y) {
 		int offset = x+y*80;
 		unsigned char low = (unsigned char) offset;
-		unsigned char high = (unsigned char) (offset<<8);
+		unsigned char high = (unsigned char) (offset >> 8);
 		//cursor low
-		ctrl_port.outw(15);
-		data_port.outw(low);
+		ctrl_port.outb(15);
+		data_port.outb(low);
 
 		//cursor high
-		ctrl_port.outw(14);
-		data_port.outw(high);
+		ctrl_port.outb(14);
+		data_port.outb(high);
 	}
 
 	void CGA_Screen::getpos(int &x, int &y) {
+		ctrl_port.outb(14);
+		int offset = data_port.inb() << 8;
+
 		//cursor low
-		ctrl_port.outw(15);
-		int low = data_port.inw();
+		ctrl_port.outb(15);
+		offset |= data_port.inb();
 
-		//cursor high
-		ctrl_port.outw(14);
-		int high = data_port.inw();
-		high = high>>8;
-
-		int offset = low | high;
 		x = offset%80;
-		y = offset%80;
+		y = offset/80;
 	}
 
 
@@ -66,22 +63,24 @@
 		getpos(x,y);
 		for (i = 0;i < length; i++){
 			if (text[i]=='\n'){
-				x=0;
-				show(x++,++y,text[i],attrib);
-			}
-			if(x<80){
 				show(x++,y,text[i],attrib);
+				x=0;
+				y++;
 			}else{
-				if(y<25){
-					x=0;
-					show(x++,++y,text[i],attrib);
+				if(x<80){
+					show(x++,y,text[i],attrib);
 				}else{
-					setpos(0,0);
-					x=0;
-					y=0;
-					char *p = scr_buffer;
-					p = p + 25;
-					print(p,24*80,attrib);
+					if(y<24){
+						x=0;
+						show(x++,++y,text[i],attrib);
+					}else{
+						setpos(0,0);
+						x=0;
+						y=0;
+						char *p = scr_buffer;
+						p = p + 25;
+						print(p,24*80,attrib);
+					}
 				}
 			}
 
