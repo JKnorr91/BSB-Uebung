@@ -24,6 +24,7 @@ private:
       Stringbuffer(const Stringbuffer &copy); // Verhindere Kopieren
 
 protected:
+	
 	char str_buffer[BUFFER_SIZE];
 	unsigned char next_index;
 

@@ -18,5 +18,223 @@
 
 #include "object/o_stream.h"
 
+	char O_Stream::bin_digit_to_char_table[] = 
+			{'0', '1'};
+	char O_Stream::oct_digit_to_char_table[] = 
+			{'0', '1', '2', '3', '4', '5', '6', '7', '8'};
+	char O_Stream::dec_digit_to_char_table[] = 
+			{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9'};
+	char O_Stream::hex_digit_to_char_table[] = 
+			{'0', '1', '2', '3', '4', '5', '6', '7', '8', 
+				'9', 'a', 'b', 'c', 'd', 'e', 'f'};
+	char O_Stream::prefix_bin[] = {'0', 'b', 0};
+	char O_Stream::prefix_oct[] = {'0', 'o', 0};
+	char O_Stream::prefix_dec[] = {0};
+	char O_Stream::prefix_hex[] = {'0', 'x', 0};
+	char O_Stream::negative_sign = '-';
+	char O_Stream::newline_char = '\n';
+
+	const unsigned char DEFAULT_BASE = O_Stream::DEC;
+
 	O_Stream::O_Stream() : Stringbuffer() {
+		O_Stream::number_base = DEFAULT_BASE;
 	}
+
+	char O_Stream::toChar(unsigned char digit) {
+		unsigned char base = getBase();
+		if (digit >= base) {
+			return '?';
+		}
+		switch (base) {
+		case O_Stream::BIN: return bin_digit_to_char_table[digit];
+		case O_Stream::OCT: return bin_digit_to_char_table[digit];
+		case O_Stream::DEC: return bin_digit_to_char_table[digit];
+		case O_Stream::HEX: return bin_digit_to_char_table[digit];
+		default: return '?';
+		}
+	}
+
+	void O_Stream::putBasePrefix() {
+		switch (getBase()) {
+		case O_Stream::BIN: *this << O_Stream::prefix_bin; break;
+		case O_Stream::OCT: *this << O_Stream::prefix_oct; break;
+		case O_Stream::DEC: *this << O_Stream::prefix_dec; break;
+		case O_Stream::HEX: *this << O_Stream::prefix_hex; break;
+		}
+	}
+
+	void O_Stream::setBase(unsigned char value) {
+		O_Stream::number_base = value;
+	}
+
+	unsigned char O_Stream::getBase() {
+		return O_Stream::number_base;
+	}
+
+	O_Stream& O_Stream::operator<< (unsigned char c) {
+		O_Stream::put(char(c));
+		return *this;
+	}
+
+	O_Stream& O_Stream::operator<< (char c) {
+		O_Stream::put(c);
+		return *this;
+	}
+
+	O_Stream& O_Stream::operator<< (unsigned short number) {
+		// getBase() is either BIN, OCT, DEC or HEX
+		unsigned char base = getBase();
+		// prints the prefix 0b, 0o or 0x depending on base.
+		putBasePrefix();
+		while (number > 0) {
+			// retrieve the last digit of number
+			unsigned char digit = (unsigned char)(number % base);
+			// convert the last digit of number to a char
+			char digitAsChar = toChar(digit);
+			// output the char
+			O_Stream::put(digitAsChar);
+			// remove the last digit of number
+			number /= base;
+		}
+		return *this;
+	}
+
+	O_Stream& O_Stream::operator<< (short number) {
+		if (number < 0) {
+			O_Stream::put(negative_sign);
+			number = -number;
+		}
+		// getBase() is either BIN, OCT, DEC or HEX
+		unsigned char base = getBase();
+		// prints the prefix 0b, 0o or 0x depending on base.
+		putBasePrefix();
+		while (number > 0) {
+			// retrieve the last digit of number
+			unsigned char digit = (unsigned char)(number % base);
+			// convert the last digit of number to a char
+			char digitAsChar = toChar(digit);
+			// output the char
+			O_Stream::put(digitAsChar);
+			// remove the last digit of number
+			number /= base;
+		}
+		return *this;
+	}
+
+	O_Stream& O_Stream::operator<< (unsigned int number) {
+		// getBase() is either BIN, OCT, DEC or HEX
+		unsigned char base = getBase();
+		// prints the prefix 0b, 0o or 0x depending on base.
+		putBasePrefix();
+		while (number > 0) {
+			// retrieve the last digit of number
+			unsigned char digit = (unsigned char)(number % base);
+			// convert the last digit of number to a char
+			char digitAsChar = toChar(digit);
+			// output the char
+			O_Stream::put(digitAsChar);
+			// remove the last digit of number
+			number /= base;
+		}
+		return *this;
+	}
+
+	O_Stream& O_Stream::operator<< (int number) {
+		if (number < 0) {
+			O_Stream::put(negative_sign);
+			number = -number;
+		}
+		// getBase() is either BIN, OCT, DEC or HEX
+		unsigned char base = getBase();
+		// prints the prefix 0b, 0o or 0x depending on base.
+		putBasePrefix();
+		while (number > 0) {
+			// retrieve the last digit of number
+			unsigned char digit = (unsigned char)(number % base);
+			// convert the last digit of number to a char
+			char digitAsChar = toChar(digit);
+			// output the char
+			O_Stream::put(digitAsChar);
+			// remove the last digit of number
+			number /= base;
+		}
+		return *this;
+	}
+
+	O_Stream& O_Stream::operator<< (unsigned long number) {
+		// getBase() is either BIN, OCT, DEC or HEX
+		unsigned char base = getBase();
+		// prints the prefix 0b, 0o or 0x depending on base.
+		putBasePrefix();
+		while (number > 0) {
+			// retrieve the last digit of number
+			unsigned char digit = (unsigned char)(number % base);
+			// convert the last digit of number to a char
+			char digitAsChar = toChar(digit);
+			// output the char
+			O_Stream::put(digitAsChar);
+			// remove the last digit of number
+			number /= base;
+		}
+		return *this;
+	}
+
+	O_Stream& O_Stream::operator<< (long number) {
+		if (number < 0) {
+			O_Stream::put(negative_sign);
+			number = -number;
+		}
+		// getBase() is either BIN, OCT, DEC or HEX
+		unsigned char base = getBase();
+		// prints the prefix 0b, 0o or 0x depending on base.
+		putBasePrefix();
+		while (number > 0) {
+			// retrieve the last digit of number
+			unsigned char digit = (unsigned char)(number % base);
+			// convert the last digit of number to a char
+			char digitAsChar = toChar(digit);
+			// output the char
+			O_Stream::put(digitAsChar);
+			// remove the last digit of number
+			number /= base;
+		}
+		return *this;
+	}
+
+	O_Stream& O_Stream::operator<< (char* text) {
+		while (*text != 0) {
+			put(*text);
+			text++;
+		}
+		return *this;
+	}
+
+	O_Stream& O_Stream::operator<< (O_Stream& (*fkt) (O_Stream&)) {
+		return fkt(*this);
+	}
+
+	O_Stream& O_Stream::endl (O_Stream& os) {
+		os << newline_char;
+		return os;
+	}
+
+	O_Stream& O_Stream::bin (O_Stream& os) {
+		os.setBase(O_Stream::BIN);
+		return os;
+	}
+
+	O_Stream& O_Stream::oct (O_Stream& os) {
+		os.setBase(O_Stream::OCT);
+		return os;
+	}
+
+	O_Stream& O_Stream::dec (O_Stream& os) {
+		os.setBase(O_Stream::DEC);
+		return os;
+	}
+
+	O_Stream& O_Stream::hex (O_Stream& os) {
+		os.setBase(O_Stream::HEX);
+		return os;
+	}
+

@@ -25,10 +25,33 @@ class O_Stream : public Stringbuffer
 /* Hier muesst ihr selbst Code vervollstaendigen */         
  {
 private:
-      O_Stream(const O_Stream &copy); // Verhindere Kopieren
+	O_Stream(const O_Stream &copy); // Verhindere Kopieren
+	// Must be either of BIN, OCT, DEC or HEX
+	unsigned char number_base;
+	// returns a char based on the current number_base.
+	// uses the values from the various XX_digit_to_char_tables.
+	char toChar(unsigned char digit);
+	void putBasePrefix();
 
 public:
+	// these are the different number bases.
+	enum { BIN = 2, OCT = 8, DEC = 10, HEX = 16 };
+
+	static char bin_digit_to_char_table[];
+	static char oct_digit_to_char_table[];
+	static char dec_digit_to_char_table[];
+	static char hex_digit_to_char_table[];
+	static char prefix_bin[];
+	static char prefix_oct[];
+	static char prefix_dec[];
+	static char prefix_hex[];
+	static char negative_sign;
+	static char newline_char;
+
 	O_Stream();
+
+	void setBase(unsigned char value);
+	unsigned char getBase();
 
 	O_Stream& operator<< (unsigned char c);
  	O_Stream& operator<< (char c);
