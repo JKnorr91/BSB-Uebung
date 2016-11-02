@@ -21,7 +21,7 @@
 
 #include "object/strbuf.h"
 
-class O_Stream : Stringbuffer
+class O_Stream : public Stringbuffer
 /* Hier muesst ihr selbst Code vervollstaendigen */         
  {
 private:

@@ -13,13 +13,11 @@
 
 #include "device/cgastr.h"
 
-	//CGA_Stream::CGA_Stream(CGA_Stream &copy) {}
-
 	CGA_Stream::CGA_Stream() : O_Stream() {
-		//clear();
+		clear();
 	}
 
 	void CGA_Stream::flush() {
-		//print(&str_buffer, size(), 0x0f);
-		//clear();
+		print(str_buffer, size(), 0x0f);
+		clear();
 	}
