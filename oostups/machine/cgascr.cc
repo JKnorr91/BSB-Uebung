@@ -62,28 +62,38 @@
 		int x,y;
 		getpos(x,y);
 		for (i = 0;i < length; i++){
-			if (text[i]=='\n'){
-				show(x++,y,text[i],attrib);
-				x=0;
-				y++;
-			}else{
 				if(x<80){
-					show(x++,y,text[i],attrib);
+					if (text[i]!='\n'){
+						show(x++,y,text[i],attrib);
+					}else{
+						show(x++,y,' ',attrib);
+						x=0;
+						y++;
+						if(y<24){
+							show(x,y,' ',attrib);
+						}else{
+							setpos(0,0);
+							char *p = scr_buffer;
+							p = p + 80;
+							print(p,25*80,attrib);
+							x=0;
+							y=24;
+						}
+					}
 				}else{
 					if(y<24){
 						x=0;
-						show(x++,++y,text[i],attrib);
+						y++;
+						show(x++,y,text[i],attrib);
 					}else{
 						setpos(0,0);
 						x=0;
-						y=0;
+						y=24;
 						char *p = scr_buffer;
-						p = p + 25;
-						print(p,24*80,attrib);
+						p = p + 80;
+						print(p,25*80,attrib);
 					}
 				}
-			}
-
 		}
 		setpos(x,y);
 	}
