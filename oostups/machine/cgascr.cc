@@ -65,7 +65,10 @@
 		int x,y;
 		getpos(x,y);
 		for (i = 0;i < length; i++){
-			// TODO check for linefeed
+			if (text[i]=='\n'){
+				x=0;
+				show(x++,++y,text[i],attrib);
+			}
 			if(x<80){
 				show(x++,y,text[i],attrib);
 			}else{
