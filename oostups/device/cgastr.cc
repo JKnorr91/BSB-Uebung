@@ -13,4 +13,14 @@
 
 #include "device/cgastr.h"
 
-/* Hier muesst ihr selbst Code vervollstaendigen */ 
+	//CGA_Stream::CGA_Stream(CGA_Stream &copy) {}
+
+	CGA_Stream::CGA_Stream() {
+		O_Stream;
+		//clear();
+	}
+
+	void CGA_Stream::flush() {
+		//print(&str_buffer, size(), 0x0f);
+		//clear();
+	}

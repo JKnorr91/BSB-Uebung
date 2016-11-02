@@ -16,18 +16,27 @@
 #ifndef __strbuf_include__
 #define __strbuf_include__
 
+#define BUFFER_SIZE 80
+
 class Stringbuffer
  {
 private:
       Stringbuffer(const Stringbuffer &copy); // Verhindere Kopieren
 
-	char str_buffer[80];
+protected:
+	char str_buffer[BUFFER_SIZE];
+	unsigned char next_index;
+
+	void clear();
 
 public:
+	Stringbuffer();
+
+	unsigned char size();
 
 	void put(char c);
 
-	virtual void flush();
+	virtual void flush()=0;
 
  };
 

@@ -15,4 +15,23 @@
 
 #include "object/strbuf.h"
 
-/* Hier muesst ihr selbst Code vervollstaendigen */ 
+	Stringbuffer::Stringbuffer() {}
+
+	void Stringbuffer::clear() {
+		for (int i = 0; i < BUFFER_SIZE; i++) {
+			str_buffer[i] = 0;
+		}
+		next_index = 0;
+	}
+
+	unsigned char Stringbuffer::size() {
+		return next_index;
+	}
+
+	void Stringbuffer::put(char c) {
+		if (next_index >= BUFFER_SIZE) {
+			flush();
+			clear();
+		}
+		str_buffer[next_index++] = c;
+	}

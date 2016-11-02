@@ -14,6 +14,7 @@
 #ifndef __cgastr_include__
 #define __cgastr_include__
 
+#include "object/strbuf.h"
 #include "object/o_stream.h"
 #include "machine/cgascr.h"
 
@@ -23,6 +24,7 @@ private:
       CGA_Stream(CGA_Stream &copy); // Verhindere Kopieren
 
 public:
+	CGA_Stream();
 
 	void flush();
 
