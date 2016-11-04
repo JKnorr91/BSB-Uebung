@@ -20,8 +20,10 @@ class CGA_Screen
 private:
 	
 	char scr_buffer[26*80];
+	unsigned char atr_buffer[26*80];
 	const IO_Port ctrl_port; // Status- (R) u. Steuerregister (W)
 	const IO_Port data_port; // Ausgabe- (R) u. Eingabepuffer (W)
+
 
 
 	CGA_Screen(const CGA_Screen &copy); // Verhindere Kopieren
@@ -32,7 +34,7 @@ public:
 	void setpos(int x, int y);
 
 	void getpos(int &x, int &y);
-
+	void reprint();
 	void print(char* text, int length, unsigned char attrib);
 
  };

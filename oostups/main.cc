@@ -16,7 +16,7 @@ int main()
 	int x = 1;
 	char text[9] = {'A','B','C','D','E','F','g','h','\n'};
 	while (x<10) {
-		kout.print(text,8,0xf);
+		kout.print(text,8,0x02);
 		x++;
 	}
 	kout << 10;

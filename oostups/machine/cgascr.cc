@@ -19,7 +19,13 @@
 
 	CGA_Screen::CGA_Screen():ctrl_port (0x3d4), data_port (0x3d5)
 	{
-
+		int i;
+		for (i = 0; i < 2080; i++){
+			atr_buffer[i] = 0x0f;
+		}
+		for (i = 0; i < 2080; i++){
+			scr_buffer[i] = ' ';
+		}
 	}
 	void CGA_Screen::show(int x, int y, char c, unsigned char attrib) {
 		int offset = (x + y * 80) * 2;
@@ -27,7 +33,8 @@
 		char* posAttr = CGA_START + offset + 1;
 		*posChar = c;
 		*posAttr = attrib;
-		scr_buffer[x+y*80]= c;//
+		scr_buffer[x+y*80]= c;
+		atr_buffer[x+y*80]=attrib;
 	}
 
 	void CGA_Screen::setpos(int x, int y) {
@@ -55,7 +62,25 @@
 		y = offset/80;
 	}
 
-
+	void CGA_Screen::reprint(){
+		int i;
+		int length = 25 * 80;
+		int x = 0;
+		int y = 0;
+		char *p = scr_buffer;
+		unsigned char *a = atr_buffer;
+		p = p + 80;
+		a = a+80;
+		for (i = 0; i < length; i++){
+			if (x < 80){
+				show(x++,y,*(p+i),*(a+i));
+			}else{
+				x=0;
+				y++;
+				show(x++,y,*(p+i),*(a+i));
+			}
+		}
+	}
 
 	void CGA_Screen::print(char* text, int length, unsigned char attrib) {
 		int i;
@@ -75,9 +100,7 @@
 							show(x,y,' ',attrib);
 						}else{
 							setpos(0,0);
-							char *p = scr_buffer;
-							p = p + 80;
-							print(p,25*80,attrib);
+							reprint();
 							x=0;
 							y=24;
 						}
@@ -93,9 +116,7 @@
 						setpos(0,0);
 						x=0;
 						y=24;
-						char *p = scr_buffer;
-						p = p + 80;
-						print(p,25*80,attrib);
+						reprint();
 						if(text[i]!='\n'){
 							show(x++,y,text[i],attrib);
 						}
