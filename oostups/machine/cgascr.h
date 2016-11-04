@@ -19,15 +19,15 @@ class CGA_Screen
  {
 private:
 	
-	char scr_buffer[25*80];
-	char scr_attr_buffer[25*80];
+	char scr_buffer[26*80];
+	char scr_attr_buffer[26*80];
 	const IO_Port ctrl_port; // Status- (R) u. Steuerregister (W) 
   	const IO_Port data_port; // Ausgabe- (R) u. Eingabepuffer (W) 
   	// Bits im Statusregister 
   	enum { lowb = 0x14, high = 0x15}; 
 	void getline(char* arr, char* attr_arr, int linenumber);
 	void printline(char* line, char* attrs, int linenumber);
-
+	void calcpos(int &x, int &y);
 	CGA_Screen(const CGA_Screen &copy); // Verhindere Kopieren
 public:
 	CGA_Screen();

@@ -6,22 +6,28 @@ int main()
 {
 	CGA_Screen kout;
 
-	char test[97];
+	kout.shiftline();
+	kout.setpos(0,23);
 
-	for(int i = 0; i < 97; i++) {
-		test[i] = 'A';
-	}
-
-	kout.print(test,97,0x2f);
-
-	char test2[95];
-
-	for(int i = 0; i < 95; i++) {
+	int bs = 81;
+	char test2[bs];
+	for(int i = 0; i < bs; i++) {
 		test2[i] = 'B';
 	}
+	kout.print(test2,bs,0x2f);
 
-	kout.print(test2,95,0xf0);
+	/*char br[1];
+	br[0] = '\n';
+	kout.print(br,1,0x00);*/
 
-	//kout.shiftline();
+	int as = 95;
+	char test[as];
+	for(int i = 0; i < as; i++) {
+		test[i] = 'A';
+	}
+	kout.print(test,as,0x4f);
+
+	// kout.shiftline();
+	// kout.shiftline();
   	return 0;
  }
