@@ -9,8 +9,11 @@
 /*****************************************************************************/
 
 /* INCLUDES */
-
+  
 #include "machine/keyctrl.h"
+#include "machine/key.h"
+
+#include "device/cgastr.h"
  
 /* STATIC MEMERS */
 
@@ -270,12 +273,16 @@ Keyboard_Controller::Keyboard_Controller () :
 
 Key Keyboard_Controller::key_hit ()
  {
-   Key invalid;  // nicht explizit initialisierte Tasten sind ungueltig
-/* Hier muesst ihr selbst Code vervollstaendigen */ 
-/* Hier muesst ihr selbst Code vervollstaendigen */          
- 
-/* Hier muesst ihr selbst Code vervollstaendigen */ 
-   return invalid;
+   
+   while(~ctrl_port.inb() & 0x01){};
+
+   code = (unsigned char) data_port.inb();
+   
+   if(key_decoded() && gather.valid()) {
+    return gather;
+   }
+
+   return Key();
  }
 
 // REBOOT: Fuehrt einen Neustart des Rechners durch. Ja, beim PC macht
@@ -318,8 +325,24 @@ void Keyboard_Controller::set_repeat_rate (int speed, int delay)
 
 void Keyboard_Controller::set_led (char led, bool on)
  {
-/* Hier muesst ihr selbst Code vervollstaendigen */ 
- 
-/* Hier muesst ihr selbst Code vervollstaendigen */ 
+
+
+   //Dear Keyboard, i would like to give you a command to set the led
+   data_port.outb(0xed);
+
+   //Ready when you are
+   while(ctrl_port.inb() & 0x02) {}
+
+   //Calculating the led map
+   if(on) {
+     leds |= led;
+   }
+   else {
+     leds &= ~led;
+   }
+
+    //Take that, Keyboard
+   data_port.outb(leds);
+   
           
  }

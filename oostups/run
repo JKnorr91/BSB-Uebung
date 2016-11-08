@@ -1,3 +1,2 @@
 #!/bin/sh
-make
-/home/bsb/bochs/bochs build/bootdisk.img
+make && /home/bsb/bochs/bochs build/bootdisk.img
