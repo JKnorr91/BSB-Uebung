@@ -21,3 +21,5 @@
 		print(str_buffer, size(), 0x0f);
 		clear();
 	}
+
+	CGA_Stream kout;
