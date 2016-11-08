@@ -21,7 +21,7 @@
 	char O_Stream::bin_digit_to_char_table[] = 
 			{'0', '1'};
 	char O_Stream::oct_digit_to_char_table[] = 
-			{'0', '1', '2', '3', '4', '5', '6', '7', '8'};
+			{'0', '1', '2', '3', '4', '5', '6', '7'};
 	char O_Stream::dec_digit_to_char_table[] = 
 			{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9'};
 	char O_Stream::hex_digit_to_char_table[] = 
@@ -33,11 +33,12 @@
 	char O_Stream::prefix_hex[] = {'0', 'x', 0};
 	char O_Stream::negative_sign = '-';
 	char O_Stream::newline_char = '\n';
-
+	// This value is used to initialize number_base
 	const unsigned char DEFAULT_BASE = O_Stream::DEC;
 
 	O_Stream::O_Stream() : Stringbuffer() {
 		O_Stream::number_base = DEFAULT_BASE;
+		O_Stream::digit_count = 0;
 	}
 
 	char O_Stream::toChar(unsigned char digit) {
@@ -47,9 +48,9 @@
 		}
 		switch (base) {
 		case O_Stream::BIN: return bin_digit_to_char_table[digit];
-		case O_Stream::OCT: return bin_digit_to_char_table[digit];
-		case O_Stream::DEC: return bin_digit_to_char_table[digit];
-		case O_Stream::HEX: return bin_digit_to_char_table[digit];
+		case O_Stream::OCT: return oct_digit_to_char_table[digit];
+		case O_Stream::DEC: return dec_digit_to_char_table[digit];
+		case O_Stream::HEX: return hex_digit_to_char_table[digit];
 		default: return '?';
 		}
 	}
@@ -81,21 +82,36 @@
 		return *this;
 	}
 
+	void O_Stream::putDigit(char digitAsChar) {
+		if (digit_count < DIGIT_BUFFER_SIZE) {
+			digit_buffer[digit_count++] = digitAsChar;
+		}
+	}
+
+	void O_Stream::flushDigitBuffer() {
+		while (digit_count > 0) {
+			O_Stream::put(digit_buffer[--digit_count]);
+		}
+	}
+
 	O_Stream& O_Stream::operator<< (unsigned short number) {
 		// getBase() is either BIN, OCT, DEC or HEX
 		unsigned char base = getBase();
 		// prints the prefix 0b, 0o or 0x depending on base.
 		putBasePrefix();
+		
 		while (number > 0) {
 			// retrieve the last digit of number
 			unsigned char digit = (unsigned char)(number % base);
 			// convert the last digit of number to a char
 			char digitAsChar = toChar(digit);
-			// output the char
-			O_Stream::put(digitAsChar);
+			// buffer the char in the digit_buffer
+			O_Stream::putDigit(digitAsChar);
 			// remove the last digit of number
 			number /= base;
 		}
+		// output the digit buffer in reverse order
+		flushDigitBuffer();
 		return *this;
 	}
 
@@ -113,11 +129,13 @@
 			unsigned char digit = (unsigned char)(number % base);
 			// convert the last digit of number to a char
 			char digitAsChar = toChar(digit);
-			// output the char
-			O_Stream::put(digitAsChar);
+			// buffer the char in the digit_buffer
+			O_Stream::putDigit(digitAsChar);
 			// remove the last digit of number
 			number /= base;
 		}
+		// output the digit buffer in reverse order
+		flushDigitBuffer();
 		return *this;
 	}
 
@@ -131,11 +149,13 @@
 			unsigned char digit = (unsigned char)(number % base);
 			// convert the last digit of number to a char
 			char digitAsChar = toChar(digit);
-			// output the char
-			O_Stream::put(digitAsChar);
+			// buffer the char in the digit_buffer
+			O_Stream::putDigit(digitAsChar);
 			// remove the last digit of number
 			number /= base;
 		}
+		// output the digit buffer in reverse order
+		flushDigitBuffer();
 		return *this;
 	}
 
@@ -153,11 +173,13 @@
 			unsigned char digit = (unsigned char)(number % base);
 			// convert the last digit of number to a char
 			char digitAsChar = toChar(digit);
-			// output the char
-			O_Stream::put(digitAsChar);
+			// buffer the char in the digit_buffer
+			O_Stream::putDigit(digitAsChar);
 			// remove the last digit of number
 			number /= base;
 		}
+		// output the digit buffer in reverse order
+		flushDigitBuffer();
 		return *this;
 	}
 
@@ -171,11 +193,13 @@
 			unsigned char digit = (unsigned char)(number % base);
 			// convert the last digit of number to a char
 			char digitAsChar = toChar(digit);
-			// output the char
+			// buffer the char in the digit_buffer
 			O_Stream::put(digitAsChar);
 			// remove the last digit of number
 			number /= base;
 		}
+		// output the digit buffer in reverse order
+		flushDigitBuffer();
 		return *this;
 	}
 
@@ -193,11 +217,13 @@
 			unsigned char digit = (unsigned char)(number % base);
 			// convert the last digit of number to a char
 			char digitAsChar = toChar(digit);
-			// output the char
-			O_Stream::put(digitAsChar);
+			// buffer the char in the digit_buffer
+			O_Stream::putDigit(digitAsChar);
 			// remove the last digit of number
 			number /= base;
 		}
+		// output the digit buffer in reverse order
+		flushDigitBuffer();
 		return *this;
 	}
 
@@ -213,28 +239,33 @@
 		return fkt(*this);
 	}
 
-	O_Stream& O_Stream::endl (O_Stream& os) {
-		os << newline_char;
+	O_Stream& endl (O_Stream& os) {
+		os << '\n';
+		os.flush();
 		return os;
 	}
 
-	O_Stream& O_Stream::bin (O_Stream& os) {
+	O_Stream& bin (O_Stream& os) {
 		os.setBase(O_Stream::BIN);
 		return os;
 	}
 
-	O_Stream& O_Stream::oct (O_Stream& os) {
+	O_Stream& oct (O_Stream& os) {
 		os.setBase(O_Stream::OCT);
 		return os;
 	}
 
-	O_Stream& O_Stream::dec (O_Stream& os) {
+	O_Stream& dec (O_Stream& os) {
 		os.setBase(O_Stream::DEC);
 		return os;
 	}
 
-	O_Stream& O_Stream::hex (O_Stream& os) {
+	O_Stream& hex (O_Stream& os) {
 		os.setBase(O_Stream::HEX);
 		return os;
 	}
 
+	O_Stream& el (O_Stream& os) {
+		os.flush();
+		return os;
+	}

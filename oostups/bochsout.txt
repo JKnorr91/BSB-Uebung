@@ -32,13 +32,13 @@
 00000000000i[     ]   SB16 support: no
 00000000000i[     ]   USB support: no
 00000000000i[     ]   VGA extension support: vbe 
-00000000000i[MEM0 ] allocated memory at 0x55e6e008. after alignment, vector=0x55e6f000
+00000000000i[MEM0 ] allocated memory at 0x55d0e008. after alignment, vector=0x55d0f000
 00000000000i[MEM0 ] 4,00MB
 00000000000i[MEM0 ] rom at 0xfffe0000/131072 ('/home/bsb/bochs/bios/BIOS-bochs-latest')
 00000000000i[MEM0 ] rom at 0xc0000/32768 ('/home/bsb/bochs/bios/VGABIOS-elpin-2.40')
 00000000000i[VTIME] using 'realtime pit' synchronization method
 00000000000i[CMOS ] Using local time for initial clock
-00000000000i[CMOS ] Setting initial clock to: Fri Nov  4 13:34:20 2016 (time0=1478262860)
+00000000000i[CMOS ] Setting initial clock to: Tue Nov  8 17:57:47 2016 (time0=1478624267)
 00000000000i[DMA  ] channel 4 used by cascade
 00000000000i[DMA  ] channel 2 used by Floppy Drive
 00000000000i[FDD  ] fd0: './build/bootdisk.img' ro=0, h=2,t=80,spt=18
@@ -93,29 +93,29 @@
 00000420000e[VGA  ] character height = 1, skipping text update
 00000504000e[VGA  ] character height = 1, skipping text update
 00000588000i[XGUI ] charmap update. Font Height is 16
-00001725125i[BIOS ] Booting from 0000:7C00
-00001825254i[FDD  ] partial read() on floppy image returns 208/512
-00002062615i[CPU  ] WARNING: HLT instruction with IF=0!
-00699447280p[XGUI ] >>PANIC<< POWER button turned off.
-00699447280i[CPU  ] protected mode
-00699447280i[CPU  ] CS.d_b = 32 bit
-00699447280i[CPU  ] SS.d_b = 32 bit
-00699447280i[CPU  ] | EAX=00000000  EBX=00000010  ECX=00000780  EDX=00103210
-00699447280i[CPU  ] | ESP=001042d0  EBP=000000b2  ESI=00013400  EDI=0010200d
-00699447280i[CPU  ] | IOPL=0 id vip vif ac vm rf nt of df if tf sf ZF af PF cf
-00699447280i[CPU  ] | SEG selector     base    limit G D
-00699447280i[CPU  ] | SEG sltr(index|ti|rpl)     base    limit G D
-00699447280i[CPU  ] |  CS:0008( 0001| 0|  0) 00000000 000fffff 1 1
-00699447280i[CPU  ] |  DS:0010( 0002| 0|  0) 00000000 000fffff 1 1
-00699447280i[CPU  ] |  SS:0010( 0002| 0|  0) 00000000 000fffff 1 1
-00699447280i[CPU  ] |  ES:0010( 0002| 0|  0) 00000000 000fffff 1 1
-00699447280i[CPU  ] |  FS:0010( 0002| 0|  0) 00000000 000fffff 1 1
-00699447280i[CPU  ] |  GS:0010( 0002| 0|  0) 00000000 000fffff 1 1
-00699447280i[CPU  ] | EIP=00100064 (00100064)
-00699447280i[CPU  ] | CR0=0x00000011 CR1=0 CR2=0x00000000
-00699447280i[CPU  ] | CR3=0x00000000 CR4=0x00000000
-00699447280i[CPU  ] >> mov edi, 0x0010200d : BF0D201000
-00699447280i[CMOS ] Last time is 1478265358 (Fri Nov  4 14:15:58 2016)
-00699447280i[XGUI ] Exit.
-00699447280i[     ] restoring default signal behavior
-00699447280i[CTRL ] quit_sim called with exit code 1
+00001725126i[BIOS ] Booting from 0000:7C00
+00001832545i[FDD  ] partial read() on floppy image returns 24/512
+00002068234i[CPU  ] WARNING: HLT instruction with IF=0!
+04419125630p[     ] >>PANIC<< SIGNAL 2 caught
+04419125630i[CPU  ] protected mode
+04419125630i[CPU  ] CS.d_b = 32 bit
+04419125630i[CPU  ] SS.d_b = 32 bit
+04419125630i[CPU  ] | EAX=00000000  EBX=00000010  ECX=00104618  EDX=00103510
+04419125630i[CPU  ] | ESP=00104618  EBP=000000b2  ESI=00013800  EDI=001021ab
+04419125630i[CPU  ] | IOPL=0 id vip vif ac vm rf nt of df if tf sf ZF af PF cf
+04419125630i[CPU  ] | SEG selector     base    limit G D
+04419125630i[CPU  ] | SEG sltr(index|ti|rpl)     base    limit G D
+04419125630i[CPU  ] |  CS:0008( 0001| 0|  0) 00000000 000fffff 1 1
+04419125630i[CPU  ] |  DS:0010( 0002| 0|  0) 00000000 000fffff 1 1
+04419125630i[CPU  ] |  SS:0010( 0002| 0|  0) 00000000 000fffff 1 1
+04419125630i[CPU  ] |  ES:0010( 0002| 0|  0) 00000000 000fffff 1 1
+04419125630i[CPU  ] |  FS:0010( 0002| 0|  0) 00000000 000fffff 1 1
+04419125630i[CPU  ] |  GS:0010( 0002| 0|  0) 00000000 000fffff 1 1
+04419125630i[CPU  ] | EIP=00100064 (00100064)
+04419125630i[CPU  ] | CR0=0x00000011 CR1=0 CR2=0x00000000
+04419125630i[CPU  ] | CR3=0x00000000 CR4=0x00000000
+04419125630i[CPU  ] >> mov edi, 0x001021ab : BFAB211000
+04419125630i[CMOS ] Last time is 1478640049 (Tue Nov  8 22:20:49 2016)
+04419125630i[XGUI ] Exit.
+04419125630i[     ] restoring default signal behavior
+04419125630i[CTRL ] quit_sim called with exit code 1
