@@ -14,6 +14,9 @@ int main()
 		kout.print(text,8,0x02);
 		x++;
 	}
-	kout << 456451239 << " Test\n" << "Next line!" << oct << 128 << " - " << dec << 128 << " - " << bin << 128 << " - " << hex << 128 << el;
+	int* xx = &x;
+	kout << 456451239 << " Test\n" << "Next line!" << oct << 128 << " - " << hex << 128 << " - " << bin << 128 << " - " << dec << 128 << el;
+	kout << endl;
+	kout << xx << el;
    return 0;
  }

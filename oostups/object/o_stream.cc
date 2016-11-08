@@ -41,9 +41,45 @@
 		O_Stream::digit_count = 0;
 	}
 
+	O_Stream& O_Stream::operator<< (unsigned char c) {
+		O_Stream::put(char(c));
+		return *this;
+	}
+
+	O_Stream& O_Stream::operator<< (char c) {
+		O_Stream::put(c);
+		return *this;
+	}
+
+	O_Stream& O_Stream::operator<< (char* text) {
+		while (*text != 0) {
+			put(*text);
+			text++;
+		}
+		return *this;
+	}
+
+	O_Stream& O_Stream::operator<< (void* pointer) {
+		unsigned char oldBase = getBase();
+		setBase(O_Stream::HEX);
+		*this << (int) pointer;
+		setBase(oldBase);
+		return *this;
+	}
+
+	O_Stream& O_Stream::operator<< (O_Stream& (*fkt) (O_Stream&)) {
+		return fkt(*this);
+	}
+	/*
+	 * The following are helper methods for printing numbers
+	 */
+
+	// Returns the char representing the given digit. Honors the current number_base.
+	// If the digit is too large or too small a '?' is returned.
+	// If the number_base is illegal a '?' is returned.
 	char O_Stream::toChar(unsigned char digit) {
 		unsigned char base = getBase();
-		if (digit >= base) {
+		if (digit < 0 || digit >= base) {
 			return '?';
 		}
 		switch (base) {
@@ -54,32 +90,25 @@
 		default: return '?';
 		}
 	}
-
+	// Puts the prefix for the current number_base into the buffer.
+	// If the number_base is illegal a '?' is put.
 	void O_Stream::putBasePrefix() {
 		switch (getBase()) {
 		case O_Stream::BIN: *this << O_Stream::prefix_bin; break;
 		case O_Stream::OCT: *this << O_Stream::prefix_oct; break;
 		case O_Stream::DEC: *this << O_Stream::prefix_dec; break;
 		case O_Stream::HEX: *this << O_Stream::prefix_hex; break;
+		default: *this << '?'; break;
 		}
 	}
-
+	
+	// the value must be either BIN, OCT, DEC or HEX.
 	void O_Stream::setBase(unsigned char value) {
 		O_Stream::number_base = value;
 	}
 
 	unsigned char O_Stream::getBase() {
 		return O_Stream::number_base;
-	}
-
-	O_Stream& O_Stream::operator<< (unsigned char c) {
-		O_Stream::put(char(c));
-		return *this;
-	}
-
-	O_Stream& O_Stream::operator<< (char c) {
-		O_Stream::put(c);
-		return *this;
 	}
 
 	void O_Stream::putDigit(char digitAsChar) {
@@ -225,18 +254,6 @@
 		// output the digit buffer in reverse order
 		flushDigitBuffer();
 		return *this;
-	}
-
-	O_Stream& O_Stream::operator<< (char* text) {
-		while (*text != 0) {
-			put(*text);
-			text++;
-		}
-		return *this;
-	}
-
-	O_Stream& O_Stream::operator<< (O_Stream& (*fkt) (O_Stream&)) {
-		return fkt(*this);
 	}
 
 	O_Stream& endl (O_Stream& os) {
