@@ -23,6 +23,6 @@ void Keyboard::trigger (){
 	if(key.ctrl() && key.alt() && (key.scancode)() == Key::del){
 		//reboot
 	}else if (key.valid()){
-		cout << key.ascii() << el;
+		kout << key.ascii() << el;
 	}
 }

@@ -13,14 +13,15 @@
 #ifndef __Plugbox_include__
 #define __Plugbox_include__
 
+#define SLOT_COUNT 64
+
 #include "guard/gate.h"
 
 class Plugbox
  {
 private:
-	Gate interrupts[64];
+	Gate interrupts[SLOT_COUNT];
     Plugbox(const Plugbox &copy); // Verhindere Kopieren
-/* Hier muesst ihr selbst Code vervollstaendigen */ 
 public:
 	const int timer = 32;
 	const int keyboard = 33;

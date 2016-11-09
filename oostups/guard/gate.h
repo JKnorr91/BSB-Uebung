@@ -14,7 +14,6 @@
 #include "machine/cpu.h"
 
 class Gate{
-/* Hier muesst ihr selbst Code vervollstaendigen */ 
 public:
 	Gate(){};
 	void trigger();
