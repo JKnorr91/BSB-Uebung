@@ -261,7 +261,7 @@ Keyboard_Controller::Keyboard_Controller () :
    set_led (led::num_lock, false);
 
    // maximale Geschwindigkeit, minimale Verzoegerung
-   set_repeat_rate (0, 0);  
+   set_repeat_rate (0x14, 0);  
  }
 
 // KEY_HIT: Dient der Tastaturabfrage nach dem Auftreten einer Tastatur-
@@ -315,9 +315,20 @@ void Keyboard_Controller::reboot ()
 
 void Keyboard_Controller::set_repeat_rate (int speed, int delay)
  {
-/* Hier muesst ihr selbst Code vervollstaendigen */ 
- 
-/* Hier muesst ihr selbst Code vervollstaendigen */          
+
+   //Dear Keyboard, i would like to give you a command to set the led_repeat_rate
+   data_port.outb(kbd_cmd::set_speed);
+
+   //Ready when you are
+   while(ctrl_port.inb() & 0x02) {}
+
+
+   //Take that, Keyboard
+   data_port.outb((delay << 4) | speed);
+
+   while(ctrl_port.inb() & 0x02) {}
+
+
           
  }
 
@@ -328,7 +339,7 @@ void Keyboard_Controller::set_led (char led, bool on)
 
 
    //Dear Keyboard, i would like to give you a command to set the led
-   data_port.outb(0xed);
+   data_port.outb(kbd_cmd::set_led);
 
    //Ready when you are
    while(ctrl_port.inb() & 0x02) {}
@@ -343,6 +354,8 @@ void Keyboard_Controller::set_led (char led, bool on)
 
     //Take that, Keyboard
    data_port.outb(leds);
+
+   while(ctrl_port.inb() & 0x02) {}
    
           
  }
