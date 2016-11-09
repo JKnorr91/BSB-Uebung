@@ -15,13 +15,14 @@
 
 #include "guard/gate.h"
 
-class Panic 
+class Panic : public Gate
 /* Hier muesst ihr selbst Code vervollstaendigen */         
  {
 private:
     Panic (const Panic &copy); // Verhindere Kopieren
 public:
-    Panic () {}
+    Panic () {};
+    void trigger();
 /* Hier muesst ihr selbst Code vervollstaendigen */                  
           
  };
