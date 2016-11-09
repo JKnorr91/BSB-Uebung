@@ -16,14 +16,25 @@
 
 #ifndef __pic_include__
 #define __pic_include__
-
+#include "machine/io_port.h"
 class PIC
  {
 private:
     PIC(const PIC &copy); // Verhindere Kopieren
+
+    const IO_Port mocw;
+	const IO_Port socw;
 public:
-    PIC() {}
+	enum
+	 {
+	   timer    = 0,
+	   keyboard = 1
+	 };
+    PIC();
+    void allow (int interrupt_device);
+    void forbid (int interrupt_device);
 /* Hier muesst ihr selbst Code vervollstaendigen */          
  };
 
+extern PIC pic;
 #endif

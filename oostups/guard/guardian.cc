@@ -10,7 +10,7 @@
 /*****************************************************************************/
 
 /* INCLUDES */
-
+#include "device/cgastr.h"
 /* FUNKTIONEN */
                
 extern "C" void guardian (unsigned int slot);
@@ -20,5 +20,5 @@ extern "C" void guardian (unsigned int slot);
 
 void guardian (unsigned int slot)
  {
- 
+	kout << "interrupt"<<endl;
  }
