@@ -32,8 +32,7 @@ public:
 	 };
     PIC();
     void allow (int interrupt_device);
-    void forbid (int interrupt_device);
-/* Hier muesst ihr selbst Code vervollstaendigen */          
+    void forbid (int interrupt_device);   
  };
 
 extern PIC pic;

@@ -18,9 +18,10 @@
                
 extern "C" void guardian (unsigned int slot);
 
-/* GUARDIAN: Low-Level Interrupt-Behandlung. Die Funktion wird spaeter noch */
-/*           erweitert.                                                     */
-
+/*
+ * Wird automatisch bei einem interrupt aufgerufen.
+ * Muss den interrupt an die Interrupt-Behandlung weiterreichen.
+ */
 void guardian (unsigned int slot)
  {
 	plugbox.report(slot).trigger();
