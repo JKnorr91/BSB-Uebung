@@ -25,6 +25,5 @@ void Keyboard::trigger (){
 	}else if (key.valid()){
 		kout << key.ascii() << el;
 	}
-	kout << "Keyboard::trigger()" << el;
-
+	//kout << "Keyboard::trigger()" << el;
 }
