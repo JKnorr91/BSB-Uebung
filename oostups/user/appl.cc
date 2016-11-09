@@ -15,16 +15,20 @@
 #include "machine/cpu.h"
 
 	Application::Application() {
-		output_num = 0;
+		output_num = 123;
 	}
 
 
 	void Application::action ()
  	{
-		//cpu.disable_int();
+		int x;
+		int y;
  		while (true) {
+			cpu.disable_int();
+			kout.getpos(x, y);
 			kout.setpos(5, 10);
 			kout << output_num << el;
+			kout.setpos(x, y);
+			cpu.enable_int();
 		}
-		//cpu.enable_int();
  	}

@@ -24,8 +24,8 @@ void Keyboard::trigger (){
 	if(key.ctrl() && key.alt() && key.scancode() == Key::scan::del){
 		reboot();
 	}else if (key.valid()){
-		app.output_num++;
-		//kout << key.ascii() << el;
+		//app.output_num++;
+		kout << key.ascii() << el;
 	}
 	//kout << "Keyboard::trigger()" << el;
 }

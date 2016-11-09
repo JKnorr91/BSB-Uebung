@@ -41,6 +41,11 @@
 		int offset = x+y*80;
 		unsigned char low = (unsigned char) offset;
 		unsigned char high = (unsigned char) (offset >> 8);
+
+		//cursor high
+		ctrl_port.outb(14);
+		data_port.outb(0xff);
+
 		//cursor low
 		ctrl_port.outb(15);
 		data_port.outb(low);
