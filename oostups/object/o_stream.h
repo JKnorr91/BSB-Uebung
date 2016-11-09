@@ -28,9 +28,24 @@ private:
 	O_Stream(const O_Stream &copy); // Verhindere Kopieren
 	// Must be either of BIN, OCT, DEC or HEX
 	unsigned char number_base;
+
+	// The maximum number of digits the string for a given number can have
+	static const int DIGIT_BUFFER_SIZE = 64;
+	// Used to buffer the digits of a number turned to string before being written out
+	char digit_buffer[DIGIT_BUFFER_SIZE];
+	// the number of digits currently written to the digit_buffer
+	unsigned char digit_count;
+	// Adds a char to the digit_buffer and increments digit_count by one.
+	// If the buffer is full nothing will be done
+	void putDigit(char digitAsChar);
+	// Outputs the digit_buffer to the main buffer in reverse order.
+	// Sets digit_count to 0 but does not null the digit_buffer.
+	void flushDigitBuffer();
+
 	// returns a char based on the current number_base.
 	// uses the values from the various XX_digit_to_char_tables.
 	char toChar(unsigned char digit);
+	// puts the prefix of the current number_base (either 0b, 0x, 0o or the empty string)
 	void putBasePrefix();
 
 public:
@@ -67,6 +82,7 @@ public:
 
 	O_Stream& operator<< (char* text);
 	O_Stream& operator<< (O_Stream& (*fkt) (O_Stream&));
+ };
 
 /*---------------------------------------------------------------------------*/
 /*                                                                           */
@@ -85,6 +101,6 @@ public:
 	O_Stream& oct (O_Stream& os);
 	O_Stream& dec (O_Stream& os);
 	O_Stream& hex (O_Stream& os);
- };
+	O_Stream& el (O_Stream& os);
 #endif
 

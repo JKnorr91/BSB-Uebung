@@ -2,27 +2,29 @@
 /* Betriebssysteme                                                           */
 /*---------------------------------------------------------------------------*/
 /*                                                                           */
-/*                              G U A R D I A N                              */
+/*                              P L U G B O X                                */
 /*                                                                           */
 /*---------------------------------------------------------------------------*/
-/* Zentrale Unterbrechungsbehandlungsroutine des Systems.                    */
-/* Der Parameter gibt die Nummer des aufgetretenen Interrupts an.            */
+/* Abstraktion einer Interruptvektortabelle. Damit kann man die Behandlungs- */
+/* routine fuer jeden Hardware-, Softwareinterrupt und jede Prozessor-       */
+/* exception festlegen.                                                      */
 /*****************************************************************************/
-
-/* INCLUDES */
-#include "device/cgastr.h"
 #include "machine/plugbox.h"
 #include "device/panic.h"
-#include "device/keyboard.h"
-/* FUNKTIONEN */
-               
-extern "C" void guardian (unsigned int slot);
 
-/*
- * Wird automatisch bei einem interrupt aufgerufen.
- * Muss den interrupt an die Interrupt-Behandlung weiterreichen.
- */
-void guardian (unsigned int slot)
- {
-	plugbox.report(slot).trigger();
- }
+Plugbox::Plugbox (){
+	for (int i = 0; i < SLOT_COUNT; i++){
+		interrupts[i] = &panic;
+	}
+}
+
+
+void Plugbox::assign (unsigned int slot, Gate& gate){
+	if (slot >= 0 && slot < SLOT_COUNT) {
+		interrupts[slot] = &gate;
+	}
+}
+
+Gate& Plugbox::report (unsigned int slot){
+	return *interrupts[slot];
+}

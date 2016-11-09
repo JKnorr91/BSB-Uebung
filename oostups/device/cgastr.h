@@ -30,4 +30,5 @@ public:
 
  };
 
+extern CGA_Stream kout;
 #endif
