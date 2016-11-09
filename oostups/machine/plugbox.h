@@ -18,6 +18,7 @@
 class Plugbox
  {
 private:
+	Gate interrupts[64];
     Plugbox(const Plugbox &copy); // Verhindere Kopieren
 /* Hier muesst ihr selbst Code vervollstaendigen */ 
 public:
@@ -27,5 +28,5 @@ public:
 	void assign (unsigned int slot, Gate& gate);
 	Gate& report (unsigned int slot);
  };
-
+extern Plugbox plugbox;
 #endif

@@ -2,21 +2,29 @@
 #include "device/cgastr.h"
 #include "machine/pic.h"
 #include "machine/cpu.h"
+#include "device/panic.h"
+#include "machine/plugbox.h"
+#include "device/keyboard.h"
+#include "machine/keyctrl.h"
 
 CPU cpu;
 CGA_Stream kout;
 PIC pic;
 Panic panic;
+Plugbox plugbox;
+Keyboard keyboard;
+Keyboard_Controller keyctl;
 
 int main()
 {
-	//CPU cpu;
 	kout.setpos(0,24);
 	kout << endl;
 	kout.setpos(0,0);
 	kout << "CGA System loaded" << endl;
 	cpu.enable_int();
 	kout << "interrupt System enabled" << endl;
+	keyboard.plugin();
+	kout << "Keyboard enabled" << endl;
 
 	int x = 1;
 	char text[9] = {'A','B','C','D','E','F','g','h','\n'};
@@ -29,8 +37,8 @@ int main()
 	kout << &x << el;
 	kout << endl;
 
-	//pic.allow(0);
-	pic.allow(PIC::keyboard);
+	pic.allow(PIC::timer);
+	pic.forbid(PIC::timer);
 	while (true){
 
 	}
