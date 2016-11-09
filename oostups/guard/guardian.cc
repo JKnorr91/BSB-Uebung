@@ -11,6 +11,9 @@
 
 /* INCLUDES */
 #include "device/cgastr.h"
+#include "machine/plugbox.h"
+#include "device/panic.h"
+#include "device/keyboard.h"
 /* FUNKTIONEN */
                
 extern "C" void guardian (unsigned int slot);
@@ -20,5 +23,5 @@ extern "C" void guardian (unsigned int slot);
 
 void guardian (unsigned int slot)
  {
-	kout << "interrupt"<<endl;
+	plugbox.report(slot).trigger();
  }

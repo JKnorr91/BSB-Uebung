@@ -13,19 +13,18 @@
 #include "device/panic.h"
 
 Plugbox::Plugbox (){
-	int i = 0; // warum beginnt i bei 1?
-	for (i = 1; i < SLOT_COUNT; i++){
-		interrupts[i] = panic;
+	for (int i = 0; i < SLOT_COUNT; i++){
+		interrupts[i] = &panic;
 	}
 }
 
 
 void Plugbox::assign (unsigned int slot, Gate& gate){
 	if (slot >= 0 && slot < SLOT_COUNT) {
-		interrupts[slot] = gate;
+		interrupts[slot] = &gate;
 	}
 }
 
 Gate& Plugbox::report (unsigned int slot){
-	return interrupts[slot];
+	return *interrupts[slot];
 }

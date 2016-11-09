@@ -20,7 +20,7 @@
 class Plugbox
  {
 private:
-	Gate interrupts[SLOT_COUNT];
+	Gate *interrupts[SLOT_COUNT];
     Plugbox(const Plugbox &copy); // Verhindere Kopieren
 public:
 	static const int timer = 32;

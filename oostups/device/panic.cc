@@ -12,6 +12,6 @@
 #include "device/panic.h"
 
 void Panic::trigger(){
-	kout << "Interrupt error!" <<endl;
+	kout << "Panic::trigger()" <<endl;
 	cpu.halt();
 }

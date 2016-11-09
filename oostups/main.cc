@@ -39,8 +39,6 @@ int main()
 
 	pic.allow(PIC::timer);
 	pic.forbid(PIC::timer);
-	while (true){
-
-	}
+	while (true);//Endlosschleife um System am laufen zu halten. Interrupts passieren trotzdem
    return 0;
  }

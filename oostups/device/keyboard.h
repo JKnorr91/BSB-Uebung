@@ -35,5 +35,6 @@ public:
 /* Hier muesst ihr selbst Code vervollstaendigen */ 
         
  };
+extern Keyboard keyboard;
 
 #endif
