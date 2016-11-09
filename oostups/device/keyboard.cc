@@ -25,5 +25,9 @@ void Keyboard::trigger (){
 	}else if (key.valid()){
 		kout << key.ascii() << el;
 	}*/
+<<<<<<< Updated upstream
 	kout << "Keyboard::trigger()" << el;
+=======
+	kout << "key hit"<<el;
+>>>>>>> Stashed changes
 }
