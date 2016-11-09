@@ -51,6 +51,5 @@ CPU() {}
  };
 
 extern CPU cpu;
-CPU cpu;
 
 #endif

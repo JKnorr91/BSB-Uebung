@@ -50,4 +50,3 @@ void PIC::forbid (int interrupt_device){
 		}
 }
 
-PIC pic;

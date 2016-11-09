@@ -3,6 +3,10 @@
 #include "machine/pic.h"
 #include "machine/cpu.h"
 
+CPU cpu;
+CGA_Stream kout;
+PIC pic;
+
 int main()
 {
 	//CPU cpu;

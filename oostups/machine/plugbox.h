@@ -20,6 +20,12 @@ class Plugbox
 private:
     Plugbox(const Plugbox &copy); // Verhindere Kopieren
 /* Hier muesst ihr selbst Code vervollstaendigen */ 
+public:
+	const int timer = 32;
+	const int keyboard = 33;
+	Plugbox ();
+	void assign (unsigned int slot, Gate& gate);
+	Gate& report (unsigned int slot);
  };
 
 #endif
