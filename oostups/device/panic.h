@@ -27,5 +27,6 @@ public:
           
  };
 
+extern Panic panic;
 #endif
 

@@ -6,6 +6,7 @@
 CPU cpu;
 CGA_Stream kout;
 PIC pic;
+Panic panic;
 
 int main()
 {
