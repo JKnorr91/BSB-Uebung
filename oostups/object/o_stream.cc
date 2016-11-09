@@ -124,6 +124,10 @@
 	}
 
 	O_Stream& O_Stream::operator<< (unsigned short number) {
+		if (number == 0) {
+			O_Stream::put('0');
+			return *this;			
+		}
 		// getBase() is either BIN, OCT, DEC or HEX
 		unsigned char base = getBase();
 		// prints the prefix 0b, 0o or 0x depending on base.
@@ -145,6 +149,10 @@
 	}
 
 	O_Stream& O_Stream::operator<< (short number) {
+		if (number == 0) {
+			O_Stream::put('0');
+			return *this;			
+		}
 		if (number < 0) {
 			O_Stream::put(negative_sign);
 			number = -number;
@@ -169,6 +177,10 @@
 	}
 
 	O_Stream& O_Stream::operator<< (unsigned int number) {
+		if (number == 0) {
+			O_Stream::put('0');
+			return *this;			
+		}
 		// getBase() is either BIN, OCT, DEC or HEX
 		unsigned char base = getBase();
 		// prints the prefix 0b, 0o or 0x depending on base.
@@ -189,6 +201,10 @@
 	}
 
 	O_Stream& O_Stream::operator<< (int number) {
+		if (number == 0) {
+			O_Stream::put('0');
+			return *this;			
+		}
 		if (number < 0) {
 			O_Stream::put(negative_sign);
 			number = -number;
@@ -213,6 +229,10 @@
 	}
 
 	O_Stream& O_Stream::operator<< (unsigned long number) {
+		if (number == 0) {
+			O_Stream::put('0');
+			return *this;			
+		}
 		// getBase() is either BIN, OCT, DEC or HEX
 		unsigned char base = getBase();
 		// prints the prefix 0b, 0o or 0x depending on base.
@@ -233,6 +253,10 @@
 	}
 
 	O_Stream& O_Stream::operator<< (long number) {
+		if (number == 0) {
+			O_Stream::put('0');
+			return *this;			
+		}
 		if (number < 0) {
 			O_Stream::put(negative_sign);
 			number = -number;

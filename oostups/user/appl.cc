@@ -12,15 +12,19 @@
 
 #include "user/appl.h"
 #include "device/cgastr.h"
-/* Hier muesst ihr selbst Code vervollstaendigen */         
-         
-/* GLOBALE VARIABLEN */
+#include "machine/cpu.h"
 
-extern CGA_Stream kout;
-/* Hier muesst ihr selbst Code vervollstaendigen */ 
-         
-void Application::action ()
- {
-/* Hier muesst ihr selbst Code vervollstaendigen */ 
- 
- }
+	Application::Application() {
+		output_num = 0;
+	}
+
+
+	void Application::action ()
+ 	{
+		//cpu.disable_int();
+ 		while (true) {
+			kout.setpos(5, 10);
+			kout << output_num << el;
+		}
+		//cpu.enable_int();
+ 	}

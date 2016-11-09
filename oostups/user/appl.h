@@ -17,10 +17,14 @@ class Application
 private:
     Application (const Application &copy); // Verhindere Kopieren
 
-public:
-/* Hier muesst ihr selbst Code vervollstaendigen */                  
-          
+public:                
+	int output_num;
+
+	Application();
+
     void action ();
+
  };
+extern Application app;
 
 #endif

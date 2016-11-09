@@ -6,6 +6,7 @@
 #include "machine/plugbox.h"
 #include "device/keyboard.h"
 #include "machine/keyctrl.h"
+#include "user/appl.h"
 
 CPU cpu;
 CGA_Stream kout;
@@ -14,6 +15,7 @@ Panic panic;
 Plugbox plugbox;
 Keyboard keyboard;
 Keyboard_Controller keyctl;
+Application app;
 
 int main()
 {
@@ -26,7 +28,7 @@ int main()
 	keyboard.plugin();
 	kout << "Keyboard enabled" << endl;
 
-	int x = 1;
+	/*int x = 1;
 	char text[9] = {'A','B','C','D','E','F','g','h','\n'};
 	while (x<1) {
 		kout.print(text,8,0x02);
@@ -35,10 +37,13 @@ int main()
 	kout << 456451239 << " Test\n" << "Next \nline!" << oct << 128 << " - " << hex << 128 << " - " << bin << 128 << " - " << dec << 128 << el;
 	kout << endl;
 	kout << &x << el;
-	kout << endl;
+	kout << endl;*/
 
 	pic.allow(PIC::timer);
 	pic.forbid(PIC::timer);
+
+	app.action();
+
 	while (true);//Endlosschleife um System am laufen zu halten. Interrupts passieren trotzde
    return 0;
  }

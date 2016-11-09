@@ -8,6 +8,7 @@
 /* Tastaturtreiber.                                                          */
 /*****************************************************************************/
 #include "device/keyboard.h"
+#include "user/appl.h"
 /* Hier muesst ihr selbst Code vervollstaendigen */ 
 /* Hier muesst ihr selbst Code vervollstaendigen */ 
  
@@ -23,7 +24,8 @@ void Keyboard::trigger (){
 	if(key.ctrl() && key.alt() && key.scancode() == Key::scan::del){
 		reboot();
 	}else if (key.valid()){
-		kout << key.ascii() << el;
+		app.output_num++;
+		//kout << key.ascii() << el;
 	}
 	//kout << "Keyboard::trigger()" << el;
 }
