@@ -23,8 +23,8 @@ private:
 	Gate interrupts[SLOT_COUNT];
     Plugbox(const Plugbox &copy); // Verhindere Kopieren
 public:
-	const int timer = 32;
-	const int keyboard = 33;
+	static const int timer = 32;
+	static const int keyboard = 33;
 	Plugbox ();
 	void assign (unsigned int slot, Gate& gate);
 	Gate& report (unsigned int slot);
