@@ -19,15 +19,12 @@ void Keyboard::plugin (){
 }
 
 void Keyboard::trigger (){
-	/*key = keyctl.key_hit();
+	key = key_hit();
 	if(key.ctrl() && key.alt() && key.scancode() == Key::scan::del){
-		keyctl.reboot();
+		reboot();
 	}else if (key.valid()){
 		kout << key.ascii() << el;
-	}*/
-<<<<<<< Updated upstream
+	}
 	kout << "Keyboard::trigger()" << el;
-=======
-	kout << "key hit"<<el;
->>>>>>> Stashed changes
+
 }
