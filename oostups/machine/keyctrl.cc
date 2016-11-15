@@ -273,7 +273,6 @@ Keyboard_Controller::Keyboard_Controller () :
 
 Key Keyboard_Controller::key_hit ()
  {
-   
    while(~ctrl_port.inb() & 0x01){};
 
    code = (unsigned char) data_port.inb();
