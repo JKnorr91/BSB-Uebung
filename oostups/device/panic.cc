@@ -12,4 +12,5 @@
 	bool Panic::prologue(){
 		kout << "Panic::trigger()" <<endl;
 		cpu.halt();
+		return false;
 	}

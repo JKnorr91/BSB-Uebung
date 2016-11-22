@@ -15,6 +15,7 @@
 #include "device/panic.h"
 #include "device/keyboard.h"
 #include "guard/guard.h"
+#include "machine/cpu.h"
 /* FUNKTIONEN */
                
 extern "C" void guardian (unsigned int slot);
@@ -25,8 +26,10 @@ extern "C" void guardian (unsigned int slot);
  */
 	void guardian (unsigned int slot)
 	{
+		cpu.disable_int();
 		Gate& gate = plugbox.report(slot);
 		bool needsEpilogue = gate.prologue();
+		cpu.enable_int();
 		if (needsEpilogue) {
 			guard.relay(&gate);
 		}
