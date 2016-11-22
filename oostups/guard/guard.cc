@@ -17,13 +17,13 @@
 	}
 	
 	void Guard::leave () {
-		retne();
 		Gate* gate = (Gate*) queue.dequeue();
 		while (gate) {
 			gate -> queued(false);
 			gate -> epilogue();
 			gate = (Gate*) queue.dequeue();
 		}
+		retne();
 	}
 
 	void Guard::relay (Gate* item) {

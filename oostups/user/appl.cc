@@ -13,6 +13,7 @@
 #include "user/appl.h"
 #include "device/cgastr.h"
 #include "machine/cpu.h"
+#include "guard/secure.h"
 
 	Application::Application() {
 		output_num = 123;
@@ -24,12 +25,18 @@
 		int x;
 		int y;
  		while (true) {
+			{Secure section;
+
+				kout.getpos(x, y);
+				kout.setpos(5, 10);
+				kout << output_num << el;
+				output_num++;
+				kout.setpos(x, y);
+			}
 			//cpu.disable_int();
-			kout.getpos(x, y);
-			kout.setpos(5, 10);
-			kout << output_num << el;
-			output_num++;
-			kout.setpos(x, y);
+			//kout.getpos(x, y);
+			
+			//kout.setpos(x, y);
 			//cpu.enable_int();
 		}
  	}

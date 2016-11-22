@@ -32,5 +32,6 @@ bool Keyboard::prologue (){
 }
 
 void Keyboard::epilogue (){
+	//kout.setpos(4,6);
 	kout << key.ascii() << el;
 }
