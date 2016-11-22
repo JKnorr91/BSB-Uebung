@@ -24,13 +24,13 @@ bool Keyboard::prologue (){
 	if(key.ctrl() && key.alt() && key.scancode() == Key::scan::del){
 		reboot();
 	}else if (key.valid()){
-		//app.output_num++;
-		kout << key.ascii() << el;
+		//ausgabe vormerken
+		return true;
 	}
 	//kout << "Keyboard::trigger()" << el;
-	return true;
+	return false;
 }
 
 void Keyboard::epilogue (){
-
+	kout << key.ascii() << el;
 }
