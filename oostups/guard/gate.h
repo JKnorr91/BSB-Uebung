@@ -14,8 +14,13 @@
 #include "machine/cpu.h"
 
 class Gate{
+private:
+    Gate (const Gate &copy) {}
 public:
 	Gate(){};
-	virtual void trigger() {};
+	virtual void prologue()=0;
+	virtual void epilogue() {};
+	void queued(bool q);
+	bool queued();
 };
 #endif

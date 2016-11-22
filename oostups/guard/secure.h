@@ -15,6 +15,19 @@
 #ifndef __Secure_include__
 #define __Secure_include__
 
-/* Hier muesst ihr selbst Code vervollstaendigen */ 
+class Secure{
+private:
+    Secure (const Secure &copy) {}
+	
+public:
+	inline
+	Secure() {
+		guard.enter();
+	}
 
+	inline
+	~Secure() {
+		guard.retne();
+	}
+};
 #endif

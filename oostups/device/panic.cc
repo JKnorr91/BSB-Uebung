@@ -9,7 +9,7 @@
 /*****************************************************************************/ 
 #include "device/panic.h"
 
-void Panic::trigger(){
-	kout << "Panic::trigger()" <<endl;
-	cpu.halt();
-}
+	void Panic::prologue(){
+		kout << "Panic::trigger()" <<endl;
+		cpu.halt();
+	}

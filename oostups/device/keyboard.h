@@ -24,10 +24,10 @@ private:
       Keyboard (const Keyboard &copy); // Verhindere Kopieren
       Key key;
 public:
-      Keyboard ();
-      void plugin ();
-      void trigger ();
-
+	Keyboard ();
+	void plugin ();
+	void prologue ();
+	void epilogue ();
         
  };
 extern Keyboard keyboard;

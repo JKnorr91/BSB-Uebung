@@ -2,28 +2,18 @@
 /* Betriebssysteme                                                           */
 /*---------------------------------------------------------------------------*/
 /*                                                                           */
-/*                                 P A N I C                                 */
+/*                                  G A T E                                  */
 /*                                                                           */
 /*---------------------------------------------------------------------------*/
-/* Standard Unterbrechungsbehandlung.                                        */
+/* Klasse von Objekten, die in der Lage sind, Unterbrechungen zu behandeln.  */
 /*****************************************************************************/
-
-#ifndef __panic_include__
-#define __panic_include__
-
-/* INCLUDES */
 
 #include "guard/gate.h"
 
-class Panic : public Gate      
- {
-private:
-    Panic (const Panic &copy); // Verhindere Kopieren
-public:
-    Panic () {};
-    void prologue();
- };
+	void Gate::queued(bool q) {
+		
+	}
 
-extern Panic panic;
-#endif
-
+	bool Gate::queued() {
+		return false;
+	}
