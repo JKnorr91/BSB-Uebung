@@ -26,7 +26,7 @@ private:
 public:
 	Keyboard ();
 	void plugin ();
-	void prologue ();
+	bool prologue ();
 	void epilogue ();
         
  };

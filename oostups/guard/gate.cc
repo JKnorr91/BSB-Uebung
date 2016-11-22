@@ -10,10 +10,14 @@
 
 #include "guard/gate.h"
 
+	Gate::Gate() {
+		queued(false);
+	}
+
 	void Gate::queued(bool q) {
-		
+		isQueued = q;
 	}
 
 	bool Gate::queued() {
-		return false;
+		return isQueued;
 	}

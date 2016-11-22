@@ -21,7 +21,7 @@ private:
     Panic (const Panic &copy); // Verhindere Kopieren
 public:
     Panic () {};
-    void prologue();
+    bool prologue();
  };
 
 extern Panic panic;

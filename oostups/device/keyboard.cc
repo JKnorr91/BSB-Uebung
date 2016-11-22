@@ -19,7 +19,7 @@ void Keyboard::plugin (){
 	pic.allow(PIC::keyboard);
 }
 
-void Keyboard::prologue (){
+bool Keyboard::prologue (){
 	key = key_hit();
 	if(key.ctrl() && key.alt() && key.scancode() == Key::scan::del){
 		reboot();
@@ -28,6 +28,7 @@ void Keyboard::prologue (){
 		kout << key.ascii() << el;
 	}
 	//kout << "Keyboard::trigger()" << el;
+	return true;
 }
 
 void Keyboard::epilogue (){
