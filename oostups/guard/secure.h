@@ -15,6 +15,8 @@
 #ifndef __Secure_include__
 #define __Secure_include__
 
+#include "guard/guard.h"
+
 class Secure{
 private:
     Secure (const Secure &copy) {}
@@ -27,7 +29,7 @@ public:
 
 	inline
 	~Secure() {
-		guard.retne();
+		guard.leave();
 	}
 };
 #endif

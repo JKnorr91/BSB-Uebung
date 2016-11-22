@@ -7,6 +7,7 @@
 #include "device/keyboard.h"
 #include "machine/keyctrl.h"
 #include "user/appl.h"
+#include "guard/guard.h"
 
 CPU cpu;
 CGA_Stream kout;
@@ -16,6 +17,7 @@ Plugbox plugbox;
 Keyboard keyboard;
 Keyboard_Controller keyctl;
 Application app;
+Guard guard;
 
 int main()
 {

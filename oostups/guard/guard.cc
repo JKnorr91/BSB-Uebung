@@ -11,6 +11,15 @@
 /* auf den kritischen Abschnitt zugreifen.                                   */
 /*****************************************************************************/
 
-/* Hier muesst ihr selbst Code vervollstaendigen */ 
+#include "guard/guard.h"
 
+	Guard::Guard () {
+	}
+	
+	void Guard::leave () {
 
+	}
+
+	void Guard::relay (Gate* item) {
+
+	}

@@ -14,6 +14,7 @@
 #include "machine/plugbox.h"
 #include "device/panic.h"
 #include "device/keyboard.h"
+#include "guard/guard.h"
 /* FUNKTIONEN */
                
 extern "C" void guardian (unsigned int slot);
@@ -22,7 +23,11 @@ extern "C" void guardian (unsigned int slot);
  * Wird automatisch bei einem interrupt aufgerufen.
  * Muss den interrupt an die Interrupt-Behandlung weiterreichen.
  */
-void guardian (unsigned int slot)
- {
-	//plugbox.report(slot).trigger();
- }
+	void guardian (unsigned int slot)
+	{
+		Gate& gate = plugbox.report(slot);
+		bool needsEpilogue = gate.prologue();
+		if (needsEpilogue) {
+			guard.relay(&gate);
+		}
+	}

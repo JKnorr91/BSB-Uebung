@@ -11,7 +11,8 @@
 #include "guard/gate.h"
 
 	Gate::Gate() {
-		queued(false);
+		isQueued = false;
+		//queued(false);
 	}
 
 	void Gate::queued(bool q) {
