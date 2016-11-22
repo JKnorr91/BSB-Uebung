@@ -24,11 +24,12 @@
 		int x;
 		int y;
  		while (true) {
-			cpu.disable_int();
+			//cpu.disable_int();
 			kout.getpos(x, y);
 			kout.setpos(5, 10);
 			kout << output_num << el;
+			output_num++;
 			kout.setpos(x, y);
-			cpu.enable_int();
+			//cpu.enable_int();
 		}
  	}

@@ -22,6 +22,7 @@ class Guard : public Locker
  {
 private:
     Guard (const Guard &copy); // Verhindere Kopieren
+	Queue queue;
 public:
     Guard ();
 	

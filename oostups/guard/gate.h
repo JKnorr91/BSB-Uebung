@@ -12,8 +12,9 @@
 #define __Gate_include__
 #include "device/cgastr.h"
 #include "machine/cpu.h"
+#include "object/chain.h"
 
-class Gate{
+class Gate : public Chain {
 private:
     Gate (const Gate &copy) {}
 	bool isQueued;
