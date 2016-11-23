@@ -20,10 +20,10 @@
 	CGA_Screen::CGA_Screen():ctrl_port (0x3d4), data_port (0x3d5)
 	{
 		int i;
-		for (i = 0; i < 2080; i++){
+		for (i = 0; i < 26 * 80; i++){
 			atr_buffer[i] = 0x0f;
 		}
-		for (i = 0; i < 2080; i++){
+		for (i = 0; i < 26 * 80; i++){
 			scr_buffer[i] = ' ';
 		}
 	}
@@ -75,7 +75,7 @@
 		char *p = scr_buffer;
 		unsigned char *a = atr_buffer;
 		p = p + 80;
-		a = a+80;
+		a = a + 80;
 		for (i = 0; i < length; i++){
 			if (x < 80){
 				show(x++,y,*(p+i),*(a+i));
@@ -91,42 +91,27 @@
 		int i;
 		int x,y;
 		getpos(x,y);
-		for (i = 0;i < length; i++){
-				//Platz in der Zeile verfügbar
-				if(x<80){
-					if (text[i]!='\n'){
-						show(x++,y,text[i],attrib);
-					//Sonderbehandlung \n
-					}else{
-						show(x++,y,' ',attrib);
-						x=0;
-						y++;
-						if(y<24){
-							show(x,y,' ',attrib);
-						}else{
-							setpos(0,0);
-							reprint();
-							x=0;
-							y=24;
-						}
-					}
-				//neue Zeile
-				}else{
-					if(y<24){
-						x=0;
-						y++;
-						show(x++,y,text[i],attrib);
-					//neue Seite
-					}else{
-						setpos(0,0);
-						x=0;
-						y=24;
+		
+		for (i = 0; i < length; i++){
+			if (text[i] == '\n'){
+				show(x, y, ' ', attrib);
+				x = 0;
+				y++;
+				if (y >= 25) {
+					reprint();
+					y = 24;
+				}
+			} else {
+				show(x++, y, text[i], attrib);
+				if (x == 80) {
+					x = 0;
+					y++;
+					if (y >= 25) {
 						reprint();
-						if(text[i]!='\n'){
-							show(x++,y,text[i],attrib);
-						}
+						y = 24;
 					}
 				}
+			}
 		}
 		setpos(x,y);
 	}
