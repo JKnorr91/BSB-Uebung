@@ -31,5 +31,5 @@ extern "C" void guardian (unsigned int slot);
 		if (needsEpilogue) {
 			guard.relay(&gate);
 		}
-		cpu.enable_int();
+		//cpu.enable_int(); Automatisch
 	}
