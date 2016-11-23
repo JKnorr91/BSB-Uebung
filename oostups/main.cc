@@ -8,6 +8,7 @@
 #include "machine/keyctrl.h"
 #include "user/appl.h"
 #include "guard/guard.h"
+#include "user/debug.h"
 
 CPU cpu;
 CGA_Stream kout;
@@ -18,6 +19,7 @@ Keyboard keyboard;
 Keyboard_Controller keyctl;
 Application app;
 Guard guard;
+Debug debug;
 
 int main()
 {
@@ -28,7 +30,8 @@ int main()
 	cpu.enable_int();
 	kout << "interrupt System enabled" << endl;
 	keyboard.plugin();
-	kout << "Keyboard enabled" << endl;
+	kout << "Keyboard enabled" << endl << endl;
+	debug.out(0, 3, "Debug enabled");
 
 	/*int x = 1;
 	char text[9] = {'A','B','C','D','E','F','g','h','\n'};
@@ -40,6 +43,7 @@ int main()
 	kout << endl;
 	kout << &x << el;
 	kout << endl;*/
+
 
 	pic.allow(PIC::timer);
 	pic.forbid(PIC::timer);
