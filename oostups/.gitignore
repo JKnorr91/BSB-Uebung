@@ -1,2 +1,4 @@
 bochsout.txt
+dep/
+build/
 *.project
