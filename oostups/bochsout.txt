@@ -32,13 +32,13 @@
 00000000000i[     ]   SB16 support: no
 00000000000i[     ]   USB support: no
 00000000000i[     ]   VGA extension support: vbe 
-00000000000i[MEM0 ] allocated memory at 0x55d37008. after alignment, vector=0x55d38000
+00000000000i[MEM0 ] allocated memory at 0x55d6a008. after alignment, vector=0x55d6b000
 00000000000i[MEM0 ] 4,00MB
 00000000000i[MEM0 ] rom at 0xfffe0000/131072 ('/home/bsb/bochs/bios/BIOS-bochs-latest')
 00000000000i[MEM0 ] rom at 0xc0000/32768 ('/home/bsb/bochs/bios/VGABIOS-elpin-2.40')
 00000000000i[VTIME] using 'realtime pit' synchronization method
 00000000000i[CMOS ] Using local time for initial clock
-00000000000i[CMOS ] Setting initial clock to: Wed Nov 23 16:08:00 2016 (time0=1479913680)
+00000000000i[CMOS ] Setting initial clock to: Wed Nov 23 16:16:19 2016 (time0=1479914179)
 00000000000i[DMA  ] channel 4 used by cascade
 00000000000i[DMA  ] channel 2 used by Floppy Drive
 00000000000i[FDD  ] fd0: './build/bootdisk.img' ro=0, h=2,t=80,spt=18
@@ -93,84 +93,80 @@
 00000420000e[VGA  ] character height = 1, skipping text update
 00000504000e[VGA  ] character height = 1, skipping text update
 00000588000i[XGUI ] charmap update. Font Height is 16
-00001725125i[BIOS ] Booting from 0000:7C00
-00001870429i[FDD  ] partial read() on floppy image returns 136/512
-00001950437i[KBD  ] setting typematic info
-00001950496i[KBD  ] setting delay to 250 mS (unused)
-00001950496i[KBD  ] setting repeat rate to 5,0 cps (unused)
-00001951054i[KBD  ] setting typematic info
-00001951113i[KBD  ] setting delay to 250 mS (unused)
-00001951113i[KBD  ] setting repeat rate to 5,0 cps (unused)
-00471269680e[XGUI ] xkeypress(): keysym f6 unhandled!
-00472784760e[XGUI ] xkeypress(): keysym f6 unhandled!
-00477117480e[XGUI ] xkeypress(): keysym f6 unhandled!
-00479280760e[XGUI ] xkeypress(): keysym f6 unhandled!
-00482279280e[XGUI ] xkeypress(): keysym f6 unhandled!
-00483774760e[XGUI ] xkeypress(): keysym f6 unhandled!
-00492444960e[XGUI ] xkeypress(): keysym f6 unhandled!
-00492876160e[XGUI ] xkeypress(): keysym f6 unhandled!
-00535952760e[XGUI ] xkeypress(): keysym f6 unhandled!
-00538772080e[XGUI ] xkeypress(): keysym f6 unhandled!
-00552189960e[XGUI ] xkeypress(): keysym f6 unhandled!
-00554138480e[XGUI ] xkeypress(): keysym f6 unhandled!
-00569078440e[XGUI ] xkeypress(): keysym f6 unhandled!
-00570593520e[XGUI ] xkeypress(): keysym f6 unhandled!
-00580541080e[XGUI ] xkeypress(): keysym d6 unhandled!
-00582712760e[XGUI ] xkeypress(): keysym d6 unhandled!
-00586613160e[XGUI ] xkeypress(): keysym d6 unhandled!
-00588997920e[XGUI ] xkeypress(): keysym d6 unhandled!
-00609873880e[XGUI ] xkeypress(): keysym fc unhandled!
-00611610720e[XGUI ] xkeypress(): keysym fc unhandled!
-00616164640e[XGUI ] xkeypress(): keysym dc unhandled!
-00617658440e[XGUI ] xkeypress(): keysym dc unhandled!
-00621776400e[XGUI ] xkeypress(): keysym fc unhandled!
-00623729120e[XGUI ] xkeypress(): keysym fc unhandled!
-00628068000e[XGUI ] xkeypress(): keysym dc unhandled!
-00630019320e[XGUI ] xkeypress(): keysym dc unhandled!
-00633910760e[XGUI ] xkeypress(): keysym fc unhandled!
-00635865720e[XGUI ] xkeypress(): keysym fc unhandled!
-00640420760e[XGUI ] xkeypress(): keysym dc unhandled!
-00642807760e[XGUI ] xkeypress(): keysym dc unhandled!
-00647560760e[XGUI ] xkeypress(): keysym fc unhandled!
-00650162240e[XGUI ] xkeypress(): keysym fc unhandled!
-00654929240e[XGUI ] xkeypress(): keysym fc unhandled!
-00656874120e[XGUI ] xkeypress(): keysym fc unhandled!
-00668133760e[XGUI ] xkeypress(): keysym dc unhandled!
-00670732720e[XGUI ] xkeypress(): keysym dc unhandled!
-00677223120e[XGUI ] xkeypress(): keysym dc unhandled!
-00677653760e[XGUI ] xkeypress(): keysym dc unhandled!
-00688045960e[XGUI ] xkeypress(): keysym fc unhandled!
-00692161120e[XGUI ] xkeypress(): keysym fc unhandled!
-00694325240e[XGUI ] xkeypress(): keysym fc unhandled!
-00698854240e[XGUI ] xkeypress(): keysym fc unhandled!
-00700781480e[XGUI ] xkeypress(): keysym fc unhandled!
-00702495920e[XGUI ] xkeypress(): keysym dc unhandled!
-00707061040e[XGUI ] xkeypress(): keysym dc unhandled!
-00712250560e[XGUI ] xkeypress(): keysym dc unhandled!
-00714633080e[XGUI ] xkeypress(): keysym fc unhandled!
-00718103400e[XGUI ] xkeypress(): keysym dc unhandled!
-00721578760e[XGUI ] xkeypress(): keysym dc unhandled!
-00725275040e[XGUI ] xkeypress(): keysym fc unhandled!
-01044361640p[XGUI ] >>PANIC<< POWER button turned off.
-01044361640i[CPU  ] protected mode
-01044361640i[CPU  ] CS.d_b = 32 bit
-01044361640i[CPU  ] SS.d_b = 32 bit
-01044361640i[CPU  ] | EAX=0000000a  EBX=0000000f  ECX=00000034  EDX=0000000a
-01044361640i[CPU  ] | ESP=001059b0  EBP=001059f8  ESI=0000000b  EDI=00102d8c
-01044361640i[CPU  ] | IOPL=0 id vip vif ac vm rf nt of df IF tf sf zf AF pf cf
-01044361640i[CPU  ] | SEG selector     base    limit G D
-01044361640i[CPU  ] | SEG sltr(index|ti|rpl)     base    limit G D
-01044361640i[CPU  ] |  CS:0008( 0001| 0|  0) 00000000 000fffff 1 1
-01044361640i[CPU  ] |  DS:0010( 0002| 0|  0) 00000000 000fffff 1 1
-01044361640i[CPU  ] |  SS:0010( 0002| 0|  0) 00000000 000fffff 1 1
-01044361640i[CPU  ] |  ES:0010( 0002| 0|  0) 00000000 000fffff 1 1
-01044361640i[CPU  ] |  FS:0010( 0002| 0|  0) 00000000 000fffff 1 1
-01044361640i[CPU  ] |  GS:0010( 0002| 0|  0) 00000000 000fffff 1 1
-01044361640i[CPU  ] | EIP=001015bd (001015bd)
-01044361640i[CPU  ] | CR0=0x00000011 CR1=0 CR2=0x00000000
-01044361640i[CPU  ] | CR3=0x00000000 CR4=0x00000000
-01044361640i[CPU  ] >> call .+0xfffffcaa (0x0010126c) : E8AAFCFFFF
-01044361640i[CMOS ] Last time is 1479917409 (Wed Nov 23 17:10:09 2016)
-01044361640i[XGUI ] Exit.
-01044361640i[     ] restoring default signal behavior
-01044361640i[CTRL ] quit_sim called with exit code 1
+00001725126i[BIOS ] Booting from 0000:7C00
+00001870430i[FDD  ] partial read() on floppy image returns 40/512
+00001950438i[KBD  ] setting typematic info
+00001950497i[KBD  ] setting delay to 250 mS (unused)
+00001950497i[KBD  ] setting repeat rate to 5,0 cps (unused)
+00001951055i[KBD  ] setting typematic info
+00001951114i[KBD  ] setting delay to 250 mS (unused)
+00001951114i[KBD  ] setting repeat rate to 5,0 cps (unused)
+00124576480e[XGUI ] xkeypress(): keysym f6 unhandled!
+00126958720e[XGUI ] xkeypress(): keysym f6 unhandled!
+00130220720e[XGUI ] xkeypress(): keysym f6 unhandled!
+00131961760e[XGUI ] xkeypress(): keysym f6 unhandled!
+00187447960e[XGUI ] xkeypress(): keysym f6 unhandled!
+00197901480e[XGUI ] xkeypress(): keysym f6 unhandled!
+00201166840e[XGUI ] xkeypress(): keysym f6 unhandled!
+00203559720e[XGUI ] xkeypress(): keysym f6 unhandled!
+00216585320e[XGUI ] xkeypress(): keysym e4 unhandled!
+00218980160e[XGUI ] xkeypress(): keysym e4 unhandled!
+00323987160e[XGUI ] xkeypress(): keysym f6 unhandled!
+00325074400e[XGUI ] xkeypress(): keysym f6 unhandled!
+00336421400e[XGUI ] xkeypress(): keysym f6 unhandled!
+00337869280e[XGUI ] xkeypress(): keysym f6 unhandled!
+00341144160e[XGUI ] xkeypress(): keysym f6 unhandled!
+00344625400e[XGUI ] xkeypress(): keysym f6 unhandled!
+00347661160e[XGUI ] xkeypress(): keysym f6 unhandled!
+00349842920e[XGUI ] xkeypress(): keysym f6 unhandled!
+00353553480e[XGUI ] xkeypress(): keysym f6 unhandled!
+00357261240e[XGUI ] xkeypress(): keysym f6 unhandled!
+00360734640e[XGUI ] xkeypress(): keysym f6 unhandled!
+00363570200e[XGUI ] xkeypress(): keysym f6 unhandled!
+00366406040e[XGUI ] xkeypress(): keysym f6 unhandled!
+00368803120e[XGUI ] xkeypress(): keysym f6 unhandled!
+00371636160e[XGUI ] xkeypress(): keysym f6 unhandled!
+00374892000e[XGUI ] xkeypress(): keysym f6 unhandled!
+00377945680e[XGUI ] xkeypress(): keysym f6 unhandled!
+00381435320e[XGUI ] xkeypress(): keysym f6 unhandled!
+00384706560e[XGUI ] xkeypress(): keysym f6 unhandled!
+00387507680e[XGUI ] xkeypress(): keysym f6 unhandled!
+00390772200e[XGUI ] xkeypress(): keysym f6 unhandled!
+00393823640e[XGUI ] xkeypress(): keysym f6 unhandled!
+00397314120e[XGUI ] xkeypress(): keysym f6 unhandled!
+00399913080e[XGUI ] xkeypress(): keysym f6 unhandled!
+00403395720e[XGUI ] xkeypress(): keysym f6 unhandled!
+00406011200e[XGUI ] xkeypress(): keysym f6 unhandled!
+00410371080e[XGUI ] xkeypress(): keysym f6 unhandled!
+00412974240e[XGUI ] xkeypress(): keysym f6 unhandled!
+00504877520e[XGUI ] xkeypress(): keysym f6 unhandled!
+00506400720e[XGUI ] xkeypress(): keysym f6 unhandled!
+00511833280e[XGUI ] xkeypress(): keysym f6 unhandled!
+00513357600e[XGUI ] xkeypress(): keysym f6 unhandled!
+00517712440e[XGUI ] xkeypress(): keysym f6 unhandled!
+00519456560e[XGUI ] xkeypress(): keysym f6 unhandled!
+00523801880e[XGUI ] xkeypress(): keysym f6 unhandled!
+00525760200e[XGUI ] xkeypress(): keysym f6 unhandled!
+00580783280p[XGUI ] >>PANIC<< POWER button turned off.
+00580783280i[CPU  ] protected mode
+00580783280i[CPU  ] CS.d_b = 32 bit
+00580783280i[CPU  ] SS.d_b = 32 bit
+00580783280i[CPU  ] | EAX=00106cf4  EBX=00000010  ECX=0000032a  EDX=000003d5
+00580783280i[CPU  ] | ESP=001059a0  EBP=001059b8  ESI=00014c00  EDI=00102d8c
+00580783280i[CPU  ] | IOPL=0 id vip vif ac vm rf nt of df IF tf sf zf af PF cf
+00580783280i[CPU  ] | SEG selector     base    limit G D
+00580783280i[CPU  ] | SEG sltr(index|ti|rpl)     base    limit G D
+00580783280i[CPU  ] |  CS:0008( 0001| 0|  0) 00000000 000fffff 1 1
+00580783280i[CPU  ] |  DS:0010( 0002| 0|  0) 00000000 000fffff 1 1
+00580783280i[CPU  ] |  SS:0010( 0002| 0|  0) 00000000 000fffff 1 1
+00580783280i[CPU  ] |  ES:0010( 0002| 0|  0) 00000000 000fffff 1 1
+00580783280i[CPU  ] |  FS:0010( 0002| 0|  0) 00000000 000fffff 1 1
+00580783280i[CPU  ] |  GS:0010( 0002| 0|  0) 00000000 000fffff 1 1
+00580783280i[CPU  ] | EIP=00102552 (00102552)
+00580783280i[CPU  ] | CR0=0x00000011 CR1=0 CR2=0x00000000
+00580783280i[CPU  ] | CR3=0x00000000 CR4=0x00000000
+00580783280i[CPU  ] >> leave  : C9
+00580783280i[CMOS ] Last time is 1479916253 (Wed Nov 23 16:50:53 2016)
+00580783280i[XGUI ] Exit.
+00580783280i[     ] restoring default signal behavior
+00580783280i[CTRL ] quit_sim called with exit code 1

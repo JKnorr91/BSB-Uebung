@@ -26,11 +26,10 @@ extern "C" void guardian (unsigned int slot);
  */
 	void guardian (unsigned int slot)
 	{
-		cpu.disable_int();
 		Gate& gate = plugbox.report(slot);
 		bool needsEpilogue = gate.prologue();
-		cpu.enable_int();
 		if (needsEpilogue) {
 			guard.relay(&gate);
 		}
+		cpu.enable_int();
 	}

@@ -23,8 +23,8 @@
 		cpu.enable_int();
 
 		while (gate) {
-			gate -> queued(false);
 			gate -> epilogue();
+			gate -> queued(false);
 			
 			cpu.disable_int();
 			gate = (Gate*) queue.dequeue();
@@ -35,9 +35,10 @@
 
 	void Guard::relay (Gate* item) {
 		if (avail()) {
-			{ Secure section;
-				item -> epilogue();
-			}
+			enter();
+			cpu.enable_int();
+			item -> epilogue();
+			leave();
 		} else if (!item -> queued()) {
 			item -> queued(true);
 			queue.enqueue(item);
