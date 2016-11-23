@@ -25,11 +25,10 @@ int main()
 	kout << endl;
 	kout.setpos(0,0);
 	kout << "CGA System loaded" << endl;
-	cpu.enable_int();
-	kout << "interrupt System enabled" << endl;
 	keyboard.plugin();
 	kout << "Keyboard enabled" << endl;
-
+	cpu.enable_int();
+	kout << "interrupt System enabled" << endl;
 	/*int x = 1;
 	char text[9] = {'A','B','C','D','E','F','g','h','\n'};
 	while (x<1) {
