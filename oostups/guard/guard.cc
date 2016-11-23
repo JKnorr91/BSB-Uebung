@@ -12,24 +12,33 @@
 /*****************************************************************************/
 
 #include "guard/guard.h"
+#include "guard/secure.h"
 
 	Guard::Guard () {
 	}
 	
 	void Guard::leave () {
+		cpu.disable_int();
 		Gate* gate = (Gate*) queue.dequeue();
+		cpu.enable_int();
+
 		while (gate) {
 			gate -> queued(false);
 			gate -> epilogue();
+			
+			cpu.disable_int();
 			gate = (Gate*) queue.dequeue();
+			cpu.enable_int();
 		}
 		retne();
 	}
 
 	void Guard::relay (Gate* item) {
 		if (avail()) {
-			item -> epilogue();
-		} else {
+			{ Secure section;
+				item -> epilogue();
+			}
+		} else if (!item -> queued()) {
 			item -> queued(true);
 			queue.enqueue(item);
 		}
