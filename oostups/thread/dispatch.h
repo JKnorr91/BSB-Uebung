@@ -23,5 +23,10 @@ private:
       Dispatcher(const Dispatcher &copy); // Verhindere Kopieren
 /* Hier muesst ihr selbst Code vervollstaendigen */ 
  };
+public:
+void go (Coroutine& first);
+void dispatch (Coroutine& next);
+Coroutine* active ();
+
 
 #endif

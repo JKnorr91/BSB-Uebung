@@ -25,7 +25,13 @@ class Coroutine
  {
 private:
       Coroutine(const Coroutine &copy); // Verhindere Kopieren
-/* Hier muesst ihr selbst Code vervollstaendigen */     
+/* Hier muesst ihr selbst Code vervollstaendigen */
+
+public:
+      Coroutine (void* tos);
+      void go ();
+      void resume (Coroutine& next);
+      virtual void action () = 0;
  };
 
 #endif

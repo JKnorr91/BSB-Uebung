@@ -24,9 +24,16 @@
 ; TOC_GO : Startet den ersten Prozess ueberhaupt.
 ;
 ; C Prototyp: void toc_go (struct toc* regs);
-
 toc_go:
-; Hier muesst ihr selbst Code vervollstaendigen         
+; Hier muesst ihr selbst Code vervollstaendigen
+;ebx_offset
+;esi_offset
+;edi_offset
+;ebp_offset
+;esp_offset
+
+mov ebx, ebx_offset
+
 
 ; TOC_SWITCH : Prozessumschaltung. Der aktuelle Registersatz wird     
 ;              gesichert und der Registersatz des neuen "thread of control"
@@ -34,6 +41,5 @@ toc_go:
 ;
 ; C Prototyp: void toc_switch (struct toc* regs_now,
 ;                              struct toc* reg_then);
-
 toc_switch:
 ; Hier muesst ihr selbst Code vervollstaendigen 

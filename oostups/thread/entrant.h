@@ -18,7 +18,9 @@ class Entrant
  {
 private:
       Entrant (const Entrant &copy); // Verhindere Kopieren
-/* Hier muesst ihr selbst Code vervollstaendigen */          
+/* Hier muesst ihr selbst Code vervollstaendigen */
+public:
+      Entrant (void* tos);
  };
 
 #endif

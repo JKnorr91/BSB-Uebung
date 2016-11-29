@@ -20,7 +20,13 @@ class Scheduler
 private:
       Scheduler (const Scheduler &copy); // Verhindere Kopieren
 /* Hier muesst ihr selbst Code vervollstaendigen */ 
- 
+public:
+
+      void ready (Entrant& that);
+      void schedule ();
+      void exit ();
+      void kill (Entrant& that);
+      void resume ();
  };
 
 #endif

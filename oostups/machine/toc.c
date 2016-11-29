@@ -22,5 +22,9 @@
 void toc_settle (struct toc* regs, void* tos, void (*kickoff)(void*),
 		 void* object)
  {
-/* Hier muesst ihr selbst Code vervollstaendigen */          
+	/* Hier muesst ihr selbst Code vervollstaendigen */
+
+
+
+	kickoff(object);
  }
