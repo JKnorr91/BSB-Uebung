@@ -23,5 +23,7 @@ Anderenfalls würde ein sinnloser Wert als Rücksprungadresse interpretiert werd
 der Rechner abstürzen.
 */
 void kickoff (Coroutine* object){
+
 	object->action();
+	while (true) {}
 }

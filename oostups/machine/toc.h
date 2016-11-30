@@ -27,6 +27,7 @@
 
 // TOC: ("thread of control")
 //
+
 struct toc
  {
       void *ebx;
@@ -37,4 +38,3 @@ struct toc
  };
 
 #endif
-

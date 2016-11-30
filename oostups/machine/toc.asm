@@ -26,15 +26,15 @@
 ; C Prototyp: void toc_go (struct toc* regs);
 toc_go:
 ; Hier muesst ihr selbst Code vervollstaendigen
-;ebx_offset
-;esi_offset
-;edi_offset
-;ebp_offset
-;esp_offset
-
-mov ebx, ebx_offset
-
-
+	;push ebp
+	;mov  ebp,esp
+	mov ebx, [esp+ebx_offset]
+	mov esi, [esp+esi_offset]
+	mov edi, [esp+edi_offset]
+	mov ebp, [esp+ebp_offset]
+	mov esp, [esp+esp_offset]
+	;pop ebp
+ret
 ; TOC_SWITCH : Prozessumschaltung. Der aktuelle Registersatz wird     
 ;              gesichert und der Registersatz des neuen "thread of control"
 ;              wird in den Prozessor eingelesen.  
@@ -42,4 +42,24 @@ mov ebx, ebx_offset
 ; C Prototyp: void toc_switch (struct toc* regs_now,
 ;                              struct toc* reg_then);
 toc_switch:
-; Hier muesst ihr selbst Code vervollstaendigen 
+; Hier muesst ihr selbst Code vervollstaendigen
+	mov [esp+ebx_offset],esp
+	mov [esp+esi_offset],esi
+	mov [esp+edi_offset],edi
+	mov [esp+ebp_offset],ebp
+	mov [esp+esp_offset],esp
+
+	add esp, 4
+	mov ebx, [esp+ebx_offset]
+	mov esi, [esp+esi_offset]
+	mov edi, [esp+edi_offset]
+	mov ebp, [esp+ebp_offset]
+	mov esp, [esp+esp_offset]
+
+
+
+
+
+
+
+
