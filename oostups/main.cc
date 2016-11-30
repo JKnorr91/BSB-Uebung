@@ -17,9 +17,14 @@ Panic panic;
 Plugbox plugbox;
 Keyboard keyboard;
 Keyboard_Controller keyctl;
-Application app;
 Guard guard;
 Debug debug;
+
+char stack1[1024];
+Application app1(stack1+1023);
+
+char stack2[1024];
+Application app2(stack2+1023);
 
 int main()
 {
@@ -47,7 +52,7 @@ int main()
 	pic.allow(PIC::timer);
 	pic.forbid(PIC::timer);
 
-	app.action();
+	//app1.action();
 
 	while (true);//Endlosschleife um System am laufen zu halten. Interrupts passieren trotzde
    return 0;

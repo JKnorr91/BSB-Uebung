@@ -11,8 +11,9 @@
 #ifndef __application_include__
 #define __application_include__
 
-class Application 
- 
+#include "thread/coroutine.h"
+
+class Application : public Coroutine
  {
 private:
     Application (const Application &copy); // Verhindere Kopieren
@@ -20,7 +21,7 @@ private:
 public:                
 	int output_num;
 
-	Application();
+	Application(void* tos);
 
     void action ();
 

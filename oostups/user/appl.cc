@@ -15,8 +15,7 @@
 #include "machine/cpu.h"
 #include "guard/secure.h"
 
-	Application::Application() {
-		output_num = 123;
+	Application::Application(void *tos) :  Coroutine(tos) {
 	}
 
 
