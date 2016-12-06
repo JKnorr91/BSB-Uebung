@@ -30,11 +30,11 @@
 
 struct toc
  {
-      void *ebx;
-      void *esi;
-      void *edi;
-      void *ebp;
-      void *esp;
+      void *ebx; //allgemein
+      void *esi; //Quelle Stringoperationen
+      void *edi; //Ziel Stringoperationen 
+      void *ebp; //Basepointer
+      void *esp; //Stackpointer (Top of Stack)
  };
 
 #endif

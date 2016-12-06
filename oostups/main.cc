@@ -51,7 +51,7 @@ int main()
 	kout << &x << el;
 	kout << endl;*/
 
-	//app1.go();
+	app1.go();
 
 	while (true);//Endlosschleife um System am laufen zu halten. Interrupts passieren trotzde
    return 0;

@@ -21,6 +21,14 @@
 //             Aufruf vor.
 void toc_settle (struct toc* regs, void* tos, void (*kickoff)(void*), void* object)
  {
-	/* Hier muesst ihr selbst Code vervollstao	endigen */
-
+	/* Hier muesst ihr selbst Code vervollstaendigen */
+	regs->ebp = tos;
+	//object
+	void register **tos2 = tos;
+	*tos2 = object;
+	//kickoff
+	tos2--;
+	*tos2 = kickoff;
+	//tos setzen
+	regs->esp = tos2;
  }
