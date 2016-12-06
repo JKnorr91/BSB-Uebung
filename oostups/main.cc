@@ -37,6 +37,9 @@ int main()
 	cpu.enable_int();
 	kout << "interrupt System enabled" << endl << endl;
 	debug.out(0, 3, "Debug enabled");
+	//pic.allow(PIC::timer);
+	//pic.forbid(PIC::timer);
+	
 	/*int x = 1;
 	char text[9] = {'A','B','C','D','E','F','g','h','\n'};
 	while (x<1) {
@@ -48,11 +51,7 @@ int main()
 	kout << &x << el;
 	kout << endl;*/
 
-
-	pic.allow(PIC::timer);
-	pic.forbid(PIC::timer);
-
-	//app1.action();
+	//app1.go();
 
 	while (true);//Endlosschleife um System am laufen zu halten. Interrupts passieren trotzde
    return 0;

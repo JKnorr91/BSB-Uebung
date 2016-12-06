@@ -4,4 +4,4 @@ build/main.o: main.cc device/cgastr.h object/strbuf.h object/o_stream.h \
  machine/plugbox.h device/keyboard.h machine/keyctrl.h machine/key.h \
  machine/plugbox.h machine/pic.h machine/keyctrl.h user/appl.h \
  thread/coroutine.h machine/toc.h guard/guard.h guard/locker.h \
- object/queue.h user/debug.h thread/coroutine.h
+ object/queue.h user/debug.h

@@ -24,6 +24,7 @@
 class Coroutine
  {
 private:
+      struct toc *regs;
       Coroutine(const Coroutine &copy); // Verhindere Kopieren
 /* Hier muesst ihr selbst Code vervollstaendigen */
 
@@ -33,5 +34,7 @@ public:
       void resume (Coroutine& next);
       virtual void action () = 0;
  };
+ 
+void kickoff (Coroutine *object);
 
 #endif
