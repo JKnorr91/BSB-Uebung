@@ -32,13 +32,13 @@
 00000000000i[     ]   SB16 support: no
 00000000000i[     ]   USB support: no
 00000000000i[     ]   VGA extension support: vbe 
-00000000000i[MEM0 ] allocated memory at 0x55ddc008. after alignment, vector=0x55ddd000
+00000000000i[MEM0 ] allocated memory at 0x55e0d008. after alignment, vector=0x55e0e000
 00000000000i[MEM0 ] 4,00MB
 00000000000i[MEM0 ] rom at 0xfffe0000/131072 ('/home/bsb/bochs/bios/BIOS-bochs-latest')
 00000000000i[MEM0 ] rom at 0xc0000/32768 ('/home/bsb/bochs/bios/VGABIOS-elpin-2.40')
 00000000000i[VTIME] using 'realtime pit' synchronization method
 00000000000i[CMOS ] Using local time for initial clock
-00000000000i[CMOS ] Setting initial clock to: Tue Dec  6 04:45:40 2016 (time0=1480995940)
+00000000000i[CMOS ] Setting initial clock to: Tue Dec  6 16:28:24 2016 (time0=1481038104)
 00000000000i[DMA  ] channel 4 used by cascade
 00000000000i[DMA  ] channel 2 used by Floppy Drive
 00000000000i[FDD  ] fd0: './build/bootdisk.img' ro=0, h=2,t=80,spt=18
@@ -93,36 +93,38 @@
 00000420000e[VGA  ] character height = 1, skipping text update
 00000504000e[VGA  ] character height = 1, skipping text update
 00000588000i[XGUI ] charmap update. Font Height is 16
-00001725124i[BIOS ] Booting from 0000:7C00
-00001863138i[FDD  ] partial read() on floppy image returns 272/512
-00001950788i[KBD  ] setting typematic info
-00001950840i[KBD  ] setting delay to 250 mS (unused)
-00001950840i[KBD  ] setting repeat rate to 5,0 cps (unused)
-00001951334i[KBD  ] setting typematic info
-00001951386i[KBD  ] setting delay to 250 mS (unused)
-00001951386i[KBD  ] setting repeat rate to 5,0 cps (unused)
-00224806120e[XGUI ] xkeypress(): keysym f6 unhandled!
-00229107760e[XGUI ] xkeypress(): keysym f6 unhandled!
-00463482600p[XGUI ] >>PANIC<< POWER button turned off.
-00463482600i[CPU  ] protected mode
-00463482600i[CPU  ] CS.d_b = 32 bit
-00463482600i[CPU  ] SS.d_b = 32 bit
-00463482600i[CPU  ] | EAX=00000000  EBX=00000010  ECX=000000fc  EDX=00000020
-00463482600i[CPU  ] | ESP=00105700  EBP=00105718  ESI=00014800  EDI=00102d14
-00463482600i[CPU  ] | IOPL=0 id vip vif ac vm rf nt of df IF tf sf ZF af PF cf
-00463482600i[CPU  ] | SEG selector     base    limit G D
-00463482600i[CPU  ] | SEG sltr(index|ti|rpl)     base    limit G D
-00463482600i[CPU  ] |  CS:0008( 0001| 0|  0) 00000000 000fffff 1 1
-00463482600i[CPU  ] |  DS:0010( 0002| 0|  0) 00000000 000fffff 1 1
-00463482600i[CPU  ] |  SS:0010( 0002| 0|  0) 00000000 000fffff 1 1
-00463482600i[CPU  ] |  ES:0010( 0002| 0|  0) 00000000 000fffff 1 1
-00463482600i[CPU  ] |  FS:0010( 0002| 0|  0) 00000000 000fffff 1 1
-00463482600i[CPU  ] |  GS:0010( 0002| 0|  0) 00000000 000fffff 1 1
-00463482600i[CPU  ] | EIP=00100c81 (00100c81)
-00463482600i[CPU  ] | CR0=0x00000011 CR1=0 CR2=0x00000000
-00463482600i[CPU  ] | CR3=0x00000000 CR4=0x00000000
-00463482600i[CPU  ] >> jmp .+0xfffffffe (0x00100c81) : EBFE
-00463482600i[CMOS ] Last time is 1480997595 (Tue Dec  6 05:13:15 2016)
-00463482600i[XGUI ] Exit.
-00463482600i[     ] restoring default signal behavior
-00463482600i[CTRL ] quit_sim called with exit code 1
+00001725125i[BIOS ] Booting from 0000:7C00
+00001863139i[FDD  ] partial read() on floppy image returns 432/512
+00001950789i[KBD  ] setting typematic info
+00001950841i[KBD  ] setting delay to 250 mS (unused)
+00001950841i[KBD  ] setting repeat rate to 5,0 cps (unused)
+00001951335i[KBD  ] setting typematic info
+00001951387i[KBD  ] setting delay to 250 mS (unused)
+00001951387i[KBD  ] setting repeat rate to 5,0 cps (unused)
+00093383920e[XGUI ] xkeypress(): keysym e4 unhandled!
+00095420360e[XGUI ] xkeypress(): keysym e4 unhandled!
+00143520440e[XGUI ] xkeypress(): keysym f6 unhandled!
+00147189560e[XGUI ] xkeypress(): keysym f6 unhandled!
+00281482320p[XGUI ] >>PANIC<< POWER button turned off.
+00281482320i[CPU  ] protected mode
+00281482320i[CPU  ] CS.d_b = 32 bit
+00281482320i[CPU  ] SS.d_b = 32 bit
+00281482320i[CPU  ] | EAX=00000000  EBX=00000010  ECX=000000fc  EDX=00000020
+00281482320i[CPU  ] | ESP=001057a0  EBP=001057b8  ESI=00014800  EDI=00102d5c
+00281482320i[CPU  ] | IOPL=0 id vip vif ac vm rf nt of df IF tf sf ZF af PF cf
+00281482320i[CPU  ] | SEG selector     base    limit G D
+00281482320i[CPU  ] | SEG sltr(index|ti|rpl)     base    limit G D
+00281482320i[CPU  ] |  CS:0008( 0001| 0|  0) 00000000 000fffff 1 1
+00281482320i[CPU  ] |  DS:0010( 0002| 0|  0) 00000000 000fffff 1 1
+00281482320i[CPU  ] |  SS:0010( 0002| 0|  0) 00000000 000fffff 1 1
+00281482320i[CPU  ] |  ES:0010( 0002| 0|  0) 00000000 000fffff 1 1
+00281482320i[CPU  ] |  FS:0010( 0002| 0|  0) 00000000 000fffff 1 1
+00281482320i[CPU  ] |  GS:0010( 0002| 0|  0) 00000000 000fffff 1 1
+00281482320i[CPU  ] | EIP=00100c81 (00100c81)
+00281482320i[CPU  ] | CR0=0x00000011 CR1=0 CR2=0x00000000
+00281482320i[CPU  ] | CR3=0x00000000 CR4=0x00000000
+00281482320i[CPU  ] >> jmp .+0xfffffffe (0x00100c81) : EBFE
+00281482320i[CMOS ] Last time is 1481039109 (Tue Dec  6 16:45:09 2016)
+00281482320i[XGUI ] Exit.
+00281482320i[     ] restoring default signal behavior
+00281482320i[CTRL ] quit_sim called with exit code 1

@@ -33,6 +33,7 @@ public:
       void go ();
       void resume (Coroutine& next);
       virtual void action () = 0;
+      struct toc* getregs();
  };
  
 void kickoff (Coroutine *object);

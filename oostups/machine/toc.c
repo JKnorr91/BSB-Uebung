@@ -23,5 +23,4 @@ void toc_settle (struct toc* regs, void* tos, void (*kickoff)(void*), void* obje
  {
 	/* Hier muesst ihr selbst Code vervollstao	endigen */
 
-
  }
