@@ -28,11 +28,12 @@ toc_go:
 ; Hier muesst ihr selbst Code vervollstaendigen
 	;push ebp
 	;mov  ebp,esp
-	mov ebx, [esp+ebx_offset]
-	mov esi, [esp+esi_offset]
-	mov edi, [esp+edi_offset]
-	mov ebp, [esp+ebp_offset]
-	mov esp, [esp+esp_offset]
+	mov eax, [esp+4]
+	mov ebx, [eax+ebx_offset]
+	mov esi, [eax+esi_offset]
+	mov edi, [eax+edi_offset]
+	mov esp, [eax+esp_offset]
+	mov ebp, [eax+ebp_offset]
 	;pop ebp
 ret
 ; TOC_SWITCH : Prozessumschaltung. Der aktuelle Registersatz wird     
