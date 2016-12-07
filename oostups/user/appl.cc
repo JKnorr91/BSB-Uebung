@@ -30,7 +30,9 @@
 
 				kout.getpos(a, b);
 				kout.setpos(5, 5);
-				kout << id <<el;
+				kout << "Ich: " << id << ", x=" << x <<el;
+				kout.setpos(5, 6);
+				kout << "Next: " << next->id << ", x=" << next->x <<el;
 				kout.setpos(x, y);
 				kout << output_num << el;
 				output_num++;

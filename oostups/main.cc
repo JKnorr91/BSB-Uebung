@@ -20,13 +20,11 @@ Keyboard_Controller keyctl;
 Guard guard;
 Debug debug;
 
-char stack2[1024];
-Application app2(stack2+1023, 2,40,10);
-
 char stack1[1024];
 Application app1(stack1+1023, 1,10,10);
 
-
+char stack2[1024];
+Application app2(stack2+1023, 2,40,10);
 
 int main()
 {
@@ -50,13 +48,10 @@ int main()
 	
 	kout << &app1 <<"   " << &app2 << endl;
 
-	 kout << app1.x<<endl;
-	 kout << app2.x<<endl;
-
 	 app1.next =&app2;
 	 app2.next =&app1;
-	//app1.go();
-	app2.go();
+	app1.go();
+	//app2.go();
 
 	while (true);//Endlosschleife um System am laufen zu halten. Interrupts passieren trotzde
    return 0;
