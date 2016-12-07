@@ -27,22 +27,19 @@
 		int b;
  		while (true) {
 			{Secure section;
-
 				kout.getpos(a, b);
-				kout.setpos(5, 5);
+
+				kout.setpos(5, 5 * id);
 				kout << "Ich: " << id << ", x=" << x <<el;
-				kout.setpos(5, 6);
+				kout.setpos(5, 6 * id);
 				kout << "Next: " << next->id << ", x=" << next->x <<el;
+
 				kout.setpos(x, y);
 				kout << output_num << el;
+
 				output_num++;
 				kout.setpos(a, b);
-				resume(*next);
 			}
-			//cpu.disable_int();
-			//kout.getpos(x, y);
-			
-			//kout.setpos(x, y);
-			//cpu.enable_int();
+			resume(*next);
 		}
  	}

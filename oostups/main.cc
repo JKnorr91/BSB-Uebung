@@ -21,10 +21,10 @@ Guard guard;
 Debug debug;
 
 char stack1[1024];
-Application app1(stack1+1023, 1,10,10);
+Application app1(stack1+1020, 1,10,10);
 
 char stack2[1024];
-Application app2(stack2+1023, 2,40,10);
+Application app2(stack2+1020, 2,40,10);
 
 int main()
 {

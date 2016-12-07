@@ -22,11 +22,11 @@ private:
 public:                
 	int output_num;
     int id, x,y;
-	Application(void* tos, int id, int x, int y);
     Application *next;
+
+	Application(void* tos, int id, int x, int y);
     void action ();
 
  };
-extern Application app;
 
 #endif

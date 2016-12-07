@@ -15,6 +15,7 @@
 /*****************************************************************************/
 
 #include "thread/coroutine.h"
+#include "device/cgastr.h"
 //#include "thread/kickoff.cc"
 
 // Funktionen, die auf der Assembler-Ebene implementiert werden, muessen als
@@ -36,7 +37,8 @@ void Coroutine::go(){
 }
 
 void Coroutine::resume (Coroutine& next){
-    toc_switch(regs,next.getregs());
+	//kout << "Coroutine::resume" << el;
+    toc_switch(getregs(), next.getregs());
 }
 
 struct toc* Coroutine::getregs(){
