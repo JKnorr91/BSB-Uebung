@@ -20,11 +20,11 @@ Keyboard_Controller keyctl;
 Guard guard;
 Debug debug;
 
-char stack1[1024];
-Application app1(stack1+1020, 1,10,10);
+char stack1[4096];
+Application app1(stack1+4092, 1,10,10);
 
-char stack2[1024];
-Application app2(stack2+1020, 2,40,10);
+char stack2[4096];
+Application app2(stack2+4092, 2,40,10);
 
 int main()
 {
@@ -46,10 +46,12 @@ int main()
 	//pic.allow(PIC::timer);
 	//pic.forbid(PIC::timer);
 	
-	kout << &app1 <<"   " << &app2 << endl;
+	kout << "&app1=" << &app1 <<"   " << "&app2=" << &app2 << endl;
 
-	 app1.next =&app2;
-	 app2.next =&app1;
+	 app1.next = &app2;
+	 app2.next = &app1;
+	//kout << "esp1=" << app1.regs.esp << "; esp2=" << app2.regs.esp << endl;
+	
 	app1.go();
 	//app2.go();
 

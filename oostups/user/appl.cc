@@ -15,7 +15,7 @@
 #include "machine/cpu.h"
 #include "guard/secure.h"
 
-	Application::Application(void *tos, int idIn, int xin, int yin) :  Coroutine(tos) {
+	Application::Application(void* tos, int idIn, int xin, int yin) :  Coroutine(tos) {
 		id = idIn;
 		x=xin;
 		y=yin;
@@ -29,10 +29,10 @@
 			{Secure section;
 				kout.getpos(a, b);
 
-				kout.setpos(5, 5 * id);
+				/*kout.setpos(5, 5);
 				kout << "Ich: " << id << ", x=" << x <<el;
-				kout.setpos(5, 6 * id);
-				kout << "Next: " << next->id << ", x=" << next->x <<el;
+				kout.setpos(5, 6);
+				kout << "Next: " << next->id << ", x=" << next->x <<el;*/
 
 				kout.setpos(x, y);
 				kout << output_num << el;
