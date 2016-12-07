@@ -20,11 +20,13 @@ Keyboard_Controller keyctl;
 Guard guard;
 Debug debug;
 
-char stack1[1024];
-Application app1(stack1+1023);
-
 char stack2[1024];
-Application app2(stack2+1023);
+Application app2(stack2+1023, 2,40,10);
+
+char stack1[1024];
+Application app1(stack1+1023, 1,10,10);
+
+
 
 int main()
 {
@@ -37,21 +39,24 @@ int main()
 	cpu.enable_int();
 	kout << "interrupt System enabled" << endl << endl;
 	debug.out(0, 3, "Debug enabled");
+
+	/*kout<< " -"<< (void*)stack1 << "-      -" << (void*)(stack1+1023)<<"-" <<endl;
+
+	int** ebp = (int**) app1.getregs()->ebp;
+	kout<< "-"<< ebp <<endl;;
+	*/
 	//pic.allow(PIC::timer);
 	//pic.forbid(PIC::timer);
 	
-	/*int x = 1;
-	char text[9] = {'A','B','C','D','E','F','g','h','\n'};
-	while (x<1) {
-		kout.print(text,8,0x02);
-		x++;
-	}
-	kout << 456451239 << " Test\n" << "Next \nline!" << oct << 128 << " - " << hex << 128 << " - " << bin << 128 << " - " << dec << 128 << el;
-	kout << endl;
-	kout << &x << el;
-	kout << endl;*/
+	kout << &app1 <<"   " << &app2 << endl;
 
-	app1.go();
+	 kout << app1.x<<endl;
+	 kout << app2.x<<endl;
+
+	 app1.next =&app2;
+	 app2.next =&app1;
+	//app1.go();
+	app2.go();
 
 	while (true);//Endlosschleife um System am laufen zu halten. Interrupts passieren trotzde
    return 0;

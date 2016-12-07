@@ -29,6 +29,7 @@ toc_go:
 	;push ebp
 	;mov  ebp,esp
 	mov eax, [esp+4]
+
 	mov ebx, [eax+ebx_offset]
 	mov esi, [eax+esi_offset]
 	mov edi, [eax+edi_offset]
@@ -44,18 +45,20 @@ ret
 ;                              struct toc* reg_then);
 toc_switch:
 ; Hier muesst ihr selbst Code vervollstaendigen
-	mov [esp+ebx_offset],esp
-	mov [esp+esi_offset],esi
-	mov [esp+edi_offset],edi
-	mov [esp+ebp_offset],ebp
-	mov [esp+esp_offset],esp
+	mov eax, [esp+4]
+	mov ecx, [esp+8]
+	
+	mov [eax+ebx_offset],ebx
+	mov [eax+esi_offset],esi
+	mov [eax+edi_offset],edi
+	mov [eax+ebp_offset],ebp
+	mov [eax+esp_offset],esp
 
-	add esp, 4
-	mov ebx, [esp+ebx_offset]
-	mov esi, [esp+esi_offset]
-	mov edi, [esp+edi_offset]
-	mov ebp, [esp+ebp_offset]
-	mov esp, [esp+esp_offset]
+	mov ebx, [ecx+ebx_offset]
+	mov esi, [ecx+esi_offset]
+	mov edi, [ecx+edi_offset]
+	mov ebp, [ecx+ebp_offset]
+	mov esp, [ecx+esp_offset]
 
 
 

@@ -15,22 +15,27 @@
 #include "machine/cpu.h"
 #include "guard/secure.h"
 
-	Application::Application(void *tos) :  Coroutine(tos) {
+	Application::Application(void *tos, int idIn, int xin, int yin) :  Coroutine(tos) {
+		id = idIn;
+		x=xin;
+		y=yin;
 	}
-
 
 	void Application::action ()
  	{
-		int x;
-		int y;
+		int a;
+		int b;
  		while (true) {
 			{Secure section;
 
-				kout.getpos(x, y);
-				kout.setpos(5, 10);
+				kout.getpos(a, b);
+				kout.setpos(5, 5);
+				kout << id <<el;
+				kout.setpos(x, y);
 				kout << output_num << el;
 				output_num++;
-				kout.setpos(x, y);
+				kout.setpos(a, b);
+				resume(*next);
 			}
 			//cpu.disable_int();
 			//kout.getpos(x, y);

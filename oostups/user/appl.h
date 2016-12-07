@@ -17,12 +17,13 @@ class Application : public Coroutine
  {
 private:
     Application (const Application &copy); // Verhindere Kopieren
+    
 
 public:                
 	int output_num;
-
-	Application(void* tos);
-
+    int id, x,y;
+	Application(void* tos, int id, int x, int y);
+    Application *next;
     void action ();
 
  };

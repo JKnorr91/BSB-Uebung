@@ -25,6 +25,7 @@ void toc_settle (struct toc* regs, void* tos, void (*kickoff)(void*), void* obje
 	regs->ebp = tos;
 	//object
 	void register **tos2 = tos;
+	tos2--;
 	*tos2 = object;
 	//kickoff
 	tos2 = tos2 - 2;
