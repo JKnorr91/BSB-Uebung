@@ -40,9 +40,9 @@
 				output_num++;
 				kout.setpos(a, b);
 			}
-			if(output_num > 10000 * id) {
-				//scheduler.exit();
-				scheduler.kill(*nextApp);
+			if(output_num > 1000000 * id) {
+				scheduler.exit();
+				//scheduler.kill(*nextApp);
 			}
 			scheduler.resume();
 			//resume(*next);
