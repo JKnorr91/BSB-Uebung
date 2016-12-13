@@ -15,6 +15,9 @@
 #ifndef __Locker_include__
 #define __Locker_include__
 
+#include "machine/cpu.h"
+#include "user/debug.h"
+
 class Locker
  {
 private:
@@ -28,11 +31,19 @@ public:
 	
 	inline
 	void enter () {
+		if (!free) {
+			debug.out(0, 0, "Locker::enter free == false");
+			cpu.halt();
+		}
 		free = false;
 	}
 
 	inline
 	void retne () {
+		if (free) {
+			debug.out(0, 0, "Locker::retne free == true");
+			cpu.halt();
+		}
 		free = true;
 	}
 
