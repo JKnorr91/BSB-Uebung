@@ -12,21 +12,22 @@
 #define __schedule_include__
 
 #include "thread/dispatch.h"
-/* Hier muesst ihr selbst Code vervollstaendigen */ 
+#include "object/queue.h"
+#include "thread/entrant.h"
         
-class Scheduler 
-/* Hier muesst ihr selbst Code vervollstaendigen */         
+class Scheduler : public Dispatcher
  {
 private:
       Scheduler (const Scheduler &copy); // Verhindere Kopieren
-/* Hier muesst ihr selbst Code vervollstaendigen */ 
+      Queue queue;
 public:
-
+      Scheduler() {};
       void ready (Entrant& that);
       void schedule ();
       void exit ();
       void kill (Entrant& that);
       void resume ();
  };
+ extern Scheduler scheduler;
 
 #endif

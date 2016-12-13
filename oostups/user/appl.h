@@ -11,9 +11,10 @@
 #ifndef __application_include__
 #define __application_include__
 
-#include "thread/coroutine.h"
+#include "thread/entrant.h"
+#include "thread/scheduler.h"
 
-class Application : public Coroutine
+class Application : public Entrant
  {
 private:
     Application (const Application &copy); // Verhindere Kopieren
@@ -22,7 +23,7 @@ private:
 public:                
 	int output_num;
     int id, x,y;
-    Application *next;
+    Application* nextApp;
 
 	Application(void* tos, int id, int x, int y);
     void action ();

@@ -14,9 +14,8 @@
 #include "device/cgastr.h"
 #include "machine/cpu.h"
 #include "guard/secure.h"
-#include "thread/dispatch.h"
 
-	Application::Application(void* tos, int idIn, int xin, int yin) :  Coroutine(tos) {
+	Application::Application(void* tos, int idIn, int xin, int yin) :  Entrant(tos) {
 		id = idIn;
 		x=xin;
 		y=yin;
@@ -41,7 +40,11 @@
 				output_num++;
 				kout.setpos(a, b);
 			}
-			dispatcher.dispatch(*next);
+			if(output_num > 10000 * id) {
+				//scheduler.exit();
+				scheduler.kill(*nextApp);
+			}
+			scheduler.resume();
 			//resume(*next);
 		}
  	}
