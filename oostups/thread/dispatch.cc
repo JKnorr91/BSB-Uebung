@@ -16,13 +16,14 @@
 #include "thread/dispatch.h"
 
 void Dispatcher::go (Coroutine& first) {
-    currentCoroutine = first;
+    currentCoroutine = &first;
     first.go();
 }
 
 void Dispatcher::dispatch (Coroutine& next) {
-    currentCoroutine = next;
-    first.resume(next);
+    Coroutine* old = currentCoroutine;
+    currentCoroutine = &next;
+    old->resume(next);
 }
 
 

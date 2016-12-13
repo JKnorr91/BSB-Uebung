@@ -24,10 +24,11 @@ class Dispatcher
             Dispatcher(const Dispatcher &copy); // Verhindere Kopieren
 
       public:
+            Dispatcher() {};
             void go (Coroutine& first);
             void dispatch (Coroutine& next);
             Coroutine* active ();
  };
-
+extern Dispatcher dispatcher;
 
 #endif

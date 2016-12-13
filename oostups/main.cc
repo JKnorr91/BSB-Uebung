@@ -9,6 +9,7 @@
 #include "user/appl.h"
 #include "guard/guard.h"
 #include "user/debug.h"
+#include "thread/dispatch.h"
 
 CPU cpu;
 CGA_Stream kout;
@@ -19,6 +20,7 @@ Keyboard keyboard;
 Keyboard_Controller keyctl;
 Guard guard;
 Debug debug;
+Dispatcher dispatcher;
 
 char stack1[4096];
 Application app1(stack1+4092, 1,10,10);
@@ -52,8 +54,11 @@ int main()
 	 app2.next = &app1;
 	//kout << "esp1=" << app1.regs.esp << "; esp2=" << app2.regs.esp << endl;
 	
-	app1.go();
+	//app1.go();
 	//app2.go();
+	
+	dispatcher.go(app1);
+
 
 	while (true);//Endlosschleife um System am laufen zu halten. Interrupts passieren trotzde
    return 0;

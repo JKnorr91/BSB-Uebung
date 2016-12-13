@@ -14,6 +14,7 @@
 #include "device/cgastr.h"
 #include "machine/cpu.h"
 #include "guard/secure.h"
+#include "thread/dispatch.h"
 
 	Application::Application(void* tos, int idIn, int xin, int yin) :  Coroutine(tos) {
 		id = idIn;
@@ -40,6 +41,7 @@
 				output_num++;
 				kout.setpos(a, b);
 			}
-			resume(*next);
+			dispatcher.dispatch(*next);
+			//resume(*next);
 		}
  	}
