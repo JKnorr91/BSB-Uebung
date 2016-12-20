@@ -12,22 +12,22 @@
 #include "syscall/guarded_scheduler.h"
 
 void Guarded_Scheduler::ready (Thread& that){
-   // {Secure section;
-    Scheduler::ready(that);
-   // }
+    {Secure section;
+   		Scheduler::ready(that);
+    }
 }
 void Guarded_Scheduler::exit (){
-    //{Secure section;
-    Scheduler::exit();
-   // }
+    {Secure section;
+    	Scheduler::exit();
+    }
 }
 void Guarded_Scheduler::kill (Thread& that){
-    //{Secure section;
-    Scheduler::kill(that);
-    //}
+    {Secure section;
+   		Scheduler::kill(that);
+    }
 }
 void Guarded_Scheduler::resume (){
-   // {Secure section;
+    {Secure section;
         Scheduler::resume();
-  //  }
+    }
 }

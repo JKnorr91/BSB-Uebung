@@ -14,6 +14,7 @@
 
 /* Hier muesst ihr selbst Code vervollstaendigen */ 
 #include "thread/coroutine.h"
+#include "guard/guard.h"
 
 /*TODO Hinweis
 Da diese Funktion nicht wirklich aufgerufen, sondern nur durch eine geschickte
@@ -23,6 +24,9 @@ der Rechner abstürzen.
 */
 
 void kickoff (Coroutine *object){
-	object->action();
+	guard.leave();
+	//{Secure section;
+		object->action();
+	//}
 	while (true) {}
 }
