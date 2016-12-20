@@ -12,6 +12,7 @@
 #include "thread/scheduler.h"
 #include "syscall/guarded_scheduler.h"
 #include "guard/secure.h"
+#include "device/watch.h"
 
 CPU cpu;
 CGA_Stream kout;
@@ -39,9 +40,12 @@ int main(){
 	kout << "CGA System loaded" << endl;
 	keyboard.plugin();
 	kout << "Keyboard enabled" << endl;
+	Watch watch(0x00ff);
+	watch.windup();
+	kout << "Watch enabled" << endl;
 	cpu.enable_int();
 	kout << "interrupt System enabled" << endl << endl;
-	debug.out(0, 3, "Debug enabled");
+	debug.out(0, 4, "Debug enabled");
 
 	scheduler.Scheduler::ready(app1);
 	scheduler.Scheduler::ready(app2);

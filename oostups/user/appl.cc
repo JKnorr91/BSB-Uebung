@@ -42,7 +42,7 @@
 				scheduler.exit();
 				//scheduler.kill(*nextApp);
 			}
-			scheduler.resume();
+			//scheduler.resume();
 			//resume(*next);
 		}
  	}
