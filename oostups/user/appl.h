@@ -11,10 +11,13 @@
 #ifndef __application_include__
 #define __application_include__
 
-#include "thread/entrant.h"
-#include "thread/scheduler.h"
+#include "syscall/thread.h"
+#include "syscall/guarded_scheduler.h"
+#include "device/cgastr.h"
+#include "machine/cpu.h"
+#include "guard/secure.h"
 
-class Application : public Entrant
+class Application : public Thread
  {
 private:
     Application (const Application &copy); // Verhindere Kopieren

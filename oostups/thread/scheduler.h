@@ -28,6 +28,6 @@ public:
       void kill (Entrant& that);
       void resume ();
  };
- extern Scheduler scheduler;
+ 
 
 #endif
