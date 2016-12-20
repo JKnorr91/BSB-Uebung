@@ -11,11 +11,9 @@
 /* INCLUDES */
 
 #include "user/appl.h"
-#include "device/cgastr.h"
-#include "machine/cpu.h"
-#include "guard/secure.h"
 
-	Application::Application(void* tos, int idIn, int xin, int yin) :  Entrant(tos) {
+
+	Application::Application(void* tos, int idIn, int xin, int yin) :  Thread(tos) {
 		id = idIn;
 		x=xin;
 		y=yin;
