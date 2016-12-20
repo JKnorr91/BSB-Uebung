@@ -11,6 +11,8 @@
 #ifndef __pit_include__
 #define __pit_include__
 
+#include "machine/io_port.h"
+
 class PIT
  {
 private:
@@ -18,13 +20,13 @@ private:
 
     const IO_Port counter0w;
 	const IO_Port ctrlw;
-    int interval;
+    int currentInterval;
 public:
     PIT (int us): counter0w(0x40), ctrlw(0x43) {
       interval (us);
     }
     int interval () {
-        return interval;
+        return currentInterval;
     }
     void interval (int us);
 };

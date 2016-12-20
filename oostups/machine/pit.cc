@@ -8,7 +8,7 @@
 /* Programmable Interval Timer.                                              */
 /*****************************************************************************/
 
-
+#include "machine/pit.h"
 
 void PIT::interval(int us) {
     /*6-7	Zählerauswahl
@@ -39,8 +39,8 @@ void PIT::interval(int us) {
     char lower = (char) us;
     char higher = (char) (us>>8);
 
-    interval = us & 0x00ff;
+    currentInterval = us & 0x00ff;
     
-    counter0w.out(lower);
-    counter0w.out(higher);
+    counter0w.outb(lower);
+    counter0w.outb(higher);
 }
