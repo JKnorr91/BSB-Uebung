@@ -7,9 +7,15 @@
 /*---------------------------------------------------------------------------*/
 /*****************************************************************************/
 
-/* Hier muesst ihr selbst Code vervollstaendigen */ 
-/* Hier muesst ihr selbst Code vervollstaendigen */ 
- 
-/* Hier muesst ihr selbst Code vervollstaendigen */ 
-/* Hier muesst ihr selbst Code vervollstaendigen */ 
+void Watch::windup() {
+    plugbox.assign(Plugbox::timer, *this);
+	pic.allow(PIC::timer);
+}
 
+bool Watch::prologue (){
+	return true;
+}
+
+void Watch::epilogue (){
+	scheduler.resume();
+}

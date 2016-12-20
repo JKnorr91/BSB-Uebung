@@ -15,13 +15,16 @@ class PIT
  {
 private:
     PIT(const PIT &copy); // Verhindere Kopieren
-/* Hier muesst ihr selbst Code vervollstaendigen */ 
+
+    const IO_Port counter0w;
+	const IO_Port ctrlw;
+    int interval;
 public:
-    PIT (int us) {
+    PIT (int us): counter0w(0x40), ctrlw(0x43) {
       interval (us);
     }
     int interval () {
-/* Hier muesst ihr selbst Code vervollstaendigen */ 
+        return interval;
     }
     void interval (int us);
 };
