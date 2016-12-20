@@ -7,9 +7,18 @@
 /*---------------------------------------------------------------------------*/
 /*****************************************************************************/
 
-/* Hier muesst ihr selbst Code vervollstaendigen */ 
-/* Hier muesst ihr selbst Code vervollstaendigen */ 
- 
-/* Hier muesst ihr selbst Code vervollstaendigen */ 
-/* Hier muesst ihr selbst Code vervollstaendigen */ 
+#include "device/watch.h"
+#include "machine/plugbox.h"
 
+void Watch::windup() {
+    plugbox.assign(Plugbox::timer, *this);
+	pic.allow(PIC::timer);
+}
+
+bool Watch::prologue (){
+	return true;
+}
+
+void Watch::epilogue (){
+	scheduler.resume();
+}

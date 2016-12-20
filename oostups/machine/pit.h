@@ -11,17 +11,22 @@
 #ifndef __pit_include__
 #define __pit_include__
 
+#include "machine/io_port.h"
+
 class PIT
  {
 private:
     PIT(const PIT &copy); // Verhindere Kopieren
-/* Hier muesst ihr selbst Code vervollstaendigen */ 
+
+    const IO_Port counter0w;
+	const IO_Port ctrlw;
+    int currentInterval;
 public:
-    PIT (int us) {
+    PIT (int us): counter0w(0x40), ctrlw(0x43) {
       interval (us);
     }
     int interval () {
-/* Hier muesst ihr selbst Code vervollstaendigen */ 
+        return currentInterval;
     }
     void interval (int us);
 };
