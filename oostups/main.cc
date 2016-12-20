@@ -31,6 +31,8 @@ char stack2[4096];
 Application app2(stack2+4092, 2,40,10);
 
 int main(){
+	guard.enter();
+
 	kout.setpos(0,24);
 	kout << endl;
 	kout.setpos(0,0);
@@ -41,12 +43,11 @@ int main(){
 	kout << "interrupt System enabled" << endl << endl;
 	debug.out(0, 3, "Debug enabled");
 
-	scheduler.ready(app1);
-	scheduler.ready(app2);
+	scheduler.Scheduler::ready(app1);
+	scheduler.Scheduler::ready(app2);
 	app1.nextApp = &app2;
 	app2.nextApp = &app1;
 	
-	guard.enter();
 	scheduler.Scheduler::schedule();
 
 	while (true);
