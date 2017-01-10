@@ -40,7 +40,7 @@ int main(){
 	kout << "CGA System loaded" << endl;
 	keyboard.plugin();
 	kout << "Keyboard enabled" << endl;
-	Watch watch(0x00ff);
+	Watch watch(10000);
 	watch.windup();
 	kout << "Watch enabled" << endl;
 	cpu.enable_int();

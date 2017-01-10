@@ -11,6 +11,10 @@
 #include "machine/pit.h"
 
 void PIT::interval(int us) {
+
+    //convert into us
+    us = us * 1.19;
+
     /*6-7	Zählerauswahl
             00 	Zähler 0
             01 	Zähler 1
