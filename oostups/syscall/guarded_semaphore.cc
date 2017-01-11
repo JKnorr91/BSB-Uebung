@@ -10,4 +10,4 @@
 
 /* Hier muesst ihr selbst Code vervollstaendigen */ 
 
-#include "syscall/semaphore.h"
+#include "syscall/guarded_semaphore.h"

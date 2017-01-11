@@ -26,7 +26,7 @@ void Semaphore::p () {
 void Semaphore::v (){
     Customer *c = (Customer*) dequeue();
     if (c){
-        organizer.Organizer::wakeup(c);
+        //organizer.wakeup(*c);
     }
 
 }

@@ -20,7 +20,7 @@ private:
     Guarded_Buzzer(const Guarded_Buzzer &copy); // Verhindere Kopieren
 public:
     Guarded_Buzzer() {}
-    virtual ~Buzzer();
+    //~Buzzer();
     void set (int ms);
     void sleep ();
 };

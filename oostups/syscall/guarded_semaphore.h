@@ -19,7 +19,7 @@ class Guarded_Semaphore : public Semaphore
 private:
     Guarded_Semaphore (const Guarded_Semaphore &copy); // Verhindere Kopieren
 public:
-    Guarded_Semaphore (int c) : Semaphore(c);
+    Guarded_Semaphore (int c);
     void p();
     void v();
     void wait();

@@ -25,5 +25,5 @@ public:
       void kill (Thread& that);
       void resume ();
  };
-
+extern Guarded_Organizer organizer;
 #endif
