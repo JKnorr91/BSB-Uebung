@@ -11,7 +11,7 @@
 #ifndef __Semaphore_include__
 #define __Semaphore_include__
 #include "meeting/waitingroom.h"
-#include "thread/organizer.h"
+#include "syscall/guarded_organizer.h"
 /* Hier muesst ihr selbst Code vervollstaendigen */ 
         
 class Semaphore : public Waitingroom

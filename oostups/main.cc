@@ -24,8 +24,8 @@ Keyboard keyboard;
 Keyboard_Controller keyctl;
 Guard guard;
 Debug debug;
-Guarded_Scheduler scheduler;  //zum löschen
-Guarded_Organizer organizer;  //extern hinzufügen
+Guarded_Scheduler scheduler; 
+Guarded_Organizer organizer;  
 
 char stack1[4096];
 Application app1(stack1+4092, 1,10,10);

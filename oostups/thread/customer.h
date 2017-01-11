@@ -13,11 +13,11 @@
 #include"meeting/waitingroom.h"
 /* Hier muesst ihr selbst Code vervollstaendigen */ 
         
-class Customer :Customer (void* tos)
+class Customer :public Entrant
 /* Hier muesst ihr selbst Code vervollstaendigen */         
  {
 private:
-   Waitingroom *wroom;
+    Waitingroom *wroom;
     Customer (const Customer &copy); // Verhindere Kopieren
 /* Hier muesst ihr selbst Code vervollstaendigen */        
 public:

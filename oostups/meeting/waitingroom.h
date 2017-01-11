@@ -12,7 +12,7 @@
 #define __waitingroom_include__
 
 #include "object/queue.h"
-#include "thread/customer.h"
+//#include "thread/customer.h"
 
 class Customer; // Forward declaration
 
