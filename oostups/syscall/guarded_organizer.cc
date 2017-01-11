@@ -8,4 +8,6 @@
 /* Systemaufrufschnittstelle zum Organizer.                                  */
 /*****************************************************************************/
 
-/* Hier muesst ihr selbst Code vervollstaendigen */ 
+#include "thread/organizer.h"
+
+
