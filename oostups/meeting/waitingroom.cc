@@ -9,3 +9,4 @@
 /*****************************************************************************/
 
 /* Hier muesst ihr selbst Code vervollstaendigen */ 
+#include "meeting/waitingroom.h"
