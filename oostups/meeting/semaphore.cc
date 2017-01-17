@@ -30,6 +30,7 @@ void Semaphore::p () {
     }else{
        Customer *c = (Customer*) organizer.active();
         enqueue(c);
+        organizer.block(*c,*this);
     }
 }
 
