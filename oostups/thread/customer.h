@@ -11,6 +11,7 @@
 #ifndef __customer_include__
 #define __customer_include__
 #include"meeting/waitingroom.h"
+#include "thread/entrant.h"
 /* Hier muesst ihr selbst Code vervollstaendigen */ 
         
 class Customer :public Entrant
