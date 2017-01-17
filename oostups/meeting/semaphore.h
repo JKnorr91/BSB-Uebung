@@ -27,7 +27,8 @@ public:
     void p (); 
     void v ();
     inline void wait (){p();};
-    inline void signal (){v();};         
+    inline void signal (){v();};
+    void remove (Customer* customer);         
  };
 
 #endif

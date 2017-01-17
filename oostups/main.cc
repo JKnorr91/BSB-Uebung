@@ -14,6 +14,7 @@
 #include "guard/secure.h"
 #include "device/watch.h"
 #include "syscall/guarded_organizer.h"
+#include "syscall/guarded_semaphore.h"
 
 CPU cpu;
 CGA_Stream kout;
@@ -25,7 +26,8 @@ Keyboard_Controller keyctl;
 Guard guard;
 Debug debug;
 //Guarded_Scheduler scheduler; 
-Guarded_Organizer organizer;  
+Guarded_Organizer organizer; 
+Guarded_Semaphore cgasem(1); 
 
 char stack1[4096];
 Application app1(stack1+4092, 1,10,10);

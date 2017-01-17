@@ -43,3 +43,7 @@ void Semaphore::v (){
     }
 
 }
+
+void Semaphore::remove (Customer* customer){
+    Waitingroom::remove(customer);
+}

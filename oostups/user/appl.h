@@ -16,6 +16,7 @@
 #include "device/cgastr.h"
 #include "machine/cpu.h"
 #include "guard/secure.h"
+#include "syscall/guarded_semaphore.h"
 
 class Application : public Thread
  {
@@ -32,5 +33,5 @@ public:
     void action ();
 
  };
-
+extern Guarded_Semaphore cgasem;
 #endif

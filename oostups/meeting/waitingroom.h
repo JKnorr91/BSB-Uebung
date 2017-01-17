@@ -24,7 +24,7 @@ private:
 public:
     Waitingroom() {}
     virtual ~Waitingroom (){};
-    virtual void remove (Customer* customer)=0;
+    virtual void remove (Customer* customer);
 /* Hier muesst ihr selbst Code vervollstaendigen */ 
 };
 

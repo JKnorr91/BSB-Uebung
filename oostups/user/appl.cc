@@ -13,6 +13,7 @@
 #include "user/appl.h"
 
 
+
 	Application::Application(void* tos, int idIn, int xin, int yin) :  Thread(tos) {
 		id = idIn;
 		x=xin;
@@ -24,20 +25,14 @@
 		int a;
 		int b;
  		while (true) {
-			{Secure section;
+			cgasem.p();
 				kout.getpos(a, b);
-
-				/*kout.setpos(5, 5);
-				kout << "Ich: " << id << ", x=" << x <<el;
-				kout.setpos(5, 6);
-				kout << "Next: " << next->id << ", x=" << next->x <<el;*/
-
 				kout.setpos(x, y);
 				kout << output_num << el;
-
+				kout.setpos(a,b);
+				cgasem.v();
 				output_num++;
-				kout.setpos(a, b);
-			}
+			
 			if(output_num > 1000000 * id) {
 				organizer.exit();
 				//scheduler.kill(*nextApp);
