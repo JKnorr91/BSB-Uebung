@@ -26,8 +26,8 @@ public:
     Semaphore (int c);
     void p (); 
     void v ();
-    void wait (){p();};
-    void signal (){v();};         
+    inline void wait (){p();};
+    inline void signal (){v();};         
  };
 
 #endif

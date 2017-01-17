@@ -23,7 +23,7 @@ private:
     Waitingroom(const Waitingroom &copy); // Verhindere Kopieren
 public:
     Waitingroom() {}
-    virtual ~Waitingroom ()=0;
+    virtual ~Waitingroom (){};
     virtual void remove (Customer* customer)=0;
 /* Hier muesst ihr selbst Code vervollstaendigen */ 
 };

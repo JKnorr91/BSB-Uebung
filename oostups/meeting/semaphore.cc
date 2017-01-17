@@ -15,6 +15,7 @@
 Semaphore::Semaphore (int c){
     res = c;
 }
+
 Semaphore::~Semaphore(){
     Customer *c = (Customer*) dequeue();
     while(c){
@@ -22,6 +23,7 @@ Semaphore::~Semaphore(){
         c =  (Customer*) dequeue();
     }
 }
+
 void Semaphore::p () {
     if (res >0){
         res--;      //Anz Ressourcen verringern
