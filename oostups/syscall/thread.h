@@ -10,15 +10,15 @@
 
 #ifndef __thread_include__
 #define __thread_include__
-#include "thread/entrant.h"
+#include "thread/customer.h"
  
-class Thread : public Entrant 
+class Thread : public Customer 
   
  {
 private:
       Thread (const Thread &copy); // Verhindere Kopieren
 public:
-      Thread(void* tos): Entrant(tos){};           
+      Thread(void* tos): Customer(tos){};           
  };
 
 #endif

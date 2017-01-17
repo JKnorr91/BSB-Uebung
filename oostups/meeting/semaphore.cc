@@ -15,18 +15,28 @@
 Semaphore::Semaphore (int c){
     res = c;
 }
+Semaphore::~Semaphore(){
+    Customer *c = (Customer*) dequeue();
+    while(c){
+        organizer.wakeup(*c);
+        c =  (Customer*) dequeue();
+    }
+}
 void Semaphore::p () {
     if (res >0){
         res--;      //Anz Ressourcen verringern
     }else{
-        
+       Customer *c = (Customer*) organizer.active();
+        enqueue(c);
     }
 }
 
 void Semaphore::v (){
     Customer *c = (Customer*) dequeue();
     if (c){
-        //organizer.wakeup(*c);
+        organizer.wakeup(*c);
+    }else{
+        res++;
     }
 
 }
