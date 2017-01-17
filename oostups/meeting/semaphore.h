@@ -22,6 +22,7 @@ private:
     Semaphore (const Semaphore &copy); // Verhindere Kopieren
 /* Hier muesst ihr selbst Code vervollstaendigen */
 public:
+    ~Semaphore();
     Semaphore (int c);
     void p (); 
     void v ();
