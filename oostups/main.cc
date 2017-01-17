@@ -24,7 +24,7 @@ Keyboard keyboard;
 Keyboard_Controller keyctl;
 Guard guard;
 Debug debug;
-Guarded_Scheduler scheduler; 
+//Guarded_Scheduler scheduler; 
 Guarded_Organizer organizer;  
 
 char stack1[4096];
@@ -49,12 +49,12 @@ int main(){
 	kout << "interrupt System enabled" << endl << endl;
 	debug.out(0, 4, "Debug enabled");
 
-	scheduler.Scheduler::ready(app1);
-	scheduler.Scheduler::ready(app2);
+	organizer.Scheduler::ready(app1);
+	organizer.Scheduler::ready(app2);
 	app1.nextApp = &app2;
 	app2.nextApp = &app1;
 	
-	scheduler.Scheduler::schedule();
+	organizer.Scheduler::schedule();
 
 	while (true);
  }

@@ -12,7 +12,7 @@
 #define __application_include__
 
 #include "syscall/thread.h"
-#include "syscall/guarded_scheduler.h"
+#include "syscall/guarded_organizer.h"
 #include "device/cgastr.h"
 #include "machine/cpu.h"
 #include "guard/secure.h"

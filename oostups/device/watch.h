@@ -16,7 +16,7 @@
 #include "machine/pit.h"
 #include "machine/plugbox.h"
 #include "machine/pic.h"
-#include "syscall/guarded_scheduler.h"
+#include "syscall/guarded_organizer.h"
 
 class Watch : public Gate, public PIT
  {

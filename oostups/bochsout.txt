@@ -32,13 +32,13 @@
 00000000000i[     ]   SB16 support: no
 00000000000i[     ]   USB support: no
 00000000000i[     ]   VGA extension support: vbe 
-00000000000i[MEM0 ] allocated memory at 0x55e4b008. after alignment, vector=0x55e4c000
+00000000000i[MEM0 ] allocated memory at 0x55dba008. after alignment, vector=0x55dbb000
 00000000000i[MEM0 ] 4,00MB
 00000000000i[MEM0 ] rom at 0xfffe0000/131072 ('/home/bsb/bochs/bios/BIOS-bochs-latest')
 00000000000i[MEM0 ] rom at 0xc0000/32768 ('/home/bsb/bochs/bios/VGABIOS-elpin-2.40')
 00000000000i[VTIME] using 'realtime pit' synchronization method
 00000000000i[CMOS ] Using local time for initial clock
-00000000000i[CMOS ] Setting initial clock to: Wed Jan 11 16:22:51 2017 (time0=1484148171)
+00000000000i[CMOS ] Setting initial clock to: Tue Jan 17 17:11:39 2017 (time0=1484669499)
 00000000000i[DMA  ] channel 4 used by cascade
 00000000000i[DMA  ] channel 2 used by Floppy Drive
 00000000000i[FDD  ] fd0: './build/bootdisk.img' ro=0, h=2,t=80,spt=18
@@ -92,41 +92,40 @@
 00000336000e[VGA  ] character height = 1, skipping text update
 00000420000e[VGA  ] character height = 1, skipping text update
 00000504000e[VGA  ] character height = 1, skipping text update
-00000588000e[VGA  ] character height = 1, skipping text update
-00000672000i[XGUI ] charmap update. Font Height is 16
-00001791231i[BIOS ] Booting from 0000:7C00
-00001951115i[FDD  ] partial read() on floppy image returns 228/512
-00002064512i[KBD  ] setting typematic info
-00002064564i[KBD  ] setting delay to 250 mS (unused)
-00002064564i[KBD  ] setting repeat rate to 5,0 cps (unused)
-00002065058i[KBD  ] setting typematic info
-00002065110i[KBD  ] setting delay to 250 mS (unused)
-00002065110i[KBD  ] setting repeat rate to 5,0 cps (unused)
-00002241069i[CPU  ] math_abort: MSDOS compatibility FPU exception
-00002241070i[CPU  ] math_abort: MSDOS compatibility FPU exception
-00002241075i[CPU  ] math_abort: MSDOS compatibility FPU exception
-00002241076i[CPU  ] math_abort: MSDOS compatibility FPU exception
-00002241077i[CPU  ] math_abort: MSDOS compatibility FPU exception
-00061708640p[XGUI ] >>PANIC<< POWER button turned off.
-00061708640i[CPU  ] protected mode
-00061708640i[CPU  ] CS.d_b = 32 bit
-00061708640i[CPU  ] SS.d_b = 32 bit
-00061708640i[CPU  ] | EAX=00106320  EBX=0000000a  ECX=0000000a  EDX=00000005
-00061708640i[CPU  ] | ESP=00109508  EBP=00109530  ESI=00000000  EDI=00000000
-00061708640i[CPU  ] | IOPL=0 id vip vif ac vm rf nt of df IF tf sf zf AF pf cf
-00061708640i[CPU  ] | SEG selector     base    limit G D
-00061708640i[CPU  ] | SEG sltr(index|ti|rpl)     base    limit G D
-00061708640i[CPU  ] |  CS:0008( 0001| 0|  0) 00000000 000fffff 1 1
-00061708640i[CPU  ] |  DS:0010( 0002| 0|  0) 00000000 000fffff 1 1
-00061708640i[CPU  ] |  SS:0010( 0002| 0|  0) 00000000 000fffff 1 1
-00061708640i[CPU  ] |  ES:0010( 0002| 0|  0) 00000000 000fffff 1 1
-00061708640i[CPU  ] |  FS:0010( 0002| 0|  0) 00000000 000fffff 1 1
-00061708640i[CPU  ] |  GS:0010( 0002| 0|  0) 00000000 000fffff 1 1
-00061708640i[CPU  ] | EIP=00102727 (00102727)
-00061708640i[CPU  ] | CR0=0x00000011 CR1=0 CR2=0x00000000
-00061708640i[CPU  ] | CR3=0x00000000 CR4=0x00000000
-00061708640i[CPU  ] >> mov dword ptr ss:[esp], eax : 890424
-00061708640i[CMOS ] Last time is 1484148391 (Wed Jan 11 16:26:31 2017)
-00061708640i[XGUI ] Exit.
-00061708640i[     ] restoring default signal behavior
-00061708640i[CTRL ] quit_sim called with exit code 1
+00000588000i[XGUI ] charmap update. Font Height is 16
+00001725149i[BIOS ] Booting from 0000:7C00
+00001899613i[FDD  ] partial read() on floppy image returns 220/512
+00002013495i[KBD  ] setting typematic info
+00002013547i[KBD  ] setting delay to 250 mS (unused)
+00002013547i[KBD  ] setting repeat rate to 5,0 cps (unused)
+00002014041i[KBD  ] setting typematic info
+00002014093i[KBD  ] setting delay to 250 mS (unused)
+00002014093i[KBD  ] setting repeat rate to 5,0 cps (unused)
+00002190070i[CPU  ] math_abort: MSDOS compatibility FPU exception
+00002190071i[CPU  ] math_abort: MSDOS compatibility FPU exception
+00002190076i[CPU  ] math_abort: MSDOS compatibility FPU exception
+00002190077i[CPU  ] math_abort: MSDOS compatibility FPU exception
+00002190078i[CPU  ] math_abort: MSDOS compatibility FPU exception
+00370301120p[XGUI ] >>PANIC<< POWER button turned off.
+00370301120i[CPU  ] protected mode
+00370301120i[CPU  ] CS.d_b = 32 bit
+00370301120i[CPU  ] SS.d_b = 32 bit
+00370301120i[CPU  ] | EAX=000b8690  EBX=0000000f  ECX=00000031  EDX=00000031
+00370301120i[CPU  ] | ESP=00109c88  EBP=00109ca0  ESI=00000029  EDI=00000000
+00370301120i[CPU  ] | IOPL=0 id vip vif ac vm rf nt of df IF tf sf zf af pf cf
+00370301120i[CPU  ] | SEG selector     base    limit G D
+00370301120i[CPU  ] | SEG sltr(index|ti|rpl)     base    limit G D
+00370301120i[CPU  ] |  CS:0008( 0001| 0|  0) 00000000 000fffff 1 1
+00370301120i[CPU  ] |  DS:0010( 0002| 0|  0) 00000000 000fffff 1 1
+00370301120i[CPU  ] |  SS:0010( 0002| 0|  0) 00000000 000fffff 1 1
+00370301120i[CPU  ] |  ES:0010( 0002| 0|  0) 00000000 000fffff 1 1
+00370301120i[CPU  ] |  FS:0010( 0002| 0|  0) 00000000 000fffff 1 1
+00370301120i[CPU  ] |  GS:0010( 0002| 0|  0) 00000000 000fffff 1 1
+00370301120i[CPU  ] | EIP=00101ec6 (00101ec6)
+00370301120i[CPU  ] | CR0=0x00000011 CR1=0 CR2=0x00000000
+00370301120i[CPU  ] | CR3=0x00000000 CR4=0x00000000
+00370301120i[CPU  ] >> movzx edx, byte ptr ss:[ebp+0xffffffe8] : 0FB655E8
+00370301120i[CMOS ] Last time is 1484670821 (Tue Jan 17 17:33:41 2017)
+00370301120i[XGUI ] Exit.
+00370301120i[     ] restoring default signal behavior
+00370301120i[CTRL ] quit_sim called with exit code 1
