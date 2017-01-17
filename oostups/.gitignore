@@ -1,4 +1,4 @@
-bochsout.txt
+/bochsout.txt
 dep/
 build/
 *.project
