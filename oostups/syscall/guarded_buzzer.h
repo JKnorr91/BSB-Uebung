@@ -19,8 +19,8 @@ class Guarded_Buzzer : public Buzzer
 private:
     Guarded_Buzzer(const Guarded_Buzzer &copy); // Verhindere Kopieren
 public:
-    Guarded_Buzzer() {}
-    //~Buzzer();
+    Guarded_Buzzer() {};
+    ~Buzzer();
     void set (int ms);
     void sleep ();
 };

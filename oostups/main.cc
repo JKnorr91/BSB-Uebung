@@ -15,6 +15,7 @@
 #include "device/watch.h"
 #include "syscall/guarded_organizer.h"
 #include "syscall/guarded_semaphore.h"
+#include "meeting/bellringer.h"
 
 CPU cpu;
 CGA_Stream kout;
@@ -25,7 +26,7 @@ Guarded_Keyboard keyboard;
 Keyboard_Controller keyctl;
 Guard guard;
 Debug debug;
-//Guarded_Scheduler scheduler; 
+Bellringer bellringer; 
 Guarded_Organizer organizer; 
 Guarded_Semaphore cgasem(1);
 Guarded_Semaphore keysem(0); 

@@ -17,6 +17,7 @@
 #include "machine/plugbox.h"
 #include "machine/pic.h"
 #include "syscall/guarded_organizer.h"
+#include "meeting/bellringer.h"
 
 class Watch : public Gate, public PIT
  {

@@ -20,5 +20,6 @@ bool Watch::prologue (){
 }
 
 void Watch::epilogue (){
+	bellringer.check();
 	organizer.Scheduler::resume();
 }

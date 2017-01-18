@@ -13,6 +13,7 @@
 #define __Buzzer_include__
 #include"meeting/bell.h"
 #include"meeting/waitingroom.h"
+#include"meeting/bellringer.h"
 /* Hier muesst ihr selbst Code vervollstaendigen */ 
 
 class Buzzer: public Waitingroom, public Bell
