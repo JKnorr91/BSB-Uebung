@@ -26,12 +26,12 @@
 		int b;
  		while (true) {
 			cgasem.p();
-				kout.getpos(a, b);
-				kout.setpos(x, y);
-				kout << output_num << el;
-				kout.setpos(a,b);
-				cgasem.v();
-				output_num++;
+			kout.getpos(a, b);
+			kout.setpos(x, y);
+			kout << output_num << el;
+			kout.setpos(a,b);
+			cgasem.v();
+			output_num++;
 			
 			if(output_num > 1000000 * id) {
 				organizer.exit();

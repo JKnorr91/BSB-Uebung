@@ -14,9 +14,9 @@
 
 
 void Organizer::block(Customer& customer, Waitingroom& waitingroom) {
-    waitingroom.enqueue(&customer);
+    //waitingroom.enqueue(&customer);   sehr böse
     customer.waiting_in(&waitingroom);
-    resume();
+    exit();
 }
 
 void Organizer::kill(Customer& that) {

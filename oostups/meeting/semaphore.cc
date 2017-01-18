@@ -25,10 +25,10 @@ Semaphore::~Semaphore(){
 }
 
 void Semaphore::p () {
-    if (res >0){
+    if (res > 0){
         res--;      //Anz Ressourcen verringern
     }else{
-       Customer *c = (Customer*) organizer.active();
+        Customer *c = (Customer*) organizer.active();
         enqueue(c);
         organizer.block(*c,*this);
     }

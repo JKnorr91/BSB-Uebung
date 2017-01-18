@@ -26,9 +26,9 @@ class Coroutine
 private:
       Coroutine(const Coroutine &copy); // Verhindere Kopieren
       struct toc regs;
-
+      
 public:
-
+      int id;
       Coroutine (void* tos);
       void go ();
       void resume (Coroutine& next);

@@ -26,7 +26,7 @@ private:
 
 public:                
 	int output_num;
-    int id, x,y;
+    int x,y;
     Application* nextApp;
 
 	Application(void* tos, int id, int x, int y);
