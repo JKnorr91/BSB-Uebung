@@ -10,7 +10,6 @@
 /* Glocken befinden sich in einer Queue, die der Gloeckner verwaltet.        */
 /*****************************************************************************/
 
-/* Hier muesst ihr selbst Code vervollstaendigen */ 
 
 #include"meeting/bellringer.h"
 
@@ -32,15 +31,16 @@ void Bellringer::checkOptimized() {
 
         Bell* currentBell = (Bell*) current;
 
-        for(int i = 0; i < tickstep; i++) {
-            currentBell->tick();
-        }
+        currentBell->tick(tickstep);
 
         if(currentBell->run_down()) {
+            remove(current);
             currentBell->ring();
         }
+        else {
+            tickstep = currentBell->wait() < tickstep || tickstep == -1 ? currentBell->wait() : tickstep;
+        }
 
-        tickstep = currentBell->wait() < tickstep || tickstep == -1 ? currentBell->wait() : tickstep;
 
         current = current->next;
     }
@@ -55,6 +55,7 @@ void Bellringer::checkSimple() {
         currentBell->tick();
 
         if(currentBell->run_down()) {
+            remove(current);
             currentBell->ring();
         }
 

@@ -18,12 +18,13 @@
 #include "guard/secure.h"
 #include "syscall/guarded_keyboard.h"
 #include "syscall/guarded_semaphore.h"
+#include "syscall/guarded_buzzer.h"
 
 class Application : public Thread
  {
 private:
     Application (const Application &copy); // Verhindere Kopieren
-    
+    Guarded_Buzzer buzzer;
 
 public:                
 	int output_num;

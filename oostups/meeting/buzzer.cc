@@ -40,5 +40,6 @@
     void Buzzer::sleep (){
         Customer *c = (Customer*) organizer.active();
         enqueue(c);
+        bellringer.job(this,val);
         organizer.block(*c,*this);
     }

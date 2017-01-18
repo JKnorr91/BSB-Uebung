@@ -12,12 +12,11 @@
 
 #ifndef __Bellringer_include__
 #define __Bellringer_include__
-#include"object/list.h"
-#include"meeting/bell.h"
-/* Hier muesst ihr selbst Code vervollstaendigen */ 
+#include "object/list.h"
+#include "meeting/bell.h"
+#include "user/debug.h"
 
 class Bellringer: public List
-/* Hier muesst ihr selbst Code vervollstaendigen */ 
 {
 private:
    Bellringer(const Bellringer &copy); // Verhindere Kopieren
@@ -30,7 +29,6 @@ public:
    void check ();
    void job (Bell *bell, int ticks);
    void cancel (Bell *bell);
-/* Hier muesst ihr selbst Code vervollstaendigen */ 
 };
 extern Bellringer bellringer;
 #endif

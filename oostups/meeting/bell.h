@@ -27,6 +27,7 @@ public:
     void wait (int value){val = value;};
     int wait (){return val;};
     void tick (){val--;};
+    void tick (int step) {val = val - step < 0 ? 0 : val - step;}
     bool run_down(){return 0 == val;};
     virtual void ring () = 0;
 };

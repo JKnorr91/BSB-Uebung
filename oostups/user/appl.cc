@@ -33,7 +33,12 @@
 			cgasem.v();
 			output_num++;
 
-			if(id == 2 && output_num == 5000) {
+			if(id == 1) {
+				buzzer.set(200);
+				buzzer.sleep();
+			}
+
+			if(id == 2 && output_num == 100000) {
 				keyboard.getkey();
 			}
 			
