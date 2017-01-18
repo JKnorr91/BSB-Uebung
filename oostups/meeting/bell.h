@@ -21,9 +21,9 @@ class Bell : public Chain
 {
 private:
     Bell(const Bell &copy); // Verhindere Kopieren
-    int val;
 public:
-    Bell() {}
+    int val;
+    Bell() {};
     void wait (int value){val = value;};
     int wait (){return val;};
     void tick (){val--;};

@@ -16,23 +16,27 @@
     Buzzer::Buzzer (){
         val = -1;
     }
-    virtual Buzzer::~Buzzer(){
+
+     Buzzer::~Buzzer(){
         Customer *c = (Customer*) dequeue();
         while(c){
             organizer.wakeup(*c);
             c =  (Customer*) dequeue();
         }
-        bellringer.chancel(*this);
+        bellringer.cancel(this);
     }
-    virtual void Buzzer::ring(){
+
+     void Buzzer::ring(){
         Customer *c = (Customer*) dequeue();
         if (c){
             organizer.wakeup(*c);
         }
     }
+
     void Buzzer::set (int ms){
         val = ms;
     }
+
     void Buzzer::sleep (){
         Customer *c = (Customer*) organizer.active();
         enqueue(c);

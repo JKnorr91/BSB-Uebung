@@ -16,10 +16,15 @@
     Guarded_Buzzer::Guarded_Buzzer() {
         val = -1;
     }
-    Guarded_Buzzer::~Buzzer(){
+    Guarded_Buzzer::~Guarded_Buzzer(){
         {
             Secure section;
-            Buzzer::~Buzzer();
+            Customer *c = (Customer*) dequeue();
+            while(c){
+                organizer.wakeup(*c);
+                c =  (Customer*) dequeue();
+            }
+            bellringer.cancel(this);
         }
     }
     void Guarded_Buzzer::set (int ms){

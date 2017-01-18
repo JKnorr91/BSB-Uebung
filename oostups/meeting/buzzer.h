@@ -14,6 +14,7 @@
 #include"meeting/bell.h"
 #include"meeting/waitingroom.h"
 #include"meeting/bellringer.h"
+#include "syscall/guarded_organizer.h"
 /* Hier muesst ihr selbst Code vervollstaendigen */ 
 
 class Buzzer: public Waitingroom, public Bell
