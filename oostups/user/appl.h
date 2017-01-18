@@ -16,6 +16,7 @@
 #include "device/cgastr.h"
 #include "machine/cpu.h"
 #include "guard/secure.h"
+#include "syscall/guarded_keyboard.h"
 #include "syscall/guarded_semaphore.h"
 
 class Application : public Thread

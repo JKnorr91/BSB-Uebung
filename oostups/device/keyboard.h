@@ -16,6 +16,7 @@
 #include "machine/key.h"
 #include "machine/plugbox.h"
 #include "machine/pic.h"
+#include "syscall/guarded_semaphore.h"
  
 
 class Keyboard : public Gate, public Keyboard_Controller
@@ -28,8 +29,9 @@ public:
 	void plugin ();
 	bool prologue ();
 	void epilogue ();
+	Key getkey();
         
  };
-extern Keyboard keyboard;
+extern Guarded_Semaphore keysem;
 
 #endif

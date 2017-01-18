@@ -22,5 +22,6 @@ public:
       Guarded_Keyboard () {}
       Key getkey();
  };
+ extern Guarded_Keyboard keyboard;
 
 #endif

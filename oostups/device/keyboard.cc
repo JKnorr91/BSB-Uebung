@@ -34,4 +34,10 @@ bool Keyboard::prologue (){
 void Keyboard::epilogue (){
 	//kout.setpos(4,6);
 	kout << key.ascii() << el;
+	keysem.Semaphore::v();
+}
+
+Key Keyboard::getkey() {
+	keysem.Semaphore::p();
+	return key_hit();
 }

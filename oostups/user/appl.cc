@@ -32,6 +32,10 @@
 			kout.setpos(a,b);
 			cgasem.v();
 			output_num++;
+
+			if(id == 2 && output_num == 5000) {
+				keyboard.getkey();
+			}
 			
 			if(output_num > 1000000 * id) {
 				organizer.exit();

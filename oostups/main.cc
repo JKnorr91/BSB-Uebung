@@ -4,7 +4,7 @@
 #include "machine/cpu.h"
 #include "device/panic.h"
 #include "machine/plugbox.h"
-#include "device/keyboard.h"
+#include "syscall/guarded_keyboard.h"
 #include "machine/keyctrl.h"
 #include "user/appl.h"
 #include "guard/guard.h"
@@ -21,13 +21,14 @@ CGA_Stream kout;
 PIC pic;
 Panic panic;
 Plugbox plugbox;
-Keyboard keyboard;
+Guarded_Keyboard keyboard;
 Keyboard_Controller keyctl;
 Guard guard;
 Debug debug;
 //Guarded_Scheduler scheduler; 
 Guarded_Organizer organizer; 
-Guarded_Semaphore cgasem(1); 
+Guarded_Semaphore cgasem(1);
+Guarded_Semaphore keysem(0); 
 
 char stack1[4096];
 Application app1(stack1+4092, 1,10,10);
