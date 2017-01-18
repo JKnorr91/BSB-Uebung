@@ -21,12 +21,16 @@ class Bellringer: public List
 {
 private:
    Bellringer(const Bellringer &copy); // Verhindere Kopieren
+   void checkSimple ();
+   void checkOptimized ();
+   int tickstep;
+   int ticks_to_go;
 public:
-   Bellringer() {};
+   Bellringer();
    void check ();
    void job (Bell *bell, int ticks);
    void cancel (Bell *bell);
 /* Hier muesst ihr selbst Code vervollstaendigen */ 
 };
-
+extern Bellringer bellringer;
 #endif
