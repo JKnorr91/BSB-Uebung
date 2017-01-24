@@ -25,5 +25,6 @@ public:
     void wait();
     void signal();
  };
+extern Guarded_Semaphore cgasem;
 
 #endif

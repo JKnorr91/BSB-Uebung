@@ -8,9 +8,7 @@
 /* Tastaturtreiber.                                                          */
 /*****************************************************************************/
 #include "device/keyboard.h"
-#include "user/appl.h"
-/* Hier muesst ihr selbst Code vervollstaendigen */ 
-/* Hier muesst ihr selbst Code vervollstaendigen */ 
+#include "user/debug.h"´
  
 Keyboard::Keyboard(){}
 
@@ -32,12 +30,10 @@ bool Keyboard::prologue (){
 }
 
 void Keyboard::epilogue (){
-	//kout.setpos(4,6);
-	kout << key.ascii() << el;
 	keysem.Semaphore::v();
 }
 
 Key Keyboard::getkey() {
 	keysem.Semaphore::p();
-	return key_hit();
+	return key;
 }

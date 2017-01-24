@@ -35,5 +35,4 @@ public:
     void action ();
 
  };
-extern Guarded_Semaphore cgasem;
 #endif

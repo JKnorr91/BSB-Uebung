@@ -14,6 +14,7 @@
 /*****************************************************************************/
 
 #include "machine/io_port.h"
+#include "user/debug.h"
 
 class CGA_Screen
  {

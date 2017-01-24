@@ -17,6 +17,7 @@
 #include "object/strbuf.h"
 #include "object/o_stream.h"
 #include "machine/cgascr.h"
+//#include "syscall/guarded_semaphore.h"
 
 class CGA_Stream : public O_Stream, public CGA_Screen       
  {
@@ -31,4 +32,5 @@ public:
  };
 
 extern CGA_Stream kout;
+//extern Guarded_Semaphore cgasem;
 #endif

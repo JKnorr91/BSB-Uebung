@@ -102,6 +102,7 @@
 					y = 24;
 				}
 			} else {
+				//debug.out(6, 12, text);
 				show(x++, y, text[i], attrib);
 				if (x == 80) {
 					x = 0;

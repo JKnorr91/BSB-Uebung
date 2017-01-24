@@ -10,43 +10,23 @@
 
 /* INCLUDES */
 
-#include "user/appl.h"
+#include "user/keyapp.h"
 
 
 
-	Application::Application(void* tos, int idIn, int xin, int yin) :  Thread(tos) {
-		id = idIn;
-		x=xin;
-		y=yin;
-	}
+	KeyApp::KeyApp(void* tos) :  Thread(tos) {}
 
-	void Application::action ()
+	void KeyApp::action ()
  	{
-		int a;
-		int b;
  		while (true) {
+			Key k = keyboard.getkey();
+
 			cgasem.p();
-			kout.getpos(a, b);
-			kout.setpos(x, y);
-			kout << output_num << el;
-			kout.setpos(a,b);
+			kout << k.ascii() << el;
 			cgasem.v();
-			output_num++;
-
-			if(id == 1) {
-				buzzer.set(50);
-				buzzer.sleep();
-			}
-
-			/*if(id == 2 && output_num == 10000) {
-				keyboard.getkey();
-			}*/
 			
-			if(output_num > 50000 * id) {
+			if(k.ascii() == 'q') {
 				organizer.exit();
-				//scheduler.kill(*nextApp);
 			}
-			//scheduler.resume();
-			//resume(*next);
 		}
  	}

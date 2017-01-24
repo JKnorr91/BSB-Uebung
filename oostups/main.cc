@@ -7,6 +7,7 @@
 #include "syscall/guarded_keyboard.h"
 #include "machine/keyctrl.h"
 #include "user/appl.h"
+#include "user/keyapp.h"
 #include "guard/guard.h"
 #include "user/debug.h"
 #include "thread/scheduler.h"
@@ -37,6 +38,9 @@ Application app1(stack1+4092, 1,10,10);
 char stack2[4096];
 Application app2(stack2+4092, 2,40,10);
 
+char stack3[4096];
+KeyApp app3(stack3+4092);
+
 int main(){
 	guard.enter();
 
@@ -55,6 +59,7 @@ int main(){
 
 	organizer.Scheduler::ready(app1);
 	organizer.Scheduler::ready(app2);
+	organizer.Scheduler::ready(app3);
 	app1.nextApp = &app2;
 	app2.nextApp = &app1;
 	
