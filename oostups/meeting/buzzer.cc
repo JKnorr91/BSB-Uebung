@@ -28,8 +28,9 @@
 
      void Buzzer::ring(){
         Customer *c = (Customer*) dequeue();
-        if (c){
+        while (c){
             organizer.wakeup(*c);
+			c = (Customer*) dequeue();
         }
     }
 
