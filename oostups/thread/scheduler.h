@@ -20,6 +20,7 @@ class Scheduler : public Dispatcher
 private:
       Scheduler (const Scheduler &copy); // Verhindere Kopieren
       Queue queue;
+	  void idleDispatch();
 public:
       Scheduler() {};
       void ready (Entrant& that);

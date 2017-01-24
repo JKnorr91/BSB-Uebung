@@ -31,6 +31,7 @@ extern "C"
 Coroutine::Coroutine (void* tos){
     toc_settle(&regs, tos, ((void (*) (void*)) &kickoff), this);
 }
+
 void Coroutine::go(){
     toc_go(&regs);
 }

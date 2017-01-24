@@ -14,7 +14,7 @@
 #include"meeting/buzzer.h"
 
     Buzzer::Buzzer (){
-        val = -1;
+        sleepTime = -1;
     }
 
      Buzzer::~Buzzer(){
@@ -34,12 +34,12 @@
     }
 
     void Buzzer::set (int ms){
-        val = ms;
+        sleepTime = ms;
     }
 
     void Buzzer::sleep (){
         Customer *c = (Customer*) organizer.active();
         enqueue(c);
-        bellringer.job(this,val);
+        bellringer.job(this, sleepTime);
         organizer.block(*c,*this);
     }

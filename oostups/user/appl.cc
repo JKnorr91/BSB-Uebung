@@ -34,15 +34,15 @@
 			output_num++;
 
 			if(id == 1) {
-				buzzer.set(200);
+				buzzer.set(50);
 				buzzer.sleep();
 			}
 
-			if(id == 2 && output_num == 100000) {
+			if(id == 2 && output_num == 10000) {
 				keyboard.getkey();
 			}
 			
-			if(output_num > 1000000 * id) {
+			if(output_num > 50000 * id) {
 				organizer.exit();
 				//scheduler.kill(*nextApp);
 			}

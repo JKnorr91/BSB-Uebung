@@ -40,13 +40,13 @@ CPU() {}
     // Prozessor bis zum naechsten Interrupt anhalten
     inline void idle ()
       {
-	cpu_idle ();
+		cpu_idle ();
       }
 
     // Prozessor anhalten
     inline void halt ()
       {
-	cpu_halt ();
+		cpu_halt ();
       }
  };
 

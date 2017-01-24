@@ -26,7 +26,6 @@ void Dispatcher::dispatch (Coroutine& next) {
     old->resume(next);
 }
 
-
 Coroutine* Dispatcher::active () {
     return currentCoroutine;
 }

@@ -22,7 +22,7 @@ class Buzzer: public Waitingroom, public Bell
 {
 private:
     Buzzer(const Buzzer &copy); // Verhindere Kopieren
-/* Hier muesst ihr selbst Code vervollstaendigen */ 
+	int sleepTime;
 public:
     Buzzer ();
     virtual ~Buzzer();

@@ -12,6 +12,7 @@
 #include "machine/cpu.h"
 #include "user/debug.h"
 #include "thread/scheduler.h"
+#include "guard/guard.h"
 
 void Scheduler::ready (Entrant& that) {
     queue.enqueue(&that);
@@ -29,14 +30,27 @@ void Scheduler::schedule () {
 }
 
 void Scheduler::exit () {
-    Entrant* currentEntrant = (Entrant*) queue.dequeue();
-    if(currentEntrant) {
+    idleDispatch();
+/*    if(currentEntrant) {
         dispatch(*currentEntrant);
     }
     else {
         debug.out(0,0,"Scheduler::exit null pointer");
         cpu.halt();
-    }
+    }*/
+}
+
+void Scheduler::idleDispatch() {
+	Entrant* currentEntrant = 0;
+	guard.leave();
+	cpu.disable_int();
+	while (!(currentEntrant = (Entrant*) queue.dequeue())) {
+		cpu.idle();
+		cpu.disable_int();
+	}
+	guard.enter();
+	cpu.enable_int();
+	dispatch(*currentEntrant);
 }
 
 void Scheduler::kill (Entrant& that) {
@@ -46,12 +60,13 @@ void Scheduler::kill (Entrant& that) {
 void Scheduler::resume () {
     Entrant* currentActive = (Entrant*) active();
     ready( *currentActive );
-    Entrant* currentEntrant = (Entrant*) queue.dequeue();
+	idleDispatch();
+    /*Entrant* currentEntrant = (Entrant*) queue.dequeue();
     if(currentEntrant) {
         dispatch(*currentEntrant);
     }
     else {
         debug.out(0,0,"Scheduler::resume null pointer");
         cpu.halt();
-    }
+    }*/
 }
