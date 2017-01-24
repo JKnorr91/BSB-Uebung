@@ -13,7 +13,7 @@
 void PIT::interval(int us) {
 
     //convert into us
-    us = (us * 1.19) + 0.5;
+    us = (us * 1.19318) + 0.5;
 
     /*6-7	Zählerauswahl
             00 	Zähler 0
