@@ -34,7 +34,7 @@
 			output_num++;
 
 			if(id == 1) {
-				buzzer.set(50);
+				buzzer.set(1000);
 				buzzer.sleep();
 			}
 

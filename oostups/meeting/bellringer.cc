@@ -68,7 +68,11 @@ void Bellringer::check() {
 }
 
 
-void Bellringer::job (Bell *bell, int ticks) {
+void Bellringer::job (Bell *bell, int millis) {
+	int ticks = millis / 10;
+	if (millis % 10 != 0) {
+		ticks++;
+	}
     bell->wait(ticks);
     enqueue(bell);
 
