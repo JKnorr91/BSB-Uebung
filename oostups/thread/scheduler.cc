@@ -58,14 +58,11 @@ void Scheduler::kill (Entrant& that) {
 }
 
 void Scheduler::resume () {
+	Entrant* currentEntrant = (Entrant*) queue.dequeue();
+	if (!currentEntrant) {
+		return;
+	}
     Entrant* currentActive = (Entrant*) active();
     ready( *currentActive );
-	Entrant* currentEntrant = (Entrant*) queue.dequeue();
-    if(currentEntrant) {
-        dispatch(*currentEntrant);
-    }
-    else {
-        debug.out(0,0,"Scheduler::resume null pointer");
-        cpu.halt();
-    }
+    dispatch(*currentEntrant);
 }

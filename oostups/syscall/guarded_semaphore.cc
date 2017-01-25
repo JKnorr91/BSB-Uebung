@@ -16,6 +16,9 @@
 Guarded_Semaphore::Guarded_Semaphore (int c) :Semaphore(c){
 
 }
+
+Guarded_Semaphore::Guarded_Semaphore (int initialValue, int limitValue) : Semaphore(initialValue, limitValue){}
+
 void Guarded_Semaphore::p(){
     {Secure section;
    		Semaphore::p();

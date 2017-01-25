@@ -20,6 +20,7 @@ private:
     Guarded_Semaphore (const Guarded_Semaphore &copy); // Verhindere Kopieren
 public:
     Guarded_Semaphore (int c);
+    Guarded_Semaphore (int initialValue, int limitValue);
     void p();
     void v();
     void wait();

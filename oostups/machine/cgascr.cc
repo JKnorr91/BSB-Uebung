@@ -16,7 +16,6 @@
 
 	char* CGA_START = (char*)0xb8000;
 
-
 	CGA_Screen::CGA_Screen():ctrl_port (0x3d4), data_port (0x3d5)
 	{
 		int i;
@@ -27,6 +26,7 @@
 			scr_buffer[i] = ' ';
 		}
 	}
+
 	void CGA_Screen::show(int x, int y, char c, unsigned char attrib) {
 		int offset = (x + y * 80) * 2;
 		char* posChar = CGA_START + offset;

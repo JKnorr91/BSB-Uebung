@@ -20,13 +20,16 @@
  	{
  		while (true) {
 			Key k = keyboard.getkey();
+			
+			if(k.ctrl() && k.ascii() == 'c'){
+				organizer.exit();
+			}
 
 			cgasem.p();
 			kout << k.ascii() << el;
 			cgasem.v();
-			
-			if(k.ascii() == 'q') {
-				organizer.exit();
-			}
+
+			//buzzer.set(500);
+			//buzzer.sleep();
 		}
  	}

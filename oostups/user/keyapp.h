@@ -25,6 +25,7 @@ class KeyApp : public Thread
  {
 private:
     KeyApp (const KeyApp &copy); // Verhindere Kopieren
+	Guarded_Buzzer buzzer;
 
 public:
 	KeyApp(void* tos);

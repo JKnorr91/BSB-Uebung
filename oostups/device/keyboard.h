@@ -17,13 +17,19 @@
 #include "machine/plugbox.h"
 #include "machine/pic.h"
 #include "syscall/guarded_semaphore.h"
- 
 
 class Keyboard : public Gate, public Keyboard_Controller
 {        
 private:
-      Keyboard (const Keyboard &copy); // Verhindere Kopieren
-      Key key;
+	static const int KEY_BUFFER_SIZE = 5;
+
+	Keyboard (const Keyboard &copy); // Verhindere Kopieren
+
+	Key key[KEY_BUFFER_SIZE];
+	//Guarded_Semaphore keysem(0);
+	int keyBufPosWrite;
+	int keyBufPosRead;
+
 public:
 	Keyboard ();
 	void plugin ();
@@ -33,5 +39,4 @@ public:
         
  };
 extern Guarded_Semaphore keysem;
-
 #endif

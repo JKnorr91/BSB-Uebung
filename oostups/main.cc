@@ -30,7 +30,7 @@ Debug debug;
 Bellringer bellringer; 
 Guarded_Organizer organizer; 
 Guarded_Semaphore cgasem(1);
-Guarded_Semaphore keysem(0); 
+Guarded_Semaphore keysem(0, 5);
 
 char stack1[4096];
 Application app1(stack1+4092, 1,10,10);

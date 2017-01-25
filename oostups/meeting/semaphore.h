@@ -21,11 +21,13 @@ class Semaphore : public Waitingroom
  {
 private:
     int res;
+	int limit;
     Semaphore (const Semaphore &copy); // Verhindere Kopieren
 /* Hier muesst ihr selbst Code vervollstaendigen */
 public:
     ~Semaphore();
-    Semaphore (int c);
+    Semaphore (int initialValue);
+    Semaphore (int initialValue, int limitValue);
     void p (); 
     void v ();
     inline void wait (){p();};

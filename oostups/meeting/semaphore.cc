@@ -11,9 +11,14 @@
 /* Hier muesst ihr selbst Code vervollstaendigen */ 
 #include "meeting/semaphore.h"
 
+Semaphore::Semaphore (int initialValue){
+    res = initialValue;
+	limit = -1;
+}
 
-Semaphore::Semaphore (int c){
-    res = c;
+Semaphore::Semaphore (int initialValue, int limitValue){
+    res = initialValue;
+	limit = limitValue;
 }
 
 Semaphore::~Semaphore(){
@@ -38,9 +43,9 @@ void Semaphore::v (){
     Customer *c = (Customer*) dequeue();
     if (c){
         organizer.wakeup(*c);
-    }else{
+    } else if (limit < 0 || res < limit) {
         res++;
-    }
+	}
 
 }
 

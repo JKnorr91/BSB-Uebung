@@ -8,9 +8,12 @@
 /* Tastaturtreiber.                                                          */
 /*****************************************************************************/
 #include "device/keyboard.h"
-#include "user/debug.h"´
+#include "user/debug.h"
  
-Keyboard::Keyboard(){}
+Keyboard::Keyboard(){
+	keyBufPosWrite = 0;
+	keyBufPosRead = 0;
+}
 
 void Keyboard::plugin (){
 	plugbox.assign(Plugbox::keyboard, *this);
@@ -18,10 +21,12 @@ void Keyboard::plugin (){
 }
 
 bool Keyboard::prologue (){
-	key = key_hit();
-	if(key.ctrl() && key.alt() && key.scancode() == Key::scan::del){
+	Key curKey = key_hit();
+
+	if(curKey.ctrl() && curKey.alt() && curKey.scancode() == Key::scan::del){
 		reboot();
-	}else if (key.valid()){
+	}else if (curKey.valid()){
+		key[keyBufPosWrite] = curKey;
 		//ausgabe vormerken
 		return true;
 	}
@@ -29,11 +34,21 @@ bool Keyboard::prologue (){
 	return false;
 }
 
-void Keyboard::epilogue (){
+void Keyboard::epilogue () {
+	keyBufPosWrite++;
+	if (keyBufPosWrite >= KEY_BUFFER_SIZE) {
+		keyBufPosWrite = 0;
+	}
 	keysem.Semaphore::v();
 }
 
 Key Keyboard::getkey() {
 	keysem.Semaphore::p();
-	return key;
+	Key result = key[keyBufPosRead];
+
+	keyBufPosRead++;
+	if (keyBufPosRead >= KEY_BUFFER_SIZE) {
+		keyBufPosRead = 0;
+	}
+	return result;
 }
