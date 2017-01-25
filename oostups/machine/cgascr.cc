@@ -18,6 +18,17 @@
 
 	CGA_Screen::CGA_Screen():ctrl_port (0x3d4), data_port (0x3d5)
 	{
+		/*int i;
+		for (i = 0; i < 26 * 80; i++){
+			atr_buffer[i] = 0x0f;
+		}
+		for (i = 0; i < 26 * 80; i++){
+			scr_buffer[i] = ' ';
+		}*/
+		screenClear();
+	}
+
+	void CGA_Screen::screenClear() {
 		int i;
 		for (i = 0; i < 26 * 80; i++){
 			atr_buffer[i] = 0x0f;
@@ -25,6 +36,7 @@
 		for (i = 0; i < 26 * 80; i++){
 			scr_buffer[i] = ' ';
 		}
+		reprint();
 	}
 
 	void CGA_Screen::show(int x, int y, char c, unsigned char attrib) {

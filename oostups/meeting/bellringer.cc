@@ -28,9 +28,9 @@ void Bellringer::checkOptimized() {
 
     Chain* current = first();
     while(current) {
+		Chain* next = current->next;
 
         Bell* currentBell = (Bell*) current;
-
         currentBell->tick(tickstep);
 
         if(currentBell->run_down()) {
@@ -41,8 +41,7 @@ void Bellringer::checkOptimized() {
             tickstep = currentBell->wait() < tickstep || tickstep == -1 ? currentBell->wait() : tickstep;
         }
 
-
-        current = current->next;
+        current = next;
     }
     ticks_to_go = tickstep;
 }
@@ -50,6 +49,7 @@ void Bellringer::checkOptimized() {
 void Bellringer::checkSimple() {
     Chain* current = first();
     while(current) {
+		Chain* next = current->next;
 
         Bell* currentBell = (Bell*) current;
         currentBell->tick();
@@ -59,7 +59,7 @@ void Bellringer::checkSimple() {
             currentBell->ring();
         }
 
-        current = current->next;
+        current = next;
     }
 }
 

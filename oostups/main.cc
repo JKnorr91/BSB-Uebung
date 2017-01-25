@@ -18,6 +18,9 @@
 #include "syscall/guarded_semaphore.h"
 #include "meeting/bellringer.h"
 
+#include "game/input_thread.h"
+#include "game/invaders.h"
+
 CPU cpu;
 CGA_Stream kout;
 PIC pic;
@@ -41,6 +44,12 @@ Application app2(stack2+4092, 2,40,10);
 char stack3[4096];
 KeyApp app3(stack3+4092);
 
+char stack4[4096];
+Invaders appInv(stack4+4092);
+
+char stack5[4096];
+InputThread inputThr(stack5+4092);
+
 int main(){
 	guard.enter();
 
@@ -57,11 +66,13 @@ int main(){
 	kout << "interrupt System enabled" << endl << endl;
 	debug.out(0, 4, "Debug enabled");
 
-	organizer.Scheduler::ready(app1);
+/*	organizer.Scheduler::ready(app1);
 	organizer.Scheduler::ready(app2);
-	organizer.Scheduler::ready(app3);
-	app1.nextApp = &app2;
-	app2.nextApp = &app1;
+	organizer.Scheduler::ready(app3);*/
+	organizer.Scheduler::ready(appInv);
+	organizer.Scheduler::ready(inputThr);
+	//app1.nextApp = &app2;
+	//app2.nextApp = &app1;
 	
 	organizer.Scheduler::schedule();
 

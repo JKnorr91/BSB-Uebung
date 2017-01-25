@@ -31,6 +31,7 @@ private:
 public:
 	CGA_Screen();
 	void show(int x, int y, char c, unsigned char attrib);
+	void screenClear();
 
 	void setpos(int x, int y);
 
