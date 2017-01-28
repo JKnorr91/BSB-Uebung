@@ -20,6 +20,7 @@
 
 #include "game/input_thread.h"
 #include "game/invaders.h"
+#include "game/gameKey.h"
 
 CPU cpu;
 CGA_Stream kout;
@@ -34,6 +35,7 @@ Bellringer bellringer;
 Guarded_Organizer organizer; 
 Guarded_Semaphore cgasem(1);
 Guarded_Semaphore keysem(0, 5);
+GameKey gameKey;
 
 char stack1[4096];
 Application app1(stack1+4092, 1,10,10);
@@ -66,9 +68,9 @@ int main(){
 	kout << "interrupt System enabled" << endl << endl;
 	debug.out(0, 4, "Debug enabled");
 
-/*	organizer.Scheduler::ready(app1);
-	organizer.Scheduler::ready(app2);
-	organizer.Scheduler::ready(app3);*/
+	// organizer.Scheduler::ready(app1);
+	// organizer.Scheduler::ready(app2);
+	//organizer.Scheduler::ready(app3);
 	organizer.Scheduler::ready(appInv);
 	organizer.Scheduler::ready(inputThr);
 	//app1.nextApp = &app2;

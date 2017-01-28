@@ -20,9 +20,10 @@
  	{
  		while (true) {
 			keyNow = keyboard.getkey();
-			keyValid = true;
-			if(keyNow.ctrl() && keyNow.ascii() == 'c'){
-				organizer.exit();
-			}
+			gameKey.setKey(&keyNow);
+			//keyValid = true;
+			//if(keyNow.ctrl() && keyNow.ascii() == 'c'){
+				//organizer.exit();
+			//}
 		}
  	}

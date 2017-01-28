@@ -20,6 +20,7 @@
 #include "syscall/guarded_semaphore.h"
 #include "syscall/guarded_buzzer.h"
 #include "user/debug.h"
+#include "game/gameKey.h"
 
 class InputThread : public Thread
  {
@@ -33,5 +34,4 @@ public:
 	Key keyNow;
 	bool keyValid;
  };
-extern InputThread inputThr;
 #endif

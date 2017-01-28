@@ -24,17 +24,18 @@
 #include "game/entity.h"
 #include "game/player.h"
 #include "object/list.h"
+#include "game/domain.h"
 
 class Invaders : public Thread
  {
 private:
     Invaders (const Invaders &copy); // Verhindere Kopieren
 	Guarded_Buzzer buzzer;
-	List entityList;
+	Domain domain;
 
 	void initializeGame();
-	void updateModel();
-	void render();
+	void updateDomain();
+	void renderDomain();
 
 public:
 	Invaders(void* tos);

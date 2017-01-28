@@ -1,18 +1,6 @@
-/*****************************************************************************/
-/* Betriebssysteme                                                           */
-/*---------------------------------------------------------------------------*/
-/*                                                                           */
-/*                         A P P L I C A T I O N                             */
-/*                                                                           */
-/*---------------------------------------------------------------------------*/
-/* Die Klasse Application definiert die einzige Anwendung von OO-Stubs.      */
-/*****************************************************************************/
-
-/* INCLUDES */
-
 #include "game/player.h"
 
-	Player::Player() {
+	Player::Player() : Entity(0,0) {
 		life = 5;
 	}
 
@@ -20,15 +8,40 @@
 		life = 5;
 	}
 
-	bool Player::update(Key nowPressed) {
-		if (nowPressed.scancode() == Key::scan::left) {
-			setPos(getPosX() - 1, getPosY());
-		} else if (nowPressed.scancode() == Key::scan::right) {
-			setPos(getPosX() + 1, getPosY());
+	bool Player::update(Key* nowPressed) {
+		if(nowPressed) {
+			if (nowPressed->scancode() == Key::scan::left) {
+				setPos(getPosX() - 1, getPosY());
+			} else if (nowPressed->scancode() == Key::scan::right) {
+				setPos(getPosX() + 1, getPosY());
+			}
 		}
 		return life > 0;
 	}
 
-	void Player::render() {
-		kout.show(getPosX(), getPosY(), 'A', 0x0f);
+	void Player::render() { //erstes byte Hintergrund, zweites Schriftfarbe
+
+		int fireStyle = 0xce;
+		int shuttleCaseStyle = 0xf0;
+
+		//SpaceShuttle Spitze
+		kout.show(getPosX(), getPosY()-2, ' ', shuttleCaseStyle);
+
+		kout.show(getPosX()-1, getPosY()-1, ' ', shuttleCaseStyle);
+		kout.show(getPosX(), getPosY()-1, ' ', shuttleCaseStyle);
+		kout.show(getPosX()+1, getPosY()-1, ' ', shuttleCaseStyle);
+
+		kout.show(getPosX()-2, getPosY(), ' ', shuttleCaseStyle);
+		kout.show(getPosX()-1, getPosY(), ' ', shuttleCaseStyle);
+		kout.show(getPosX(), getPosY(), ' ', shuttleCaseStyle);
+		kout.show(getPosX()+1, getPosY(), ' ', shuttleCaseStyle);
+		kout.show(getPosX()+2, getPosY(), ' ', shuttleCaseStyle);
+
+		//SpaceShuttle Antrieb
+		kout.show(getPosX()-1, getPosY()+1, 'V', fireStyle);
+		kout.show(getPosX(), getPosY()+1, 'V', fireStyle);
+		kout.show(getPosX()+1, getPosY()+1, 'V', fireStyle);
+		
+
+		
 	}
