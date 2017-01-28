@@ -12,7 +12,9 @@ class Domain {
         Domain (const Domain &copy); // Verhindere Kopieren
         List entityList;
         Player player;
-        Shot shot;
+
+        int currentShotIndex;
+        Shot shot[8];
     public:
         Domain();
         void addEntity(Entity* entity);

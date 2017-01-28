@@ -1,9 +1,12 @@
 #include "./domain.h"
+#include "user/debug.h"
 
 Domain::Domain() {
     player.setPos(40,22);
     player.setDomain(this);
     addEntity(&player);
+
+    currentShotIndex = 0;
 }
 
 void Domain::addEntity(Entity* entity) {
@@ -32,6 +35,8 @@ void Domain::render() {
 }
 
 void Domain::createShot(int x, int y) {
-    shot.setPos(x,y);
-    addEntity(&shot);
+    Shot* currentShot = &shot[currentShotIndex];
+    currentShot->setPos(x,y);
+    addEntity(currentShot);
+    currentShotIndex = (currentShotIndex+1) % 8;
 }

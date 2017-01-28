@@ -11,8 +11,8 @@
 	}
 
 	void Shot::render() { //erstes byte Hintergrund, zweites Schriftfarbe
-		int fireStyle = 0xce;
+		int shotStyle = 0x0e;
 
 		//SpaceShuttle Spitze
-		kout.show(getPosX(), getPosY(), 'O', fireStyle);
+		kout.show(getPosX(), getPosY(), 'O', shotStyle);
 	}
