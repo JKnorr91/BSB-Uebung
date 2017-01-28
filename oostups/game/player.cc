@@ -1,4 +1,5 @@
 #include "game/player.h"
+#include "./domain.h"
 
 	Player::Player() : Entity(0,0) {
 		life = 5;
@@ -8,12 +9,18 @@
 		life = 5;
 	}
 
+	void Player::setDomain(Domain* domain) {
+		this->domain = domain;
+	}
+
 	bool Player::update(Key* nowPressed) {
 		if(nowPressed) {
 			if (nowPressed->scancode() == Key::scan::left) {
 				setPos(getPosX() - 1, getPosY());
 			} else if (nowPressed->scancode() == Key::scan::right) {
 				setPos(getPosX() + 1, getPosY());
+			} else if (nowPressed->ascii() == 'a') {
+				domain->createShot(getPosX(), getPosY()-3);
 			}
 		}
 		return life > 0;

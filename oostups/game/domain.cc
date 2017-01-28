@@ -2,6 +2,7 @@
 
 Domain::Domain() {
     player.setPos(40,22);
+    player.setDomain(this);
     addEntity(&player);
 }
 

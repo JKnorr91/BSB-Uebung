@@ -20,11 +20,11 @@
 		} else if (x >= 80) {
 			x = 79;
 		}
-		if (y < 0) {
+		/*if (y < 0) {
 			y = 0;
 		} else if (y >= 25) {
 			y = 24;
-		}
+		}*/
 		posX = x;
 		posY = y;
 	}

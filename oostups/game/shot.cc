@@ -5,7 +5,9 @@
 	Shot::Shot(int initialX, int initialY) : Entity(initialX, initialY) {}
 
 	bool Shot::update(Key* nowPressed) {
-        return true;
+        setPos(getPosX(), getPosY()-1);
+
+        return getPosY() >= 0;
 	}
 
 	void Shot::render() { //erstes byte Hintergrund, zweites Schriftfarbe
