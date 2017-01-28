@@ -28,7 +28,9 @@ protected:
 public:
       Queue () { head = 0; tail = &head; }
       void enqueue (Chain* item);
+      void enqueue_interrupt_resistent (Chain* item);
       Chain* dequeue ();
+      Chain* dequeue_interrupt_resistent ();
       void remove (Chain*);
  };
 

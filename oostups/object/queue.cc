@@ -29,7 +29,19 @@ void Queue::enqueue (Chain* item)
  { 
    item->next = 0;       // Das neue Element besitzt noch keinen Nachfolger.
    *tail = item;         // Das Element an das Ende der Liste anfuegen
+   //Wenn hier interrupted, dann AUA
    tail = &(item->next); // und den tail Zeiger aktualisieren.
+ }
+
+ void Queue::enqueue_interrupt_resistent (Chain* item)
+ {
+   item->next = 0;
+   Chain** last = tail; //Wir merken uns den derzeitigen letzten
+   tail = &item->next; //ab hier hängt das Element in der Liste (wird von anderen Elementen gefunden)
+   while(!*last) {
+     last = &((*last)->next);
+    }
+   *last = item; //Position des Elements wird korrigiert
  }
 
 // DEQUEUE: Liefert das erste Element der Liste und entfernt es gleichzeitig
@@ -51,6 +63,34 @@ Chain* Queue::dequeue ()
     }
    return item;
  }
+
+
+ Chain* Queue::dequeue_interrupt_resistent() //Bedingung: dequeue kann nur von enqueue unterbrochen werden
+ {
+    Chain* item = head;
+
+    if(!head) {
+      return 0;
+    }
+
+    if(head->next) {
+      head = head->next;
+      return item;
+    }
+
+
+    tail = &head;
+    Chain* lost = item->next;
+    while(lost) {
+      Chain* x = lost->next;
+      enqueue_interrupt_resistent(lost); //Nachfolger werden nicht auf null gesetzt (siehe Implementierung der Methode)
+      lost = x;
+    }
+
+    return item;
+ }
+
+
 
 // REMOVE: Sucht das angegebene Element in der Liste und entfernt es.
 
