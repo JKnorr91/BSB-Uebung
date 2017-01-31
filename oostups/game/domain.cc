@@ -10,6 +10,11 @@ Domain::Domain() {
     monster.setDomain(this);
     addEntity(&monster);
 
+    monster2.setPos(5,1);
+    monster2.setDomain(this);
+    addEntity(&monster2);
+
+
     currentShotIndex = 0;
 }
 

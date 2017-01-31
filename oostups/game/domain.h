@@ -7,6 +7,7 @@
 #include "./shot.h"
 #include "./gameKey.h"
 #include "./monster_g.h"
+#include "./monster_b.h"
 
 class Domain {
     private:
@@ -14,6 +15,7 @@ class Domain {
         List entityList;
         Player player;
         MonsterGreen monster;
+        Monster_b monster2;
 
         int currentShotIndex;
         Shot shot[25];
