@@ -18,6 +18,7 @@ class Keyboard_Controller
  {
 private:
     Keyboard_Controller(const Keyboard_Controller &copy); // Verhindere Kopieren
+	bool pressedKeys[256];
 private:
     unsigned char code;
     unsigned char prefix;
@@ -84,6 +85,7 @@ public:
    //          falls liefert key_hit () einen ungueltigen Wert zurueck, was
    //          mit Key::valid () ueberprueft werden kann.
    Key key_hit ();
+	bool isPressed(unsigned char scancode);
 
    // REBOOT: Fuehrt einen Neustart des Rechners durch. Ja, beim PC macht
    //         das der Tastaturcontroller.

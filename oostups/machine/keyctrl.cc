@@ -84,6 +84,8 @@ bool Keyboard_Controller::key_decoded ()
      {
        code &= ~break_bit;     // Der Break Code einer Taste ist gleich dem
                                // Make Code mit gesetzten break_bit.
+		pressedKeys[code] = false;
+
        switch (code)
 	 {
 	 case 42:  
@@ -174,6 +176,8 @@ bool Keyboard_Controller::key_decoded ()
    // Ein Prefix gilt immer nur fuer den unmittelbar nachfolgenden Code.
    // Also ist es jetzt abgehandelt.
    prefix = 0;
+
+	pressedKeys[code] = true;
 
    if (done)       // Tastaturabfrage abgeschlossen
      return true;
@@ -273,7 +277,7 @@ Keyboard_Controller::Keyboard_Controller () :
 
 Key Keyboard_Controller::key_hit ()
  {
-   while(~ctrl_port.inb() & 0x01){};
+   while(~ctrl_port.inb() & 0x01){}
 
    code = (unsigned char) data_port.inb();
    
@@ -283,6 +287,10 @@ Key Keyboard_Controller::key_hit ()
 
    return Key();
  }
+
+	bool Keyboard_Controller::isPressed(unsigned char scancode) {
+		return pressedKeys[scancode];
+	}
 
 // REBOOT: Fuehrt einen Neustart des Rechners durch. Ja, beim PC macht
 //         das der Tastaturcontroller.
