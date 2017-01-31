@@ -13,10 +13,6 @@
 		setPositionRestrictionX(2,2);
 	}
 
-	void Player::setDomain(Domain* domain) {
-		this->domain = domain;
-	}
-
 	bool Player::update() {
 		if (keyboard.isPressed(Key::scan::left)) {
 			setPos(getPosX() - 1, getPosY());
@@ -29,7 +25,7 @@
 			cooldown--;
 		} else if (keyboard.isPressed(Key::scan::space)) {
 			cooldown = 5;
-			domain->createShot(getPosX(), getPosY()-3);
+			domain->createShot(getPosX(), getPosY()-2);
 		
 		}
 

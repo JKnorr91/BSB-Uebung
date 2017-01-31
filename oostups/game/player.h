@@ -13,7 +13,6 @@ private:
     Player (const Player &copy); // Verhindere Kopieren
 	int life;
 	int cooldown;
-	Domain* domain;
 public:
 	Player();
 	Player(int initialX, int initialY);

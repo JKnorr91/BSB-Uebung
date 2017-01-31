@@ -1,4 +1,5 @@
 #include "game/entity.h"
+#include "./domain.h"
 
 	Entity::Entity(){
 		setPos(0,0);
@@ -8,6 +9,10 @@
 	Entity::Entity(int initialX, int initialY) {
 		setPos(initialX, initialY);
 		setPositionRestrictionX(0,0);
+	}
+
+	void Player::setDomain(Domain* domain) {
+		this->domain = domain;
 	}
 
 	void Entity::setPositionRestrictionX(int restrictionLeft, int restrictionRight) {

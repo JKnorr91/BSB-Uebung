@@ -5,11 +5,14 @@
 #include "object/chain.h"
 #include "machine/key.h"
 
+class Domain;
+
 class Entity : public Chain {
 
 private:
     Entity (const Entity &copy); // Verhindere Kopieren
 protected:
+	Domain* domain;
 	int posX;
 	int posY;
 	int restrictionXLeft;
@@ -17,6 +20,7 @@ protected:
 public:
 	Entity();
 	Entity(int initialX, int initialY);
+	void setDomain(Domain* domain);
 	virtual bool update() = 0;
 	virtual void render() = 0;
 	int getPosX();
