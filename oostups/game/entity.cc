@@ -11,7 +11,7 @@
 		setPositionRestrictionX(0,0);
 	}
 
-	void Player::setDomain(Domain* domain) {
+	void Entity::setDomain(Domain* domain) {
 		this->domain = domain;
 	}
 

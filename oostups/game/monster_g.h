@@ -1,5 +1,5 @@
-#ifndef __Player_include__
-#define __Player_include__
+#ifndef __MonsterGreen_include__
+#define __MonsterGreen_include__
 
 #include "game/entity.h"
 

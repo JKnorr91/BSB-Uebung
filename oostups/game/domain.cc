@@ -6,6 +6,10 @@ Domain::Domain() {
     player.setDomain(this);
     addEntity(&player);
 
+    monster.setPos(40,3);
+    monster.setDomain(this);
+    addEntity(&monster);
+
     currentShotIndex = 0;
 }
 

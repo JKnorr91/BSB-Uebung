@@ -6,12 +6,14 @@
 #include "./player.h"
 #include "./shot.h"
 #include "./gameKey.h"
+#include "./monster_g.h"
 
 class Domain {
     private:
         Domain (const Domain &copy); // Verhindere Kopieren
         List entityList;
         Player player;
+        MonsterGreen monster;
 
         int currentShotIndex;
         Shot shot[25];

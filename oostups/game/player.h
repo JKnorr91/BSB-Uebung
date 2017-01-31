@@ -16,7 +16,6 @@ private:
 public:
 	Player();
 	Player(int initialX, int initialY);
-	void setDomain(Domain* domain);
 	bool update();
 	void render();
  };

@@ -27,7 +27,7 @@
 				shiftGrow = !shiftGrow;
 			}
 		}
-		setPos(getPosX() + shiftPhase, getPosY()+1);
+		setPos(getPosX() + shiftPhase, getPosY());
 		return life > 0 && getPosY() < 25;
 	}
 
@@ -39,8 +39,8 @@
 		 *  ### 
 		 * #   #
 		 */
-		int styleGreen = 0x10;
-		int styleRed = 0x12;
+		int styleGreen = 0xaa;
+		int styleRed = 0xcc;
 
 		//Zeile 1
 		//kout.show(getPosX()-2, getPosY()-2, ' ', styleGreen);
