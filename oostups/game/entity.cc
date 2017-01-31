@@ -1,9 +1,18 @@
 #include "game/entity.h"
 
-	Entity::Entity() {}
+	Entity::Entity(){
+		setPos(0,0);
+		setPositionRestrictionX(0,0);
+	}
 
 	Entity::Entity(int initialX, int initialY) {
 		setPos(initialX, initialY);
+		setPositionRestrictionX(0,0);
+	}
+
+	void Entity::setPositionRestrictionX(int restrictionLeft, int restrictionRight) {
+		restrictionXLeft = restrictionLeft;
+		restrictionXRight = restrictionRight;
 	}
 
 	int Entity::getPosX() {
@@ -15,10 +24,10 @@
 	}
 
 	void Entity::setPos(int x, int y) {
-		if (x < 0) {
-			x = 0;
-		} else if (x >= 80) {
-			x = 79;
+		if (x < restrictionXLeft) {
+			x = restrictionXLeft;
+		} else if (x >= 80 - restrictionXRight) {
+			x = 79 - restrictionXRight;
 		}
 		/*if (y < 0) {
 			y = 0;

@@ -14,7 +14,7 @@ class Domain {
         Player player;
 
         int currentShotIndex;
-        Shot shot[8];
+        Shot shot[25];
     public:
         Domain();
         void addEntity(Entity* entity);

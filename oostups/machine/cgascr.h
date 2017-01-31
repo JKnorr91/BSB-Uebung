@@ -34,6 +34,7 @@ public:
 	void screenClear();
 
 	void setpos(int x, int y);
+	void hide();
 
 	void getpos(int &x, int &y);
 	void reprint();

@@ -12,6 +12,8 @@ private:
 protected:
 	int posX;
 	int posY;
+	int restrictionXLeft;
+	int restrictionXRight;
 public:
 	Entity();
 	Entity(int initialX, int initialY);
@@ -19,6 +21,7 @@ public:
 	virtual void render() = 0;
 	int getPosX();
 	int getPosY();
+	void setPositionRestrictionX(int restrictionLeft, int restrictionRight);
 	void setPos(int x, int y);
  };
 #endif

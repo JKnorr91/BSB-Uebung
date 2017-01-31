@@ -67,6 +67,13 @@
 		data_port.outb(high);
 	}
 
+	void CGA_Screen::hide() {
+		ctrl_port.outb(14);
+		data_port.outb(0xff);
+		ctrl_port.outb(15);
+		data_port.outb(0xff);
+	}
+
 	void CGA_Screen::getpos(int &x, int &y) {
 		ctrl_port.outb(14);
 		int offset = data_port.inb() << 8;

@@ -38,5 +38,5 @@ void Domain::createShot(int x, int y) {
     Shot* currentShot = &shot[currentShotIndex];
     currentShot->setPos(x,y);
     addEntity(currentShot);
-    currentShotIndex = (currentShotIndex+1) % 8;
+    currentShotIndex = (currentShotIndex+1) % 25;
 }

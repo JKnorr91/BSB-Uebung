@@ -3,10 +3,12 @@
 
 	Player::Player() : Entity(0,0) {
 		life = 5;
+		setPositionRestrictionX(2,2);
 	}
 
 	Player::Player(int initialX, int initialY) : Entity(initialX, initialY) {
 		life = 5;
+		setPositionRestrictionX(2,2);
 	}
 
 	void Player::setDomain(Domain* domain) {
