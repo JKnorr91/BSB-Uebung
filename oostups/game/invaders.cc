@@ -2,7 +2,6 @@
 #include "user/debug.h"
 
 	Invaders::Invaders(void* tos) :  Thread(tos) {
-		initializeGame();
 	}
 
 	void Invaders::initializeGame() {

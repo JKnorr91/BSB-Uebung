@@ -69,9 +69,9 @@
 
 	void CGA_Screen::hide() {
 		ctrl_port.outb(14);
-		data_port.outb(0xff);
+		data_port.outb(0x07);
 		ctrl_port.outb(15);
-		data_port.outb(0xff);
+		data_port.outb(0xD0);
 	}
 
 	void CGA_Screen::getpos(int &x, int &y) {
