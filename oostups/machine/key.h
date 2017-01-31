@@ -91,7 +91,7 @@ public:
 	enum
 	{
 	   f1 = 0x3b, del = 0x53, up=72, down=80, left=75, right=77,
-	   div = 8, space = 39
+	   div = 8, space = 57
 	};
      };
  };
