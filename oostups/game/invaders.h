@@ -19,12 +19,13 @@ private:
 	Guarded_Buzzer buzzer;
 	Domain domain;
 
-	void initializeGame();
+	
 	void updateDomain();
 	void renderDomain();
 
 public:
 	Invaders(void* tos);
     void action ();
+	void initializeGame();
  };
 #endif

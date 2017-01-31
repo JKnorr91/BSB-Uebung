@@ -67,12 +67,16 @@ int main(){
 	cpu.enable_int();
 	kout << "interrupt System enabled" << endl << endl;
 	debug.out(0, 4, "Debug enabled");
+	
+	// inizialization
+	appInv.initializeGame();
 
 	// organizer.Scheduler::ready(app1);
 	// organizer.Scheduler::ready(app2);
 	//organizer.Scheduler::ready(app3);
 	organizer.Scheduler::ready(appInv);
 	organizer.Scheduler::ready(inputThr);
+	
 	//app1.nextApp = &app2;
 	//app2.nextApp = &app1;
 	
