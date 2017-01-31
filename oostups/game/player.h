@@ -12,12 +12,13 @@ class Player : public Entity {
 private:
     Player (const Player &copy); // Verhindere Kopieren
 	int life;
+	int cooldown;
 	Domain* domain;
 public:
 	Player();
 	Player(int initialX, int initialY);
 	void setDomain(Domain* domain);
-	bool update(Key* nowPressed);
+	bool update();
 	void render();
  };
 #endif

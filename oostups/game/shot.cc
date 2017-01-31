@@ -4,7 +4,7 @@
 
 	Shot::Shot(int initialX, int initialY) : Entity(initialX, initialY) {}
 
-	bool Shot::update(Key* nowPressed) {
+	bool Shot::update() {
         setPos(getPosX(), getPosY()-1);
 
         return getPosY() >= 0;

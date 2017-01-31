@@ -10,20 +10,20 @@
 
 /* INCLUDES */
 
-#include "game/input_thread.h"
+// #include "game/input_thread.h"
 
-	InputThread::InputThread(void* tos) :  Thread(tos) {
-		keyValid = false;
-	}
+// 	InputThread::InputThread(void* tos) :  Thread(tos) {
+// 		keyValid = false;
+// 	}
 
-	void InputThread::action ()
- 	{
- 		while (true) {
-			keyNow = keyboard.getkey();
-			gameKey.setKey(&keyNow);
-			//keyValid = true;
-			//if(keyNow.ctrl() && keyNow.ascii() == 'c'){
-				//organizer.exit();
-			//}
-		}
- 	}
+// 	void InputThread::action ()
+//  	{
+//  		while (true) {
+// 			keyNow = keyboard.getkey();
+// 			gameKey.setKey(&keyNow);
+// 			//keyValid = true;
+// 			//if(keyNow.ctrl() && keyNow.ascii() == 'c'){
+// 				//organizer.exit();
+// 			//}
+// 		}
+//  	}

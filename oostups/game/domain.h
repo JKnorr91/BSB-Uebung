@@ -19,7 +19,7 @@ class Domain {
         Domain();
         void addEntity(Entity* entity);
         void createShot(int x, int y);
-        void update(GameKey* key);
+        void update();
         void render();
 };
 #endif

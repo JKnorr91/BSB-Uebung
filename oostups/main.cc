@@ -17,10 +17,7 @@
 #include "syscall/guarded_organizer.h"
 #include "syscall/guarded_semaphore.h"
 #include "meeting/bellringer.h"
-
-#include "game/input_thread.h"
 #include "game/invaders.h"
-#include "game/gameKey.h"
 
 CPU cpu;
 CGA_Stream kout;
@@ -35,7 +32,6 @@ Bellringer bellringer;
 Guarded_Organizer organizer; 
 Guarded_Semaphore cgasem(1);
 Guarded_Semaphore keysem(0, 5);
-GameKey gameKey;
 
 char stack1[4096];
 Application app1(stack1+4092, 1,10,10);
@@ -48,9 +44,6 @@ KeyApp app3(stack3+4092);
 
 char stack4[4096];
 Invaders appInv(stack4+4092);
-
-char stack5[4096];
-InputThread inputThr(stack5+4092);
 
 int main(){
 	guard.enter();
@@ -75,7 +68,6 @@ int main(){
 	// organizer.Scheduler::ready(app2);
 	//organizer.Scheduler::ready(app3);
 	organizer.Scheduler::ready(appInv);
-	organizer.Scheduler::ready(inputThr);
 	
 	//app1.nextApp = &app2;
 	//app2.nextApp = &app1;

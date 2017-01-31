@@ -17,7 +17,7 @@ protected:
 public:
 	Entity();
 	Entity(int initialX, int initialY);
-	virtual bool update(Key* nowPressed) = 0;
+	virtual bool update() = 0;
 	virtual void render() = 0;
 	int getPosX();
 	int getPosY();

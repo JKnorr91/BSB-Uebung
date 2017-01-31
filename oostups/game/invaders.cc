@@ -22,7 +22,7 @@
  	}
 
 	void Invaders::updateDomain() {
-		domain.update(&gameKey);
+		domain.update();
 	}
 
 	void Invaders::renderDomain() {

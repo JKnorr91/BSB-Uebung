@@ -12,7 +12,7 @@ private:
 public:
 	Shot();
 	Shot(int initialX, int initialY);
-	bool update(Key* nowPressed);
+	bool update();
 	void render();
  };
 #endif

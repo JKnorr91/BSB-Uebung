@@ -13,13 +13,12 @@ void Domain::addEntity(Entity* entity) {
     entityList.enqueue(entity);
 }
 
-void Domain::update(GameKey* key) {
-    Key* pressedKey = key->getKey();
+void Domain::update() {
     Entity* currentEntity = (Entity*) entityList.first();
     while(currentEntity) {
         Entity* next = (Entity*) currentEntity->next;
 
-        if (!(currentEntity->update(pressedKey))) {
+        if (!(currentEntity->update())) {
             entityList.remove(currentEntity);
         }
         currentEntity = next;
