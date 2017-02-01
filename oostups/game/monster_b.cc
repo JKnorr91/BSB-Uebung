@@ -6,18 +6,18 @@
 		setPositionRestrictionX(1,1);
 		getHitbox()->setSize(3, 2);
 		getHitbox()->setOffset(-1, -1);
+		moveWaitY = 15;
+		moveY = 1;
 	}
 
-	bool MonsterBlue::update() {
+	/*void MonsterBlue::updateMonster() {
 		if (cooldown > 0) {
 			cooldown--;
 		} else if (getPosY() >= 1 && isAlive() ) {
 			cooldown = 30;
 			setPos(getPosX(),getPosY()+1);
 		}
-
-		return isAlive() && getPosY() < 25;
-	}
+	}*/
 
 	void MonsterBlue::render() { //erstes byte Hintergrund, zweites Schriftfarbe
 
