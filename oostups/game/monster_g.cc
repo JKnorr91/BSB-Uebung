@@ -1,7 +1,6 @@
 #include "game/monster_g.h"
 
-	MonsterGreen::MonsterGreen() : Entity(0,0) {
-		life = 3;
+	MonsterGreen::MonsterGreen() : Monster(3) {
 		shiftPhase = 0;
 		shiftGrow = true;
 		setPositionRestrictionX(2,2);
@@ -23,7 +22,7 @@
 			}
 		}
 		setPos(getPosX() + shiftPhase, getPosY());
-		return life > 0 && getPosY() < 25;
+		return isAlive() && getPosY() < 25;
 	}
 
 	void MonsterGreen::render() { //erstes byte Hintergrund, zweites Schriftfarbe
