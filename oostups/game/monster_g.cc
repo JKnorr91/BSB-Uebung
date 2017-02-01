@@ -7,13 +7,6 @@
 		setPositionRestrictionX(2,2);
 	}
 
-	MonsterGreen::MonsterGreen(int initialX, int initialY) : Entity(initialX, initialY) {
-		life = 3;
-		shiftPhase = 0;
-		shiftGrow = true;
-		setPositionRestrictionX(2,2);
-	}
-
 	bool MonsterGreen::update() {
 		//setPos(getPosX() - 1, getPosY());
 		if (shiftGrow) {

@@ -4,6 +4,7 @@
 #include "device/cgastr.h"
 #include "object/chain.h"
 #include "machine/key.h"
+#include "game/hitbox.h"
 
 class Domain;
 
@@ -13,8 +14,7 @@ private:
     Entity (const Entity &copy); // Verhindere Kopieren
 protected:
 	Domain* domain;
-	int posX;
-	int posY;
+	Hitbox hb;
 	int restrictionXLeft;
 	int restrictionXRight;
 public:
@@ -23,6 +23,9 @@ public:
 	void setDomain(Domain* domain);
 	virtual bool update() = 0;
 	virtual void render() = 0;
+	Hitbox* getHitbox();
+	bool hasCollision(Entity* other);
+	bool hasCollision(Hitbox* hitbox);
 	int getPosX();
 	int getPosY();
 	void setPositionRestrictionX(int restrictionLeft, int restrictionRight);

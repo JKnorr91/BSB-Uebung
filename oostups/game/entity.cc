@@ -21,11 +21,23 @@
 	}
 
 	int Entity::getPosX() {
-		return posX;
+		return hb.getOriginX();
 	}
 
 	int Entity::getPosY() {
-		return posY;
+		return hb.getOriginY();
+	}
+
+	Hitbox* Entity::getHitbox() {
+		return &hb;
+	}
+
+	bool Entity::hasCollision(Entity* other) {
+		return hb.intersects(other->getHitbox());
+	}
+
+	bool Entity::hasCollision(Hitbox* hitbox) {
+		return hb.intersects(hitbox);
 	}
 
 	void Entity::setPos(int x, int y) {
@@ -39,6 +51,5 @@
 		} else if (y >= 25) {
 			y = 24;
 		}*/
-		posX = x;
-		posY = y;
+		hb.setPos(x, y);
 	}

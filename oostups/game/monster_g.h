@@ -14,7 +14,6 @@ private:
 	bool shiftGrow;
 public:
 	MonsterGreen();
-	MonsterGreen(int initialX, int initialY);
 	bool update();
 	void render();
  };
