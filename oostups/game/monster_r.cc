@@ -38,18 +38,19 @@
 		 * T T 
 		 */
 		int styleYellow = 0xee;
-		int styleRed = 0xcc;
+		//int styleRed = 0xcc;
+		int styleRed2 = 0xce;
 
 		//Zeile 1
-		kout.preShow(getX1()+0, getY1()+0, '/', styleRed);
+		kout.preShow(getX1()+0, getY1()+0, '/', styleRed2);
 		kout.preShow(getX1()+1, getY1()+0, ' ', styleYellow);
-		kout.preShow(getX1()+2, getY1()+0, '\\', styleRed);
+		kout.preShow(getX1()+2, getY1()+0, '\\', styleRed2);
 		//Zeile 2
 		//kout.preShow(getX1()+0, getY1()+1, ' ', styleRed);
-		kout.preShow(getX1()+1, getY1()+1, 'V', styleYellow);
+		kout.preShow(getX1()+1, getY1()+1, 'A', styleRed2);
 		//kout.preShow(getX1()+2, getY1()+1, ' ', styleRed);
 		//Zeile 3
-		kout.preShow(getX1()+0, getY1()+2, 'T', styleRed);
+		kout.preShow(getX1()+0, getY1()+2, 'T', styleRed2);
 		//kout.preShow(getX1()+1, getY1()+2, ' ', styleRed);
-		kout.preShow(getX1()+2, getY1()+2, 'T', styleRed);
+		kout.preShow(getX1()+2, getY1()+2, 'T', styleRed2);
 	}
