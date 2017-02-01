@@ -5,8 +5,6 @@
 
 class Monster : public Entity {
 
-private:
-    Monster (const Monster &copy); // Verhindere Kopieren
 protected:
 	int life;
 public:
