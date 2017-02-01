@@ -38,22 +38,22 @@
 		int shuttleCaseStyle = 0xf0;
 
 		//SpaceShuttle Spitze
-		kout.show(getPosX(), getPosY()-2, ' ', shuttleCaseStyle);
+		kout.preShow(getPosX(), getPosY()-2, ' ', shuttleCaseStyle);
 
-		kout.show(getPosX()-1, getPosY()-1, ' ', shuttleCaseStyle);
-		kout.show(getPosX(), getPosY()-1, ' ', shuttleCaseStyle);
-		kout.show(getPosX()+1, getPosY()-1, ' ', shuttleCaseStyle);
+		kout.preShow(getPosX()-1, getPosY()-1, ' ', shuttleCaseStyle);
+		kout.preShow(getPosX(), getPosY()-1, ' ', shuttleCaseStyle);
+		kout.preShow(getPosX()+1, getPosY()-1, ' ', shuttleCaseStyle);
 
-		kout.show(getPosX()-2, getPosY(), ' ', shuttleCaseStyle);
-		kout.show(getPosX()-1, getPosY(), ' ', shuttleCaseStyle);
-		kout.show(getPosX(), getPosY(), ' ', shuttleCaseStyle);
-		kout.show(getPosX()+1, getPosY(), ' ', shuttleCaseStyle);
-		kout.show(getPosX()+2, getPosY(), ' ', shuttleCaseStyle);
+		kout.preShow(getPosX()-2, getPosY(), ' ', shuttleCaseStyle);
+		kout.preShow(getPosX()-1, getPosY(), ' ', shuttleCaseStyle);
+		kout.preShow(getPosX(), getPosY(), ' ', shuttleCaseStyle);
+		kout.preShow(getPosX()+1, getPosY(), ' ', shuttleCaseStyle);
+		kout.preShow(getPosX()+2, getPosY(), ' ', shuttleCaseStyle);
 
 		//SpaceShuttle Antrieb
-		kout.show(getPosX()-1, getPosY()+1, 'V', fireStyle);
-		kout.show(getPosX(), getPosY()+1, 'V', fireStyle);
-		kout.show(getPosX()+1, getPosY()+1, 'V', fireStyle);
+		kout.preShow(getPosX()-1, getPosY()+1, 'V', fireStyle);
+		kout.preShow(getPosX(), getPosY()+1, 'V', fireStyle);
+		kout.preShow(getPosX()+1, getPosY()+1, 'V', fireStyle);
 		
 
 		

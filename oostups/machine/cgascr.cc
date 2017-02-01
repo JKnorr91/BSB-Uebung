@@ -18,13 +18,6 @@
 
 	CGA_Screen::CGA_Screen():ctrl_port (0x3d4), data_port (0x3d5)
 	{
-		/*int i;
-		for (i = 0; i < 26 * 80; i++){
-			atr_buffer[i] = 0x0f;
-		}
-		for (i = 0; i < 26 * 80; i++){
-			scr_buffer[i] = ' ';
-		}*/
 		screenClear();
 	}
 
@@ -36,7 +29,7 @@
 		for (i = 0; i < 26 * 80; i++){
 			scr_buffer[i] = ' ';
 		}
-		reprint();
+		//reprint();
 	}
 
 	void CGA_Screen::show(int x, int y, char c, unsigned char attrib) {
@@ -47,6 +40,21 @@
 		*posAttr = attrib;
 		scr_buffer[x+y*80]= c;
 		atr_buffer[x+y*80]=attrib;
+	}
+
+	void CGA_Screen::preShow(int x, int y, char c, unsigned char attrib) {
+		scr_buffer[x+y*80]= c;
+		atr_buffer[x+y*80]= attrib;
+	}
+
+	void CGA_Screen::writeSoftwareBuffer() {
+		int bufferSize = 25 * 80;
+		for (int i = 0; i < bufferSize; i++) {
+			char* posChar = CGA_START + i * 2;
+			char* posAttr = CGA_START + i * 2 + 1;
+			*posChar = scr_buffer[i];
+			*posAttr = atr_buffer[i];
+		}
 	}
 
 	void CGA_Screen::setpos(int x, int y) {

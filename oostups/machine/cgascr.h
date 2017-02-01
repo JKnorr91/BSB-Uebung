@@ -32,6 +32,8 @@ public:
 	CGA_Screen();
 	void show(int x, int y, char c, unsigned char attrib);
 	void screenClear();
+	void preShow(int x, int y, char c, unsigned char attrib);
+	void writeSoftwareBuffer();
 
 	void setpos(int x, int y);
 	void hide();

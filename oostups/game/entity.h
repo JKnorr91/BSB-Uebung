@@ -28,6 +28,10 @@ public:
 	bool hasCollision(Hitbox* hitbox);
 	int getPosX();
 	int getPosY();
+	int getX1();
+	int getY1();
+	int getX2();
+	int getY2();
 	void setPositionRestrictionX(int restrictionLeft, int restrictionRight);
 	void setPos(int x, int y);
  };

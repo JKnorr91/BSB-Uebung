@@ -28,4 +28,5 @@
 	void Invaders::renderDomain() {
 		kout.screenClear();
 		domain.render();
+		kout.writeSoftwareBuffer();
 	}

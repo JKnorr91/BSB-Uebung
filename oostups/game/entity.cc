@@ -32,6 +32,22 @@
 		return &hb;
 	}
 
+	int Entity::getX1() {
+		return hb.getX1();
+	}
+
+	int Entity::getY1() {
+		return hb.getY1();
+	}
+
+	int Entity::getX2() {
+		return hb.getX2();
+	}
+
+	int Entity::getY2() {
+		return hb.getY2();
+	}
+
 	bool Entity::hasCollision(Entity* other) {
 		return hb.intersects(other->getHitbox());
 	}

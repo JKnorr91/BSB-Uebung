@@ -39,11 +39,11 @@
 		*/
 
 		//blue Monster
-		kout.show(getPosX()-1, getPosY()   , '\\', color1);
-		kout.show(getPosX()  , getPosY()   , 'W', color1);
-		kout.show(getPosX()+1, getPosY()   , '/', color1);
+		kout.preShow(getPosX()-1, getPosY()   , '\\', color1);
+		kout.preShow(getPosX()  , getPosY()   , 'W', color1);
+		kout.preShow(getPosX()+1, getPosY()   , '/', color1);
 
-		kout.show(getPosX()  , getPosY()+1 , 'V', color1);
+		kout.preShow(getPosX()  , getPosY()+1 , 'V', color1);
 
 		
 

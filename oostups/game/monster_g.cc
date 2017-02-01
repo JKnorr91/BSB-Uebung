@@ -5,6 +5,8 @@
 		shiftPhase = 0;
 		shiftGrow = true;
 		setPositionRestrictionX(2,2);
+		getHitbox()->setSize(5, 4);
+		getHitbox()->setOffset(-2, -1);
 	}
 
 	bool MonsterGreen::update() {
@@ -36,27 +38,27 @@
 		int styleRed = 0xcc;
 
 		//Zeile 1
-		//kout.show(getPosX()-2, getPosY()-2, ' ', styleGreen);
-		kout.show(getPosX()-1, getPosY()-2, ' ', styleGreen);
-		kout.show(getPosX()+0, getPosY()-2, ' ', styleGreen);
-		kout.show(getPosX()+1, getPosY()-2, ' ', styleGreen);
-		//kout.show(getPosX()+2, getPosY()-2, ' ', styleGreen);
+		//kout.preShow(getX1()+0, getY1()+0, ' ', styleGreen);
+		kout.preShow(getX1()+1, getY1()+0, ' ', styleGreen);
+		kout.preShow(getX1()+2, getY1()+0, ' ', styleGreen);
+		kout.preShow(getX1()+3, getY1()+0, ' ', styleGreen);
+		//kout.preShow(getX1()+4, getY1()+0, ' ', styleGreen);
 		//Zeile 2
-		kout.show(getPosX()-2, getPosY()-1, ' ', styleGreen);
-		kout.show(getPosX()-1, getPosY()-1, ' ', styleRed);
-		kout.show(getPosX()+0, getPosY()-1, ' ', styleGreen);
-		kout.show(getPosX()+1, getPosY()-1, ' ', styleRed);
-		kout.show(getPosX()+2, getPosY()-1, ' ', styleGreen);
+		kout.preShow(getX1()+0, getY1()+1, ' ', styleGreen);
+		kout.preShow(getX1()+1, getY1()+1, ' ', styleRed);
+		kout.preShow(getX1()+2, getY1()+1, ' ', styleGreen);
+		kout.preShow(getX1()+3, getY1()+1, ' ', styleRed);
+		kout.preShow(getX1()+4, getY1()+1, ' ', styleGreen);
 		//Zeile 3
-		//kout.show(getPosX()-2, getPosY()-0, ' ', styleGreen);
-		kout.show(getPosX()-1, getPosY()-0, ' ', styleGreen);
-		kout.show(getPosX()+0, getPosY()-0, ' ', styleGreen);
-		kout.show(getPosX()+1, getPosY()-0, ' ', styleGreen);
-		//kout.show(getPosX()+2, getPosY()-0, ' ', styleGreen);
+		//kout.preShow(getX1()+0, getY1()+2, ' ', styleGreen);
+		kout.preShow(getX1()+1, getY1()+2, ' ', styleGreen);
+		kout.preShow(getX1()+2, getY1()+2, ' ', styleGreen);
+		kout.preShow(getX1()+3, getY1()+2, ' ', styleGreen);
+		//kout.preShow(getX1()+4, getY1()+2, ' ', styleGreen);
 		//Zeile 4
-		kout.show(getPosX()-2, getPosY()+1, ' ', styleGreen);
-		//kout.show(getPosX()-1, getPosY()+1, ' ', styleGreen);
-		//kout.show(getPosX()+0, getPosY()+1, ' ', styleGreen);
-		//kout.show(getPosX()+1, getPosY()+1, ' ', styleGreen);
-		kout.show(getPosX()+2, getPosY()+1, ' ', styleGreen);
+		kout.preShow(getX1()+0, getY1()+3, ' ', styleGreen);
+		//kout.preShow(getX1()+1, getY1()+3, ' ', styleGreen);
+		//kout.preShow(getX1()+2, getY1()+3, ' ', styleGreen);
+		//kout.preShow(getX1()+3, getY1()+3, ' ', styleGreen);
+		kout.preShow(getX1()+4, getY1()+3, ' ', styleGreen);
 	}
