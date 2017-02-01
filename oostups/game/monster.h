@@ -5,8 +5,16 @@
 
 class Monster : public Entity {
 
+private:
+    Monster (const Monster &copy); // Verhindere Kopieren
+	int moveWaitTimerX;
+	int moveWaitTimerY;
 protected:
 	int life;
+	int moveWaitX;
+	int moveWaitY;
+	int moveX;
+	int moveY;
 public:
 	Monster(int initialLife);
 	int getLife();
@@ -14,5 +22,7 @@ public:
 	void modifyLife(int value);
 	bool isAlive();
 	bool isDead();
+	bool update();
+	virtual void updateMonster();
  };
 #endif

@@ -16,7 +16,7 @@ private:
 public:
 	MonsterBlue();
 	MonsterBlue(int initialX, int initialY);
-	bool update();
+	//void updateMonster();
 	void render();
  };
 #endif

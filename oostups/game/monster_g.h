@@ -7,12 +7,11 @@ class MonsterGreen : public Monster {
 
 private:
     MonsterGreen (const MonsterGreen &copy); // Verhindere Kopieren
-	int moveYCounter;
 	int moveXCounter;
 	bool moveXDirection;
 public:
 	MonsterGreen();
-	bool update();
+	void updateMonster();
 	void render();
  };
 #endif

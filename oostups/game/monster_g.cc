@@ -1,7 +1,8 @@
 #include "game/monster_g.h"
 
 	MonsterGreen::MonsterGreen() : Monster(3) {
-		moveYCounter = 0;
+		moveWaitY = 9;
+		moveY = 1;
 		moveXCounter = 0;
 		moveXDirection = true;
 		setPositionRestrictionX(2,2);
@@ -9,9 +10,7 @@
 		getHitbox()->setOffset(-2, -1);
 	}
 
-	bool MonsterGreen::update() {
-		int moveX = 0;
-		int moveY = 0;
+	void MonsterGreen::updateMonster() {
 		if (moveXDirection) {
 			moveX = 1;
 			moveXCounter++;
@@ -25,12 +24,6 @@
 				moveXDirection = !moveXDirection;
 			}
 		}
-		if (moveYCounter++ >= 9) {
-			moveYCounter = 0;
-			moveY = 1;
-		}
-		setPos(getPosX() + moveX, getPosY() + moveY);
-		return isAlive() && getPosY() < 25;
 	}
 
 	void MonsterGreen::render() {

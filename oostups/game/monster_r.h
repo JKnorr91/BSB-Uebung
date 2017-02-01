@@ -8,10 +8,11 @@ class MonsterRed : public Monster {
 private:
     MonsterRed (const MonsterRed &copy); // Verhindere Kopieren
 	int moveYCounter;
+	int moveXCounter;
 	bool moveXDirection;
 public:
 	MonsterRed();
-	bool update();
+	void updateMonster();
 	void render();
  };
 #endif

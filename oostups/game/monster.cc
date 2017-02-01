@@ -2,6 +2,12 @@
 
 	Monster::Monster(int initialLife) : Entity(0,0) {
 		life = initialLife;
+		moveWaitTimerX = 0;
+		moveWaitTimerY = 0;
+		moveWaitX = 0;
+		moveWaitY = 0;
+		moveX = 0;
+		moveY = 0;
 	}
 
 	int Monster::getLife() {
@@ -26,3 +32,18 @@
 	bool Monster::isDead() {
 		return getLife() <= 0;
 	}
+
+	bool Monster::update() {
+		updateMonster();
+		if (moveWaitTimerX++ >= moveWaitX) {
+			moveWaitTimerX = 0;
+			setPos(getPosX() + moveX, getPosY());
+		}
+		if (moveWaitTimerY++ >= moveWaitY) {
+			moveWaitTimerY = 0;
+			setPos(getPosX(), getPosY() + moveY);
+		}
+		return isAlive() && getPosY() < 25;
+	}
+
+	void Monster::updateMonster() {}
