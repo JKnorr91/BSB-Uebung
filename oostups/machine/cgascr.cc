@@ -44,6 +44,9 @@
 	}
 
 	void CGA_Screen::preShow(int x, int y, char c, unsigned char attrib) {
+		if (x < 0 || x >= 80 || y < 0 || y >= 25) {
+			return;
+		}
 		scr_buffer[x+y*80]= c;
 		atr_buffer[x+y*80]= attrib;
 	}
