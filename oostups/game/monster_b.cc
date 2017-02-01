@@ -2,13 +2,13 @@
 #include "./domain.h"
 #include "user/debug.h"
 
-	Monster_b::Monster_b() : Monster(5) {
+	MonsterBlue::MonsterBlue() : Monster(5) {
 		setPositionRestrictionX(1,1);
 		getHitbox()->setSize(3, 2);
 		getHitbox()->setOffset(-1, -1);
 	}
 
-	bool Monster_b::update() {
+	bool MonsterBlue::update() {
 		if (cooldown > 0) {
 			cooldown--;
 		} else if (getPosY() >= 1 && isAlive() ) {
@@ -19,7 +19,7 @@
 		return isAlive() && getPosY() < 25;
 	}
 
-	void Monster_b::render() { //erstes byte Hintergrund, zweites Schriftfarbe
+	void MonsterBlue::render() { //erstes byte Hintergrund, zweites Schriftfarbe
 
 		int color1 = 0x09;	//hellblau
 		int color2 = 0x4e;	//gelb auf Rot

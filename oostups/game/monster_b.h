@@ -7,15 +7,15 @@
 
 class Domain;
 
-class Monster_b : public Monster {
+class MonsterBlue : public Monster {
 
 private:
-    Monster_b (const Monster_b &copy); // Verhindere Kopieren
+    MonsterBlue (const MonsterBlue &copy); // Verhindere Kopieren
 	int cooldown;
 	Domain* domain;
 public:
-	Monster_b();
-	Monster_b(int initialX, int initialY);
+	MonsterBlue();
+	MonsterBlue(int initialX, int initialY);
 	bool update();
 	void render();
  };
