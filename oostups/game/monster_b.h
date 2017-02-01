@@ -3,21 +3,19 @@
 
 #include "device/cgastr.h"
 #include "machine/key.h"
-#include "game/entity.h"
+#include "game/monster.h"
 
 class Domain;
 
-class Monster_b : public Entity {
+class MonsterBlue : public Monster {
 
 private:
-    Monster_b (const Monster_b &copy); // Verhindere Kopieren
-	int life;
+    MonsterBlue (const MonsterBlue &copy); // Verhindere Kopieren
 	int cooldown;
 	Domain* domain;
 public:
-	Monster_b();
-	Monster_b(int initialX, int initialY);
-	void setDomain(Domain* domain);
+	MonsterBlue();
+	MonsterBlue(int initialX, int initialY);
 	bool update();
 	void render();
  };
