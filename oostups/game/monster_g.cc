@@ -5,7 +5,7 @@
 		moveXCounter = 0;
 		moveXDirection = true;
 		setPositionRestrictionX(2,2);
-		getHitbox()->setSize(5, 4);
+		getHitbox()->setSize(5, 3);
 		getHitbox()->setOffset(-2, -1);
 	}
 
@@ -33,7 +33,7 @@
 		return isAlive() && getPosY() < 25;
 	}
 
-	void MonsterGreen::render() { //erstes byte Hintergrund, zweites Schriftfarbe
+	void MonsterGreen::render() {
 		/*
 		 * Schema
 		 *  ### 

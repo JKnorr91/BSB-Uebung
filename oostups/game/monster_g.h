@@ -3,8 +3,6 @@
 
 #include "game/monster.h"
 
-class Domain;
-
 class MonsterGreen : public Monster {
 
 private:
