@@ -1,27 +1,35 @@
 #include "game/monster_g.h"
 
 	MonsterGreen::MonsterGreen() : Monster(3) {
-		shiftPhase = 0;
-		shiftGrow = true;
+		moveYCounter = 0;
+		moveXCounter = 0;
+		moveXDirection = true;
 		setPositionRestrictionX(2,2);
 		getHitbox()->setSize(5, 4);
 		getHitbox()->setOffset(-2, -1);
 	}
 
 	bool MonsterGreen::update() {
-		//setPos(getPosX() - 1, getPosY());
-		if (shiftGrow) {
-			shiftPhase++;
-			if (shiftPhase > 2) {
-				shiftGrow = !shiftGrow;
+		int moveX = 0;
+		int moveY = 0;
+		if (moveXDirection) {
+			moveX = 1;
+			moveXCounter++;
+			if (moveXCounter > 4) {
+				moveXDirection = !moveXDirection;
 			}
 		} else {
-			shiftPhase--;
-			if (shiftPhase < -2) {
-				shiftGrow = !shiftGrow;
+			moveX = -1;
+			moveXCounter--;
+			if (moveXCounter < -4) {
+				moveXDirection = !moveXDirection;
 			}
 		}
-		setPos(getPosX() + shiftPhase, getPosY());
+		if (moveYCounter++ >= 9) {
+			moveYCounter = 0;
+			moveY = 1;
+		}
+		setPos(getPosX() + moveX, getPosY() + moveY);
 		return isAlive() && getPosY() < 25;
 	}
 

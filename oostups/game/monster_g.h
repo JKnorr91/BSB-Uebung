@@ -9,8 +9,9 @@ class MonsterGreen : public Monster {
 
 private:
     MonsterGreen (const MonsterGreen &copy); // Verhindere Kopieren
-	int shiftPhase;
-	bool shiftGrow;
+	int moveYCounter;
+	int moveXCounter;
+	bool moveXDirection;
 public:
 	MonsterGreen();
 	bool update();
