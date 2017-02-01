@@ -19,6 +19,7 @@
 	CGA_Screen::CGA_Screen():ctrl_port (0x3d4), data_port (0x3d5)
 	{
 		screenClear();
+		reprint();
 	}
 
 	void CGA_Screen::screenClear() {
