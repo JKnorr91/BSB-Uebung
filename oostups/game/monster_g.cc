@@ -34,8 +34,9 @@
 		 *  ### 
 		 * #   #
 		 */
-		int styleGreen = 0xaa;
-		int styleRed = 0xcc;
+		int styleGreen = wasHit() ? 0xbb : 0xaa;
+		int styleRed = wasHit() ? 0xdd : 0xcc;
+
 
 		//Zeile 1
 		//kout.preShow(getX1()+0, getY1()+0, ' ', styleGreen);
@@ -61,4 +62,6 @@
 		//kout.preShow(getX1()+2, getY1()+3, ' ', styleGreen);
 		//kout.preShow(getX1()+3, getY1()+3, ' ', styleGreen);
 		kout.preShow(getX1()+4, getY1()+3, ' ', styleGreen);
+
+		rendered();
 	}

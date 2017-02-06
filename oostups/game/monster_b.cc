@@ -21,8 +21,8 @@
 
 	void MonsterBlue::render() { //erstes byte Hintergrund, zweites Schriftfarbe
 
-		int color1 = 0x09;	//hellblau
-		int color2 = 0x4e;	//gelb auf Rot
+		int color1 = wasHit() ? 0x90 : 0x09;	//hellblau
+		int color2 = wasHit() ? 0xe4 : 0x4e;	//gelb auf Rot
 		
 
 		/*
@@ -36,4 +36,6 @@
 		kout.preShow(getX1()+2, getY1()   , '/', color1);
 
 		kout.preShow(getX1()+1, getY1()+1 , 'V', color1);	
+
+		rendered();
 	}

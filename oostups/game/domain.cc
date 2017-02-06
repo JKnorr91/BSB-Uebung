@@ -6,28 +6,17 @@ Domain::Domain() {
     player.setDomain(this);
     addEntity(&player);
 
-    // monster.setPos(40,3);
-    // monster.setDomain(this);
-    // addEntity(&monster);
-
-    // monster2.setPos(5,1);
-    // monster2.setDomain(this);
-    // addEntity(&monster2);
-
-
-
-    createMonster(MonsterType::blue,40,3);
-    createMonster(MonsterType::green,20,3);
-    createMonster(MonsterType::blue,60,3);
-
-
-
     currentShotIndex = 0;
     currentMonsterIndex = 0;
 
     currentMonsterBlueIndex = 0;
     currentMonsterGreenIndex = 0;
     currentMonsterRedIndex = 0;
+
+    createMonster(MonsterType::blue,30,3);
+    createMonster(MonsterType::green,10,3);
+    createMonster(MonsterType::blue,40,3);
+    createMonster(MonsterType::red,50,3);
 }
 
 void Domain::addEntity(Entity* entity) {
@@ -35,6 +24,7 @@ void Domain::addEntity(Entity* entity) {
 }
 
 void Domain::update() {
+    detectCollisions();
     Entity* currentEntity = (Entity*) entityList.first();
     while(currentEntity) {
         Entity* next = (Entity*) currentEntity->next;
@@ -73,10 +63,29 @@ void Domain::createMonster(unsigned char type, int x, int y) {
         currentMonsterPointer = (Monster*) &monsterGreen[currentMonsterGreenIndex];
         currentMonsterGreenIndex = (currentMonsterGreenIndex+1)%20;
     }
+    else if(type == MonsterType::red)  {
+        currentMonsterPointer = (Monster*) &monsterRed[currentMonsterRedIndex];
+        currentMonsterRedIndex = (currentMonsterRedIndex+1)%20;
+    }
 
     currentMonsterPointer->setPos(x,y);
     currentMonsterPointer->setDomain(this);
+    currentMonsterPointer->setLife(3);
     monster[currentMonsterIndex] = currentMonsterPointer;
     currentMonsterIndex = (currentMonsterIndex+1)%60;
     addEntity(currentMonsterPointer);
+}
+
+void Domain::detectCollisions() {
+    for(int i = 0; i < currentMonsterIndex; i++) {
+        for(int j = 0; j < 25; j++) {
+            if(monster[i] && !shot[j].isRemoved() && monster[i]->getHitbox()->contains(shot[j].getPosX(),shot[j].getPosY())) {
+                shot[j].remove();
+                monster[i]->hit();
+                if(monster[i]->isDead()) {
+                    monster[i] = 0;
+                }
+            }
+        }
+    }
 }

@@ -31,9 +31,8 @@ class Domain {
         int currentMonsterBlueIndex;
         int currentMonsterGreenIndex;
         int currentMonsterRedIndex;
-
-
-
+        
+        void detectCollisions();
     public:
         Domain();
         void addEntity(Entity* entity);
@@ -43,7 +42,9 @@ class Domain {
         void render();
 
         struct MonsterType { enum {
-            green=1, blue=2
+            green=1,
+            blue=2,
+            red=3
         };};
 };
 #endif

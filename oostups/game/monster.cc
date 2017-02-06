@@ -8,6 +8,20 @@
 		moveWaitY = 0;
 		moveX = 0;
 		moveY = 0;
+		renderInverted = 0;
+	}
+
+	void Monster::hit() {
+		modifyLife(-1);
+		renderInverted = 2;
+	}
+
+	bool Monster::wasHit() {
+		return renderInverted > 0;
+	}
+
+	void Monster::rendered() {
+		renderInverted = renderInverted > 0 ? renderInverted-1 : 0;
 	}
 
 	int Monster::getLife() {
