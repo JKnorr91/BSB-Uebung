@@ -1,6 +1,7 @@
 #ifndef __Domain_include__
 #define __Domain_include__
 
+#include "game/game_phase.h"
 #include "game/entity.h"
 #include "object/list.h"
 #include "./player.h"
@@ -12,7 +13,9 @@
 #include "./monster_r.h"
 #include "./monster.h"
 
-class Domain {
+class Invaders;
+
+class Domain : public GamePhase {
     private:
         Domain (const Domain &copy); // Verhindere Kopieren
         List entityList;
@@ -42,6 +45,7 @@ class Domain {
         void createMonster(unsigned char type, int x, int y);
         void update();
         void render();
+		void start();
 
         struct MonsterType { enum {
             green=1,

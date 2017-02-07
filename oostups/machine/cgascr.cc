@@ -23,14 +23,17 @@
 	}
 
 	void CGA_Screen::screenClear() {
+		screenClearTo(' ', 0x0f);
+	}
+
+	void CGA_Screen::screenClearTo(char c, unsigned char attrib) {
 		int i;
 		for (i = 0; i < 26 * 80; i++){
-			atr_buffer[i] = 0x0f;
+			atr_buffer[i] = attrib;
 		}
 		for (i = 0; i < 26 * 80; i++){
-			scr_buffer[i] = ' ';
+			scr_buffer[i] = c;
 		}
-		//reprint();
 	}
 
 	void CGA_Screen::show(int x, int y, char c, unsigned char attrib) {
