@@ -28,7 +28,7 @@
 	}
 
 	void GameOver::render() {
-		kout.setpos(40 - 22 / 2, 12);
+		kout.setpos(40 - 22 / 2, 9);
 		kout << "Your score was: " << score << el;
 		kout.setpos(40 - 9 / 2, 12);
 		kout << "Game Over" << el;
