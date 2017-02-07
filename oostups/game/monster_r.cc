@@ -5,7 +5,7 @@
 	}
 
 	void MonsterRed::resetMonster() {
-		setLife(3);
+		setLife(4);
 		moveWaitY = 16;
 		moveY = 1;
 		moveWaitX = 3;

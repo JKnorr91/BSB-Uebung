@@ -7,11 +7,11 @@
 	}
 
 	void MonsterBlue::resetMonster() {
-		setLife(3);
+		setLife(2);
 		setPositionRestrictionX(1,1);
 		getHitbox()->setSize(3, 2);
 		getHitbox()->setOffset(-1, -1);
-		moveWaitY = 15;
+		moveWaitY = 12;
 		moveY = 1;
 	}
 
