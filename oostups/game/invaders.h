@@ -11,21 +11,28 @@
 #include "syscall/guarded_buzzer.h"
 #include "game/input_thread.h"
 #include "game/domain.h"
+#include "game/gp_over.h"
+#include "game/gp_flash.h"
 
 class Invaders : public Thread
  {
 private:
     Invaders (const Invaders &copy); // Verhindere Kopieren
 	Guarded_Buzzer buzzer;
-	Domain domain;
-
+	GamePhase* curPhase;
 	
-	void updateDomain();
-	void renderDomain();
+	void updateGamePhase();
+	void renderGamePhase();
 
 public:
+	Domain domain;
+	FlashAnimation flashAnim;
+	GameOver gameOver;
+
 	Invaders(void* tos);
     void action ();
 	void initializeGame();
+	void setPhase(GamePhase* phase);
  };
+extern Invaders appInv;
 #endif

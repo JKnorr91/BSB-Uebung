@@ -10,6 +10,8 @@ class Domain;
 class Player : public Entity {
 
 private:
+	static char lifeToCharTable[];
+
     Player (const Player &copy); // Verhindere Kopieren
 	int life;
 	int cooldown;

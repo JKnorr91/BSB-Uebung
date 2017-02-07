@@ -6,14 +6,22 @@
 
 	void Invaders::initializeGame() {
 		kout.hide();
+		setPhase(&domain);
+	}
+
+	void Invaders::setPhase(GamePhase* phase) {
+		curPhase = phase;
+		if (curPhase) {
+			curPhase->start();
+		}
 	}
 
 	void Invaders::action() {
  		while (true) {
-			updateDomain();
+			updateGamePhase();
 
 			cgasem.p();
-			renderDomain();
+			renderGamePhase();
 			cgasem.v();
 
 			buzzer.set(1000/30);
@@ -21,12 +29,12 @@
 		}
  	}
 
-	void Invaders::updateDomain() {
-		domain.update();
+	void Invaders::updateGamePhase() {
+		curPhase->update();
 	}
 
-	void Invaders::renderDomain() {
+	void Invaders::renderGamePhase() {
 		kout.screenClear();
-		domain.render();
+		curPhase->render();
 		kout.writeSoftwareBuffer();
 	}

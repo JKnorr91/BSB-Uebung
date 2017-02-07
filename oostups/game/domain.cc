@@ -1,8 +1,15 @@
 #include "./domain.h"
 #include "user/debug.h"
+#include "./invaders.h"
 
-Domain::Domain() {
-    player.setPos(40,22);
+Domain::Domain() {}
+
+void Domain::addEntity(Entity* entity) {
+    entityList.enqueue(entity);
+}
+
+void Domain::start() {
+	player.setPos(40,22);
     player.setDomain(this);
     addEntity(&player);
 
@@ -22,12 +29,9 @@ Domain::Domain() {
     createMonster(MonsterType::red,50,3);
 }
 
-void Domain::addEntity(Entity* entity) {
-    entityList.enqueue(entity);
-}
-
 void Domain::update() {
 	if (!player.isAlive()) {
+		appInv.setPhase(&appInv.flashAnim);
 		return;
 	}
 
@@ -44,12 +48,6 @@ void Domain::update() {
 }
 
 void Domain::render() {
-	if (!player.isAlive()) {
-		kout.setpos(40 - 9 / 2, 12);
-		kout << "Game Over" << el;
-		kout.hide();
-		return;
-	}
     Entity* currentEntity = (Entity*) entityList.first();
     while(currentEntity) {
         currentEntity->render();
