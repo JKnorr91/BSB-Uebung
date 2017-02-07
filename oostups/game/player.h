@@ -19,6 +19,7 @@ public:
 	Player();
 	bool update();
 	void render();
+	void reset();
 	void onHit();
 	bool isAlive();
  };

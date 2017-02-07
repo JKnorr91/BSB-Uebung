@@ -19,13 +19,15 @@ protected:
 	void rendered();
 	void renderExplosion();
 public:
-	Monster(int initialLife);
+	Monster();
 	int getLife();
 	void setLife(int value);
 	void modifyLife(int value);
 	bool isAlive();
 	bool isDead();
 	bool update();
+	void reset();
+	virtual void resetMonster();
 	virtual void updateMonster();
 	void hit();
  };

@@ -14,5 +14,6 @@ public:
 	MonsterRed();
 	void updateMonster();
 	void render();
+	void resetMonster();
  };
 #endif

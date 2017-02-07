@@ -1,6 +1,10 @@
 #include "./score.h"
 
 	Score::Score() : Entity(0,0) {
+		fullReset();
+	}
+
+	void Score::reset() {
 		score = 0;
 		scoreDisplay = score;
 		getHitbox()->setSize(14, 3);

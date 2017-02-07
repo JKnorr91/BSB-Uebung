@@ -13,5 +13,6 @@ public:
 	MonsterGreen();
 	void updateMonster();
 	void render();
+	void resetMonster();
  };
 #endif

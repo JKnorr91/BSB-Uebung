@@ -2,13 +2,18 @@
 #include "./domain.h"
 
 	Entity::Entity(){
-		setPos(0,0);
-		setPositionRestrictionX(0,0);
+		fullReset();
 	}
 
 	Entity::Entity(int initialX, int initialY) {
-		setPos(initialX, initialY);
+		fullReset();
+	}
+
+	void Entity::fullReset() {
+		setPos(0,0);
 		setPositionRestrictionX(0,0);
+		renderInverted = false;
+		reset();
 	}
 
 	void Entity::setDomain(Domain* domain) {

@@ -1,6 +1,10 @@
 #include "game/monster_g.h"
 
-	MonsterGreen::MonsterGreen() : Monster(3) {
+	MonsterGreen::MonsterGreen() : Monster() {
+		fullReset();
+	}
+
+	void MonsterGreen::resetMonster() {
 		moveWaitY = 9;
 		moveY = 1;
 		moveXCounter = 0;

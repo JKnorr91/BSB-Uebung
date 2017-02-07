@@ -1,10 +1,14 @@
 #include "./shot.h"
 
 	Shot::Shot() : Entity(0,0) {
-		active = true;
+		fullReset();
 	}
 
 	Shot::Shot(int initialX, int initialY) : Entity(initialX, initialY) {
+		fullReset();
+	}
+
+	void Shot::reset() {
 		active = true;
 	}
 

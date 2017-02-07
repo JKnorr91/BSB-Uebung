@@ -24,6 +24,8 @@ public:
 	Entity();
 	Entity(int initialX, int initialY);
 	void setDomain(Domain* domain);
+	void fullReset();
+	virtual void reset() = 0;
 	virtual bool update() = 0;
 	virtual void render() = 0;
 	Hitbox* getHitbox();

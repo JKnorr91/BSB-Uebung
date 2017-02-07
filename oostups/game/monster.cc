@@ -1,7 +1,11 @@
 #include "game/monster.h"
 
-	Monster::Monster(int initialLife) : Entity(0,0) {
-		life = initialLife;
+	Monster::Monster() : Entity(0,0) {
+		fullReset();
+	}
+
+	void Monster::reset() {
+		life = 0;
 		moveWaitTimerX = 0;
 		moveWaitTimerY = 0;
 		moveWaitX = 0;
@@ -9,6 +13,10 @@
 		moveX = 0;
 		moveY = 0;
 		renderInverted = 0;
+		resetMonster();
+	}
+
+	void Monster::resetMonster() {
 	}
 
 	void Monster::hit() {

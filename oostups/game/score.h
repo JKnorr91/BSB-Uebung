@@ -14,6 +14,7 @@ public:
 	Score();
 	bool update();
 	void render();
+	void reset();
 	void onMonsterHit(Monster* monster);
 	void onMonsterDestroyed(Monster* monster);
 	void onPlayerHit(Player* player);

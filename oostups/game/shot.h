@@ -16,6 +16,7 @@ public:
 	bool update();
 	bool isActive();
 	void render();
+	void reset();
 	void setActive(bool value);
  };
 #endif

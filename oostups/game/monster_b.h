@@ -5,18 +5,16 @@
 #include "machine/key.h"
 #include "game/monster.h"
 
-class Domain;
-
 class MonsterBlue : public Monster {
 
 private:
     MonsterBlue (const MonsterBlue &copy); // Verhindere Kopieren
 	int cooldown;
-	Domain* domain;
 public:
 	MonsterBlue();
 	MonsterBlue(int initialX, int initialY);
 	//void updateMonster();
 	void render();
+	void resetMonster();
  };
 #endif

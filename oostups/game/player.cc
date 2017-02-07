@@ -7,6 +7,10 @@
 			{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9'};
 
 	Player::Player() : Entity(0,0) {
+		fullReset();
+	}
+
+	void Player::reset() {
 		life = 4;
 		setPositionRestrictionX(2,2);
 		getHitbox()->setSize(5, 4);
