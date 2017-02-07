@@ -64,6 +64,7 @@ void Domain::render() {
 
 void Domain::createShot(int x, int y) {
     Shot* currentShot = &shot[currentShotIndex];
+	currentShot->fullReset();
     currentShot->setPos(x,y);
 	currentShot->setActive(true);
     addEntity(currentShot);
@@ -93,9 +94,9 @@ void Domain::createMonster(unsigned char type, int x, int y) {
         debug.out(10,12,"RED");
     }
 
+	currentMonsterPointer->fullReset();
     currentMonsterPointer->setPos(x,y);
     currentMonsterPointer->setDomain(this);
-    currentMonsterPointer->setLife(3);
     monster[currentMonsterIndex] = currentMonsterPointer;
     currentMonsterIndex = (currentMonsterIndex+1)%60;
     addEntity(currentMonsterPointer);
