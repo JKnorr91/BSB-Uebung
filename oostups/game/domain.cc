@@ -9,10 +9,12 @@ void Domain::addEntity(Entity* entity) {
 }
 
 void Domain::start() {
+	player.fullReset();
 	player.setPos(40,22);
     player.setDomain(this);
     addEntity(&player);
 
+	score.fullReset();
     score.setPos(80-score.getHitbox()->getWidth(), 0);
     addEntity(&score);
 
@@ -26,7 +28,6 @@ void Domain::start() {
     
     cooldown = 3*30;
 	actCooldown = cooldown;
-
 }
 
 void Domain::update() {

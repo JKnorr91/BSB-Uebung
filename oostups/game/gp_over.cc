@@ -2,10 +2,15 @@
 #include "./invaders.h"
 
 	GameOver::GameOver() {
+		score = 0;
 	}
 
 	void GameOver::start() {
 		selectedContinue = false;
+	}
+
+	void GameOver::setScore(int value) {
+		score = value;
 	}
 
 	void GameOver::update() {
@@ -14,11 +19,17 @@
 		} else if (keyboard.isPressed(Key::scan::right)) {
 			selectedContinue = false;
 		} else if (keyboard.isPressed(Key::scan::space)) {
-			appInv.setPhase(&(appInv.domain));
+			if (selectedContinue) {
+				appInv.setPhase(&(appInv.domain));
+			} else {
+				keyboard.reboot();
+			}
 		}
 	}
 
 	void GameOver::render() {
+		kout.setpos(40 - 22 / 2, 12);
+		kout << "Your score was: " << score << el;
 		kout.setpos(40 - 9 / 2, 12);
 		kout << "Game Over" << el;
 		kout.setpos(40 - 9 / 2, 15);

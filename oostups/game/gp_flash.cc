@@ -10,7 +10,7 @@
 
 	void FlashAnimation::update() {
 		counter++;
-		if (counter > 60) {
+		if (counter > 30) {
 			appInv.setPhase(&(appInv.gameOver));
 		}
 	}

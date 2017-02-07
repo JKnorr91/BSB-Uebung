@@ -11,10 +11,12 @@ class GameOver : public GamePhase {
 private:
     GameOver (const GameOver &copy); // Verhindere Kopieren
 	bool selectedContinue;
+	int score;
 public:
 	GameOver();
 	void start();
 	void update();
 	void render();
+	void setScore(int value);
  };
 #endif
