@@ -21,21 +21,26 @@
 
 	void MonsterBlue::render() { //erstes byte Hintergrund, zweites Schriftfarbe
 
-		int color1 = wasHit() ? 0x90 : 0x09;	//hellblau
-		int color2 = wasHit() ? 0xe4 : 0x4e;	//gelb auf Rot
-		
+		renderExplosion();
 
-		/*
-			"\W/"
-			" V "
-		*/
+		if(isAlive()) {
+			int color1 = wasHit() ? 0x90 : 0x09;	//hellblau
+			int color2 = wasHit() ? 0xe4 : 0x4e;	//gelb auf Rot
+			
 
-		//blue Monster
-		kout.preShow(getX1()  , getY1()   , '\\', color1);
-		kout.preShow(getX1()+1, getY1()   , 'W', color1);
-		kout.preShow(getX1()+2, getY1()   , '/', color1);
+			/*
+				"\W/"
+				" V "
+			*/
 
-		kout.preShow(getX1()+1, getY1()+1 , 'V', color1);	
+			//blue Monster
+			kout.preShow(getX1()  , getY1()   , '\\', color1);
+			kout.preShow(getX1()+1, getY1()   , 'W', color1);
+			kout.preShow(getX1()+2, getY1()   , '/', color1);
+
+			kout.preShow(getX1()+1, getY1()+1 , 'V', color1);	
+		}
+
 
 		rendered();
 	}

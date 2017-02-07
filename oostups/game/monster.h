@@ -15,6 +15,9 @@ protected:
 	int moveWaitY;
 	int moveX;
 	int moveY;
+	int renderExploding;
+	void rendered();
+	void renderExplosion();
 public:
 	Monster(int initialLife);
 	int getLife();

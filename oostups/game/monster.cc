@@ -14,6 +14,10 @@
 	void Monster::hit() {
 		modifyLife(-1);
 		renderInverted = 2;
+
+		if(isDead()) {
+			renderExploding = 3;
+		}
 	}
 
 	int Monster::getLife() {
@@ -31,6 +35,11 @@
 		setLife(getLife() + value);
 	}
 
+	void Monster::rendered() {
+		Entity::rendered();
+		renderExploding = renderExploding > 0 ? renderExploding-1 : 0;
+	}
+
 	bool Monster::isAlive() {
 		return getLife() > 0;
 	}
@@ -41,15 +50,42 @@
 
 	bool Monster::update() {
 		updateMonster();
-		if (moveWaitTimerX++ >= moveWaitX) {
-			moveWaitTimerX = 0;
-			setPos(getPosX() + moveX, getPosY());
+
+		if(isAlive()) {
+			if (moveWaitTimerX++ >= moveWaitX) {
+				moveWaitTimerX = 0;
+				setPos(getPosX() + moveX, getPosY());
+			}
+			if (moveWaitTimerY++ >= moveWaitY) {
+				moveWaitTimerY = 0;
+				setPos(getPosX(), getPosY() + moveY);
+			}
+			return true;
 		}
-		if (moveWaitTimerY++ >= moveWaitY) {
-			moveWaitTimerY = 0;
-			setPos(getPosX(), getPosY() + moveY);
+		return renderExploding > 0;
+	}
+
+	void Monster::renderExplosion() {
+
+		if(isAlive()) {
+			return;
 		}
-		return isAlive() && getPosY() < 25;
+
+		int fireStyle = wasHit() ? 0xec : 0xce;
+
+		if(renderExploding == 4) {
+			kout.preShow(getX1(), getY1(), 'O', fireStyle);
+		}
+		else if(renderExploding == 3) {
+			kout.preShow(getX1(), getY1(), '3', fireStyle);
+		}
+		else if(renderExploding == 2) {
+			kout.preShow(getX1(), getY1(), '2', fireStyle);
+		}
+		else if(renderExploding == 1) {
+			kout.preShow(getX1(), getY1(), '1', fireStyle);
+		}
+
 	}
 
 	void Monster::updateMonster() {}
