@@ -118,7 +118,7 @@ void Domain::detectCollisions() {
 		            }
 		        }
 		    }
-			if (monster[i]->isAlive() && monster[i]->hasCollision(&player)) {
+			if ((monster[i]->isAlive() && monster[i]->hasCollision(&player)) || monster[i]->getY2() >= 25) {
 				player.onHit();
 				score.onPlayerHit(&player);
 
