@@ -16,17 +16,17 @@ void Domain::start() {
     score.setPos(80-score.getHitbox()->getWidth(), 0);
     addEntity(&score);
 
+
     currentShotIndex = 0;
     currentMonsterIndex = 0;
 
     currentMonsterBlueIndex = 0;
     currentMonsterGreenIndex = 0;
     currentMonsterRedIndex = 0;
+    
+    cooldown = 3*30;
+	actCooldown = cooldown;
 
-    createMonster(MonsterType::blue,30,3);
-    createMonster(MonsterType::green,10,3);
-    createMonster(MonsterType::blue,40,3);
-    createMonster(MonsterType::red,50,3);
 }
 
 void Domain::update() {
@@ -45,6 +45,13 @@ void Domain::update() {
         }
         currentEntity = next;
     }
+    if (actCooldown-- <= 0){
+			int a, x;
+			a = random.number(3);
+			x = random.number(79);
+			createMonster(a,x,3);
+			actCooldown = cooldown--;
+	}
 }
 
 void Domain::render() {
@@ -73,14 +80,17 @@ void Domain::createMonster(unsigned char type, int x, int y) {
     if(type == MonsterType::blue) {
         currentMonsterPointer = (Monster*) &monsterBlue[currentMonsterBlueIndex];
         currentMonsterBlueIndex = (currentMonsterBlueIndex+1)%20;
+        debug.out(10,10,"BLUE");
     }
     else if(type == MonsterType::green)  {
         currentMonsterPointer = (Monster*) &monsterGreen[currentMonsterGreenIndex];
         currentMonsterGreenIndex = (currentMonsterGreenIndex+1)%20;
+        debug.out(10,11,"GREEN");
     }
     else if(type == MonsterType::red)  {
         currentMonsterPointer = (Monster*) &monsterRed[currentMonsterRedIndex];
         currentMonsterRedIndex = (currentMonsterRedIndex+1)%20;
+        debug.out(10,12,"RED");
     }
 
     currentMonsterPointer->setPos(x,y);
