@@ -4,13 +4,20 @@
 #include "user/debug.h"
 
 	Player::Player() : Entity(0,0) {
-		life = 5;
+		life = 2;
 		setPositionRestrictionX(2,2);
+		getHitbox()->setSize(5, 4);
+		getHitbox()->setOffset(-2, -1);
 	}
 
-	Player::Player(int initialX, int initialY) : Entity(initialX, initialY) {
-		life = 5;
-		setPositionRestrictionX(2,2);
+	void Player::onHit() {
+		if (isAlive()) {
+			life--;
+		}
+	}
+
+	bool Player::isAlive() {
+		return life > 0;
 	}
 
 	bool Player::update() {
@@ -33,7 +40,6 @@
 	}
 
 	void Player::render() { //erstes byte Hintergrund, zweites Schriftfarbe
-
 		int fireStyle = 0xce;
 		int shuttleCaseStyle = 0xf0;
 
@@ -54,7 +60,4 @@
 		kout.preShow(getPosX()-1, getPosY()+1, 'V', fireStyle);
 		kout.preShow(getPosX(), getPosY()+1, 'V', fireStyle);
 		kout.preShow(getPosX()+1, getPosY()+1, 'V', fireStyle);
-		
-
-		
 	}

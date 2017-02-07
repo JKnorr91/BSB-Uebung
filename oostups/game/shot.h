@@ -9,13 +9,13 @@
 class Shot : public Entity {
 private:
     Shot (const Shot &copy); // Verhindere Kopieren
-	bool removeNextUpdate;
+	bool active;
 public:
 	Shot();
 	Shot(int initialX, int initialY);
 	bool update();
-	bool isRemoved();
+	bool isActive();
 	void render();
-	void remove();
+	void setActive(bool value);
  };
 #endif

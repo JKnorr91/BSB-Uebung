@@ -1,17 +1,16 @@
 #include "./shot.h"
 
 	Shot::Shot() : Entity(0,0) {
-		removeNextUpdate = false;
+		active = true;
 	}
 
 	Shot::Shot(int initialX, int initialY) : Entity(initialX, initialY) {
-		removeNextUpdate = false;
+		active = true;
 	}
 
 	bool Shot::update() {
         setPos(getPosX(), getPosY()-1);
-
-        return getPosY() >= 0 && !removeNextUpdate;
+        return getPosY() >= 0 && isActive();
 	}
 
 	void Shot::render() { //erstes byte Hintergrund, zweites Schriftfarbe
@@ -21,10 +20,10 @@
 		kout.show(getPosX(), getPosY(), 'O', shotStyle);
 	}
 
-	void Shot::remove() {
-		removeNextUpdate = true;
+	void Shot::setActive(bool value) {
+		active = value;
 	}
 
-	bool Shot::isRemoved() {
-		return removeNextUpdate;
+	bool Shot::isActive() {
+		return active;
 	}

@@ -24,6 +24,10 @@ void Domain::addEntity(Entity* entity) {
 }
 
 void Domain::update() {
+	if (!player.isAlive()) {
+		return;
+	}
+
     detectCollisions();
     Entity* currentEntity = (Entity*) entityList.first();
     while(currentEntity) {
@@ -37,6 +41,12 @@ void Domain::update() {
 }
 
 void Domain::render() {
+	if (!player.isAlive()) {
+		kout.setpos(40 - 9 / 2, 12);
+		kout << "Game Over" << el;
+		kout.hide();
+		return;
+	}
     Entity* currentEntity = (Entity*) entityList.first();
     while(currentEntity) {
         currentEntity->render();
@@ -47,6 +57,7 @@ void Domain::render() {
 void Domain::createShot(int x, int y) {
     Shot* currentShot = &shot[currentShotIndex];
     currentShot->setPos(x,y);
+	currentShot->setActive(true);
     addEntity(currentShot);
     currentShotIndex = (currentShotIndex+1) % 25;
 }
@@ -78,14 +89,21 @@ void Domain::createMonster(unsigned char type, int x, int y) {
 
 void Domain::detectCollisions() {
     for(int i = 0; i < currentMonsterIndex; i++) {
-        for(int j = 0; j < 25; j++) {
-            if(monster[i] && !shot[j].isRemoved() && monster[i]->getHitbox()->contains(shot[j].getPosX(),shot[j].getPosY())) {
-                shot[j].remove();
-                monster[i]->hit();
-                if(monster[i]->isDead()) {
-                    monster[i] = 0;
-                }
-            }
-        }
+		if (monster[i] && monster[i]->isAlive()) {
+			for(int j = 0; j < 25; j++) {
+		        if(shot[j].isActive() && monster[i]->hasCollision(&shot[j])) {
+					shot[j].setActive(false);
+		            monster[i]->hit();
+		            if(monster[i]->isDead()) {
+		                monster[i] = 0;
+		            }
+		        }
+		    }
+			if (monster[i]->isAlive() && monster[i]->hasCollision(&player)) {
+				player.onHit();
+				monster[i]->setLife(0);
+				monster[i] = 0;
+			}
+		}
     }
 }

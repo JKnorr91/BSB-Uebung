@@ -15,8 +15,9 @@ private:
 	int cooldown;
 public:
 	Player();
-	Player(int initialX, int initialY);
 	bool update();
 	void render();
+	void onHit();
+	bool isAlive();
  };
 #endif
