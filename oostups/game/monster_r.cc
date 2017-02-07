@@ -1,10 +1,11 @@
 #include "game/monster_r.h"
 
 	MonsterRed::MonsterRed() : Monster() {
-		fullReset();
+		//fullReset();
 	}
 
 	void MonsterRed::resetMonster() {
+		setLife(3);
 		moveWaitY = 16;
 		moveY = 1;
 		moveWaitX = 3;

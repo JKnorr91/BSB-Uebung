@@ -3,10 +3,11 @@
 #include "user/debug.h"
 
 	MonsterBlue::MonsterBlue() : Monster() {
-		fullReset();
+		//fullReset();
 	}
 
 	void MonsterBlue::resetMonster() {
+		setLife(3);
 		setPositionRestrictionX(1,1);
 		getHitbox()->setSize(3, 2);
 		getHitbox()->setOffset(-1, -1);
