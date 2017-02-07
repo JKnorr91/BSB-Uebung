@@ -21,6 +21,7 @@ class Domain : public GamePhase {
         List entityList;
         Player player;
 		Score score;
+        MonsterSpawn monsterspawn;
 
         MonsterGreen monsterGreen[20];
         MonsterBlue monsterBlue[20];
@@ -38,6 +39,10 @@ class Domain : public GamePhase {
         int currentMonsterRedIndex;
         
         void detectCollisions();
+
+        int cooldown;
+	    int actCooldown;
+
     public:
         Domain();
         void addEntity(Entity* entity);
@@ -48,9 +53,9 @@ class Domain : public GamePhase {
 		void start();
 
         struct MonsterType { enum {
-            green=1,
-            blue=2,
-            red=3
+            green=0,
+            blue=1,
+            red=2
         };};
 };
 #endif
