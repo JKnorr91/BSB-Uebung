@@ -18,6 +18,7 @@
 #include "syscall/guarded_semaphore.h"
 #include "meeting/bellringer.h"
 #include "game/invaders.h"
+#include "library/random.h"
 
 CPU cpu;
 CGA_Stream kout;
