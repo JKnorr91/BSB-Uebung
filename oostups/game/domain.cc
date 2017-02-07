@@ -6,6 +6,9 @@ Domain::Domain() {
     player.setDomain(this);
     addEntity(&player);
 
+    score.setPos(80-score.getHitbox()->getWidth(), 0);
+    addEntity(&score);
+
     currentShotIndex = 0;
     currentMonsterIndex = 0;
 
@@ -59,6 +62,9 @@ void Domain::createShot(int x, int y) {
     currentShot->setPos(x,y);
 	currentShot->setActive(true);
     addEntity(currentShot);
+
+	score.onShotFired(&player);
+
     currentShotIndex = (currentShotIndex+1) % 25;
 }
 
@@ -94,13 +100,19 @@ void Domain::detectCollisions() {
 		        if(shot[j].isActive() && monster[i]->hasCollision(&shot[j])) {
 					shot[j].setActive(false);
 		            monster[i]->hit();
+
+					score.onMonsterHit(monster[i]);
+
 		            if(monster[i]->isDead()) {
 		                monster[i] = 0;
+						score.onMonsterDestroyed(monster[i]);
 		            }
 		        }
 		    }
 			if (monster[i]->isAlive() && monster[i]->hasCollision(&player)) {
 				player.onHit();
+				score.onPlayerHit(&player);
+
 				monster[i]->setLife(0);
 				monster[i] = 0;
 			}

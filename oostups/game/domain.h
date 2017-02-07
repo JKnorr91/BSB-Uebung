@@ -4,6 +4,7 @@
 #include "game/entity.h"
 #include "object/list.h"
 #include "./player.h"
+#include "./score.h"
 #include "./shot.h"
 #include "./gameKey.h"
 #include "./monster_g.h"
@@ -16,6 +17,7 @@ class Domain {
         Domain (const Domain &copy); // Verhindere Kopieren
         List entityList;
         Player player;
+		Score score;
 
         MonsterGreen monsterGreen[20];
         MonsterBlue monsterBlue[20];
