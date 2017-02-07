@@ -29,10 +29,16 @@
 			value = 0;
 		}
 		life = value;
+		if(isDead()) {
+			renderExploding = 3;
+		}
 	}
 
 	void Monster::modifyLife(int value) {
 		setLife(getLife() + value);
+		if(isDead()) {
+			renderExploding = 3;
+		}
 	}
 
 	void Monster::rendered() {
@@ -74,16 +80,36 @@
 		int fireStyle = wasHit() ? 0xec : 0xce;
 
 		if(renderExploding == 4) {
-			kout.preShow(getX1(), getY1(), 'O', fireStyle);
+			kout.preShow(getPosX(), getPosY()-1, '\\', fireStyle);
+			kout.preShow(getPosX()+1, getPosY()-1, '/', fireStyle);
+			kout.preShow(getPosX(), getPosY()+1, '/', fireStyle);
+			kout.preShow(getPosX()+1, getPosY()+1, '\\', fireStyle);
 		}
 		else if(renderExploding == 3) {
-			kout.preShow(getX1(), getY1(), '3', fireStyle);
+			kout.preShow(getPosX(), getPosY()-2, '*', fireStyle);
+			kout.preShow(getPosX()+3, getPosY()-2, '*', fireStyle);
+			kout.preShow(getPosX()+1, getPosY()-1, '\\', fireStyle);
+			kout.preShow(getPosX()+2, getPosY()-1, '/', fireStyle);
+			kout.preShow(getPosX()+1, getPosY()+1, '/', fireStyle);
+			kout.preShow(getPosX()+2, getPosY()+1, '\\', fireStyle);
+			kout.preShow(getPosX(), getPosY()+2, '*', fireStyle);
+			kout.preShow(getPosX()+3, getPosY()+2, '*', fireStyle);
 		}
 		else if(renderExploding == 2) {
-			kout.preShow(getX1(), getY1(), '2', fireStyle);
+			kout.preShow(getPosX(), getPosY()-1, '*', fireStyle);
+			kout.preShow(getPosX()+3, getPosY()-1, '*', fireStyle);
+			kout.preShow(getPosX()-1, getPosY()-1, ' ', fireStyle);
+			kout.preShow(getPosX(), getPosY()-1, ' ', fireStyle);
+			kout.preShow(getPosX()-1, getPosY()+1, ' ', fireStyle);
+			kout.preShow(getPosX(), getPosY()+1, ' ', fireStyle);
+			kout.preShow(getPosX(), getPosY()+1, '*', fireStyle);
+			kout.preShow(getPosX()+3, getPosY()+1, '*', fireStyle);
 		}
 		else if(renderExploding == 1) {
-			kout.preShow(getX1(), getY1(), '1', fireStyle);
+			kout.preShow(getX1(), getPosY()-2, '*', fireStyle);
+			kout.preShow(getX1()+3, getPosY()-2, '*', fireStyle);
+			kout.preShow(getX1(), getPosY(), '*', fireStyle);
+			kout.preShow(getX1()+3, getPosY(), '*', fireStyle);
 		}
 
 	}
