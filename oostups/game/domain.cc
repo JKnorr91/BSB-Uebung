@@ -9,6 +9,8 @@ void Domain::addEntity(Entity* entity) {
 }
 
 void Domain::start() {
+    while (entityList.dequeue()){}
+
 	player.fullReset();
 	player.setPos(40,22);
     player.setDomain(this);
@@ -20,10 +22,16 @@ void Domain::start() {
 
     currentShotIndex = 0;
     currentMonsterIndex = 0;
-
+    for (int i; i< 3* monstercounter;i++){
+        monster[i]=0;
+    }
     
-    cooldown = 3*30;
-	actCooldown = cooldown;
+    for (int i; i< 25;i++){
+        shot[i].setActive(false);
+    }
+
+    cooldown = 3*25;
+	actCooldown = 0;
 }
 
 void Domain::update() {
@@ -33,7 +41,6 @@ void Domain::update() {
 		return;
 	}
 
-    detectCollisions();
     Entity* currentEntity = (Entity*) entityList.first();
     while(currentEntity) {
         Entity* next = (Entity*) currentEntity->next;
@@ -43,6 +50,7 @@ void Domain::update() {
         }
         currentEntity = next;
     }
+    //Spawn Monster
     if (actCooldown-- <= 0){
 			int a, x;
 			a = random.number(3);
@@ -50,6 +58,7 @@ void Domain::update() {
 			createMonster(a,x,3);
 			actCooldown = cooldown--;
 	}
+    detectCollisions();
 }
 
 void Domain::render() {
@@ -75,10 +84,8 @@ void Domain::createShot(int x, int y) {
 void Domain::createMonster(unsigned char type, int x, int y) {
     
     Monster* currentMonsterPointer;
-
-
     if(type == MonsterType::blue) {
-        for (int i=0; i <= monstercounter; i++ ){
+        for (int i=0; i < monstercounter; i++ ){
         if (monsterBlue[i].isDead()){
             currentMonsterPointer = (Monster*) &monsterBlue[i];
             break;
@@ -87,7 +94,7 @@ void Domain::createMonster(unsigned char type, int x, int y) {
         }
     }
     else if(type == MonsterType::green)  {
-        for (int i=0; i <= monstercounter;i++ ){
+        for (int i=0; i < monstercounter;i++ ){
         if (monsterGreen[i].isDead()){
             currentMonsterPointer = (Monster*) &monsterGreen[i];
             break;
@@ -96,7 +103,7 @@ void Domain::createMonster(unsigned char type, int x, int y) {
     }
     }
     else if(type == MonsterType::red)  {
-        for (int i=0; i <= monstercounter;i++ ){
+        for (int i=0; i < monstercounter;i++ ){
         if (monsterRed[i].isDead()){
             currentMonsterPointer = (Monster*) &monsterRed[i];
             break;
@@ -110,9 +117,9 @@ void Domain::createMonster(unsigned char type, int x, int y) {
     currentMonsterPointer->setDomain(this);
   
 
-    for (int i=0; i <= monstercounter;i++ ){
-        if (monster[i]->isDead()){
-            monster[currentMonsterIndex] = currentMonsterPointer;
+    for (int i=0; i < 3*monstercounter;i++ ){
+        if (!monster[i] || monster[i]->isDead()){
+            monster[i] = currentMonsterPointer;
             addEntity(currentMonsterPointer);
             break;
         }
