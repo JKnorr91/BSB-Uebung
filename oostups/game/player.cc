@@ -4,7 +4,7 @@
 #include "user/debug.h"
 
 	Player::Player() : Entity(0,0) {
-		life = 2;
+		life = 4;
 		setPositionRestrictionX(2,2);
 		getHitbox()->setSize(5, 4);
 		getHitbox()->setOffset(-2, -1);
@@ -13,6 +13,7 @@
 	void Player::onHit() {
 		if (isAlive()) {
 			life--;
+			renderInverted = 4;
 		}
 	}
 
@@ -40,8 +41,8 @@
 	}
 
 	void Player::render() { //erstes byte Hintergrund, zweites Schriftfarbe
-		int fireStyle = 0xce;
-		int shuttleCaseStyle = 0xf0;
+		int fireStyle = wasHit() ? 0xec : 0xce;
+		int shuttleCaseStyle = wasHit() ? 0xd0 : 0xf0;
 
 		//SpaceShuttle Spitze
 		kout.preShow(getX1()+2, getY1()+0, ' ', shuttleCaseStyle);
@@ -60,4 +61,6 @@
 		kout.preShow(getX1()+1, getY1()+3, 'V', fireStyle);
 		kout.preShow(getX1()+2, getY1()+3, 'V', fireStyle);
 		kout.preShow(getX1()+3, getY1()+3, 'V', fireStyle);
+
+		rendered();
 	}

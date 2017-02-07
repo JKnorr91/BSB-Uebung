@@ -20,6 +20,14 @@
 		restrictionXRight = restrictionRight;
 	}
 
+	bool Entity::wasHit() {
+		return renderInverted > 0;
+	}
+
+	void Entity::rendered() {
+		renderInverted = renderInverted > 0 ? renderInverted-1 : 0;
+	}
+
 	int Entity::getPosX() {
 		return hb.getOriginX();
 	}

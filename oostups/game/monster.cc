@@ -16,14 +16,6 @@
 		renderInverted = 2;
 	}
 
-	bool Monster::wasHit() {
-		return renderInverted > 0;
-	}
-
-	void Monster::rendered() {
-		renderInverted = renderInverted > 0 ? renderInverted-1 : 0;
-	}
-
 	int Monster::getLife() {
 		return life;
 	}

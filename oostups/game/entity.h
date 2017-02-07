@@ -17,6 +17,9 @@ protected:
 	Hitbox hb;
 	int restrictionXLeft;
 	int restrictionXRight;
+	int renderInverted;
+	bool wasHit();
+	void rendered();
 public:
 	Entity();
 	Entity(int initialX, int initialY);
