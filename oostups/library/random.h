@@ -25,6 +25,8 @@ public:
 
       // NUMBER: liefert eine Zufallszahl
       int number ();
+      int number (int n);
  };
+extern Random random;
 
 #endif
