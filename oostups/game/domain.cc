@@ -81,7 +81,6 @@ void Domain::createMonster(unsigned char type, int x, int y) {
         for (int i=0; i <= monstercounter; i++ ){
         if (monsterBlue[i].isDead()){
             currentMonsterPointer = (Monster*) &monsterBlue[i];
-            currentMonsterPointer->setLife(5);
             break;
         }
 
@@ -91,7 +90,6 @@ void Domain::createMonster(unsigned char type, int x, int y) {
         for (int i=0; i <= monstercounter;i++ ){
         if (monsterGreen[i].isDead()){
             currentMonsterPointer = (Monster*) &monsterGreen[i];
-            currentMonsterPointer->setLife(3);
             break;
         }
 
@@ -101,7 +99,6 @@ void Domain::createMonster(unsigned char type, int x, int y) {
         for (int i=0; i <= monstercounter;i++ ){
         if (monsterRed[i].isDead()){
             currentMonsterPointer = (Monster*) &monsterRed[i];
-            currentMonsterPointer->setLife(3);
             break;
         }
 
@@ -111,12 +108,7 @@ void Domain::createMonster(unsigned char type, int x, int y) {
 	currentMonsterPointer->fullReset();
     currentMonsterPointer->setPos(x,y);
     currentMonsterPointer->setDomain(this);
-<<<<<<< 15696491157655aee87e4c02e2b9d19b83412f46
-    monster[currentMonsterIndex] = currentMonsterPointer;
-    currentMonsterIndex = (currentMonsterIndex+1)%60;
-    addEntity(currentMonsterPointer);
-=======
-    
+  
 
     for (int i=0; i <= monstercounter;i++ ){
         if (monster[i]->isDead()){
@@ -126,10 +118,6 @@ void Domain::createMonster(unsigned char type, int x, int y) {
         }
 
     }
-
-
-   // addEntity(currentMonsterPointer);
->>>>>>> a002300c02d70243756e9b6e9846feb339f95d2a
 }
 
 void Domain::detectCollisions() {
