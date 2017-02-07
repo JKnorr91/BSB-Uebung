@@ -54,5 +54,9 @@ int Random::number ()
    s = ic_state * multiplier + addend;
    ic_state = s;
    return  t ^ ((s>>8)&0xffffff);
- };
+ }
+ int Random::number(int n){
+    int r = number();
+    return r % n;
+ }
 
