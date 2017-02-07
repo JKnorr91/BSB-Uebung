@@ -47,6 +47,10 @@
 		kout.hide();
 	}
 
+	int Score::getScore() {
+		return score;
+	}
+
 	void Score::onMonsterHit(Monster* monster) {
 		score += 25;
 	}

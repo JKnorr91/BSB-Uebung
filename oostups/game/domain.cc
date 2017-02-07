@@ -18,7 +18,6 @@ void Domain::start() {
     score.setPos(80-score.getHitbox()->getWidth(), 0);
     addEntity(&score);
 
-
     currentShotIndex = 0;
     currentMonsterIndex = 0;
 
@@ -32,6 +31,7 @@ void Domain::start() {
 
 void Domain::update() {
 	if (!player.isAlive()) {
+		appInv.gameOver.setScore(score.getScore());
 		appInv.setPhase(&appInv.flashAnim);
 		return;
 	}
