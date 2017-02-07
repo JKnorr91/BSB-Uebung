@@ -12,6 +12,7 @@
 #include "./monster_b.h"
 #include "./monster_r.h"
 #include "./monster.h"
+#include "library/random.h" 
 
 class Invaders;
 
@@ -21,7 +22,6 @@ class Domain : public GamePhase {
         List entityList;
         Player player;
 		Score score;
-        MonsterSpawn monsterspawn;
 
         MonsterGreen monsterGreen[20];
         MonsterBlue monsterBlue[20];

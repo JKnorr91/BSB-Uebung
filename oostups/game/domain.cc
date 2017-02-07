@@ -46,8 +46,8 @@ void Domain::update() {
         currentEntity = next;
     }
     if (actCooldown-- <= 0){
-			int a, x ,y;
-			a = random.number(2);
+			int a, x;
+			a = random.number(3);
 			x = random.number(79);
 			createMonster(a,x,3);
 			actCooldown = cooldown--;
