@@ -1,7 +1,8 @@
 #include "game/monster.h"
 
 	Monster::Monster() : Entity(0,0) {
-		fullReset();
+		life = 0;
+		//fullReset();
 	}
 
 	void Monster::reset() {
