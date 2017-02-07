@@ -1,7 +1,8 @@
 #include "game/hitbox.h"
 
 	Hitbox::Hitbox() {
-		x = y = w = h = ox = oy = 0;
+		x = y = ox = oy = 0;
+		w = h = 1;
 	}
 
 	int Hitbox::getOriginX() {
