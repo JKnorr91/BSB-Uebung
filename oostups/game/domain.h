@@ -23,20 +23,18 @@ class Domain : public GamePhase {
         Player player;
 		Score score;
 
-        MonsterGreen monsterGreen[20];
-        MonsterBlue monsterBlue[20];
-        MonsterRed monsterRed[20];
+        const static int monstercounter = 30;
+
+        MonsterGreen monsterGreen[monstercounter];
+        MonsterBlue monsterBlue[monstercounter];
+        MonsterRed monsterRed[monstercounter];
 
 
         int currentShotIndex;
         Shot shot[25];
 
         int currentMonsterIndex;
-        Monster* monster[60];
-
-        int currentMonsterBlueIndex;
-        int currentMonsterGreenIndex;
-        int currentMonsterRedIndex;
+        Monster* monster[3*monstercounter];
         
         void detectCollisions();
 

@@ -21,9 +21,6 @@ void Domain::start() {
     currentShotIndex = 0;
     currentMonsterIndex = 0;
 
-    currentMonsterBlueIndex = 0;
-    currentMonsterGreenIndex = 0;
-    currentMonsterRedIndex = 0;
     
     cooldown = 3*30;
 	actCooldown = cooldown;
@@ -79,32 +76,64 @@ void Domain::createMonster(unsigned char type, int x, int y) {
     
     Monster* currentMonsterPointer;
 
+
     if(type == MonsterType::blue) {
-        currentMonsterPointer = (Monster*) &monsterBlue[currentMonsterBlueIndex];
-        currentMonsterBlueIndex = (currentMonsterBlueIndex+1)%20;
-        debug.out(10,10,"BLUE");
+        for (int i=0; i <= monstercounter; i++ ){
+        if (monsterBlue[i].isDead()){
+            currentMonsterPointer = (Monster*) &monsterBlue[i];
+            currentMonsterPointer->setLife(5);
+            break;
+        }
+
+        }
     }
     else if(type == MonsterType::green)  {
-        currentMonsterPointer = (Monster*) &monsterGreen[currentMonsterGreenIndex];
-        currentMonsterGreenIndex = (currentMonsterGreenIndex+1)%20;
-        debug.out(10,11,"GREEN");
+        for (int i=0; i <= monstercounter;i++ ){
+        if (monsterGreen[i].isDead()){
+            currentMonsterPointer = (Monster*) &monsterGreen[i];
+            currentMonsterPointer->setLife(3);
+            break;
+        }
+
+    }
     }
     else if(type == MonsterType::red)  {
-        currentMonsterPointer = (Monster*) &monsterRed[currentMonsterRedIndex];
-        currentMonsterRedIndex = (currentMonsterRedIndex+1)%20;
-        debug.out(10,12,"RED");
+        for (int i=0; i <= monstercounter;i++ ){
+        if (monsterRed[i].isDead()){
+            currentMonsterPointer = (Monster*) &monsterRed[i];
+            currentMonsterPointer->setLife(3);
+            break;
+        }
+
+        }
     }
 
 	currentMonsterPointer->fullReset();
     currentMonsterPointer->setPos(x,y);
     currentMonsterPointer->setDomain(this);
+<<<<<<< 15696491157655aee87e4c02e2b9d19b83412f46
     monster[currentMonsterIndex] = currentMonsterPointer;
     currentMonsterIndex = (currentMonsterIndex+1)%60;
     addEntity(currentMonsterPointer);
+=======
+    
+
+    for (int i=0; i <= monstercounter;i++ ){
+        if (monster[i]->isDead()){
+            monster[currentMonsterIndex] = currentMonsterPointer;
+            addEntity(currentMonsterPointer);
+            break;
+        }
+
+    }
+
+
+   // addEntity(currentMonsterPointer);
+>>>>>>> a002300c02d70243756e9b6e9846feb339f95d2a
 }
 
 void Domain::detectCollisions() {
-    for(int i = 0; i < currentMonsterIndex; i++) {
+    for(int i = 0; i < 3*monstercounter; i++) {
 		if (monster[i] && monster[i]->isAlive()) {
 			for(int j = 0; j < 25; j++) {
 		        if(shot[j].isActive() && monster[i]->hasCollision(&shot[j])) {
