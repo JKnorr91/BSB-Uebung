@@ -26,10 +26,10 @@
 		kout.hide();
 
 		if (selectedContinue) {
-			kout.preShow(40-4, 17, '>', 0x0f);
+			kout.preShow(40-5, 17, '>', 0x0f);
 		}
-		kout.preShow(40-3, 17, 'Y', 0x0f);
-		kout.preShow(40-2, 17, 'e', 0x0f);
+		kout.preShow(40-4, 17, 'Y', 0x0f);
+		kout.preShow(40-3, 17, 'e', 0x0f);
 		kout.preShow(40-2, 17, 's', 0x0f);
 
 		if (!selectedContinue) {
